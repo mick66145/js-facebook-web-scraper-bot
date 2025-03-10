@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" type="text/css" href="css/switchery.css">
+  <link rel="stylesheet" type="text/css" href="css/popup.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanstc.css">
+</head>
+<body>
+  <div class="container-fluid p-0">
+    <div class="p-1 mx-0 inline" id="signin" style='display: none;'>
+      <div class="mb-2">
+        <div class="avatar"><img id="img"/></div>
+        <div id="brand" class="society mt-2 mb-2"></div>
+        <hr/>
+      </div>
+
+      <div class="mt-2">
+        <div class='d-inline-block small'>自動展開留言上傳</div>
+        <div class='d-inline-block'>
+          <input type="checkbox" id="js-switch" name="ext_auto_status" data-plugin="switchery" checked data-switchery="true">
+        </div>
+      </div>
+
+    </div>
+    <div class="p-1 mx-0 inline" id="login" style='display: none;'>
+      <div class="mb-1">
+        <div class="avatar"><img id="img" src="images/iPlusOne_icon_color_48x48_h.png"/></div>
+      </div>
+      <div >
+        <button type="button" class="btn btn-sm btn-danger button-text" id="import" tabindex="-1">請先登入愛+1系統後台</button>
+      </div>
+    </div>
+    <div class="p-0 mx-0 my-1">
+      <div class="m-0 py-0 px-1 version"><span id="title"></span>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="js/switchery.js"></script>
+<script type="text/javascript" src="src/config.js"></script>
+<script type="text/javascript" src="src/popup.js"></script>
+
+</html>

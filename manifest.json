@@ -1,0 +1,66 @@
+{
+  "name": "社群智慧整單平台賣家系統擴充工具",
+  "description": "社群智慧整單平台賣家系統擴充工具",
+  "version": "0.0.01",
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "社群智慧整單平台賣家系統擴充工具",
+    "default_icon": {
+      "16": "images/iPlusOne_icon_color_16x16_h.png",
+      "32": "images/iPlusOne_icon_color_32x32_h.png",
+      "48": "images/iPlusOne_icon_color_48x48_h.png",
+      "128": "images/iPlusOne_icon_color_128x128_h.png"
+    }
+  },
+  "icons": {
+    "16": "images/iPlusOne_icon_color_16x16_h.png",
+    "32": "images/iPlusOne_icon_color_32x32_h.png",
+    "48": "images/iPlusOne_icon_color_48x48_h.png",
+    "128": "images/iPlusOne_icon_color_128x128_h.png"
+  },
+  "permissions": [
+    "scripting",
+    "declarativeContent",
+    "cookies",
+    "storage"
+  ],
+  "host_permissions":[
+    "https://www.facebook.com/",
+    "https://linevoom.line.me/",
+    "https://*.iplusonego.com/"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/iPlusOne_icon_color_16x16_h.png",
+        "images/iPlusOne_icon_color_32x32_h.png",
+        "images/iPlusOne_icon_color_48x48_h.png",
+        "images/iPlusOne_icon_color_128x128_h.png",
+        "js/jquery-3.3.1.js",
+        "js/pako_deflate.min.js",
+        "src/config.js",
+        "src/ajaxhook.js",
+        "src/injectcommon.js",
+        "src/line.js",
+        "src/linearticles.js",
+        "src/reactfacebook.js",
+        "src/reactfacebookadmin.js",
+        "src/reactfacebookfeed.js",
+        "src/reactfacebookmembers.js"
+      ],
+      "matches": [
+        "https://*.iplusonego.com/*",
+        "https://www.facebook.com/*",
+        "https://linevoom.line.me/*"
+      ]
+    }
+
+  ],
+  "externally_connectable": {
+    "matches": ["https://*.iplusonego.com/*", "https://linevoom.line.me/*", "https://www.facebook.com/*"]
+  },
+  "manifest_version": 3
+}
