@@ -1,1807 +1,2417 @@
-// TOLOOK
 setTimeout(function () {
-  $.noConflict();
-  window["iplusone_script_" + config.version] = function () {
-    'use strict';
-
-    var a = {
-      NO_STORY: "文章抓取失敗，請重新整理",
-      POST_ID_MISMATCH: "文章ID抓取失敗，請重新整理",
-      RENAMED_GROUP_ID: "社群ID抓取失敗，請重新整理"
+  $["noConflict"]();
+  /**
+   * @return {undefined}
+   */
+  window["iplusone_script_" + config["version"]] = function () {
+    /**
+     * @param {?} message
+     * @return {undefined}
+     */
+    function onSuccess(message) {
+      console["log"](message);
+      if (message["operation"] == "checkReactFacebookPostInfo") {
+        remove()["find"](".IPO_Query")["remove"]();
+        if (message["status"] == "success") {
+          $(function () {
+            jQuery("div.IPO_Inject")["remove"]();
+            run(message["response"]);
+          }, 100);
+        } else {
+          $(function () {
+            jQuery("div.IPO_Inject")["remove"]();
+            replace();
+          }, 100);
+        }
+      } else {
+        if (message["operation"] == "uploadReactFacebookComments") {
+          remove()["find"](".IPO_Uploading")["remove"]();
+          $(function () {
+            replace();
+          }, 100);
+        }
+      }
+    }
+    var $cookies = {
+      "NO_STORY": "\u6587\u7ae0\u6293\u53d6\u5931\u6557\uff0c\u8acb\u91cd\u65b0\u6574\u7406",
+      "POST_ID_MISMATCH": "\u6587\u7ae0ID\u6293\u53d6\u5931\u6557\uff0c\u8acb\u91cd\u65b0\u6574\u7406",
+      "RENAMED_GROUP_ID": "\u793e\u7fa4ID\u6293\u53d6\u5931\u6557\uff0c\u8acb\u91cd\u65b0\u6574\u7406"
     };
+    /** @type {boolean} */
     var b = false;
-    if (config.version != "DEV") {
+    if (config["version"] != "DEV") {
+      /** @type {boolean} */
       b = false;
     }
-    if (window.IPOTimerInstance) {
-      console.log("force stop timer 0");
-      clearTimeout(window.IPOTimerInstance);
+    if (window["IPOTimerInstance"]) {
+      console["log"]("force stop timer 0");
+      clearTimeout(window["IPOTimerInstance"]);
     }
-    window.IPOTimerInstance = null;
-    var c = false;
-    var d = true;
+    /** @type {null} */
+    window["IPOTimerInstance"] = null;
+    /** @type {boolean} */
+    var val = false;
+    /** @type {boolean} */
+    var msg = true;
+    /** @type {boolean} */
     var e = false;
-    jQuery("div.iplusone_loaded_" + config.version).remove();
-    jQuery("div.IPO_Comment_Status").remove();
-    if (!window["iplusone_post_" + config.version]) {
-      window["iplusone_post_" + config.version] = {};
-      window["iplusone_post_" + config.version].feed_info = null;
-      window["iplusone_post_" + config.version].story_info = null;
-      window["iplusone_post_" + config.version].post_info = null;
-      window["iplusone_post_" + config.version].post_snapshot_info = null;
-      window["iplusone_post_" + config.version].post_snapshot_id = "";
-      window["iplusone_post_" + config.version].iplusone_loaded = false;
-      window["iplusone_post_" + config.version].ext_url = null;
-      window["iplusone_post_" + config.version].post_id = null;
+    jQuery("div.iplusone_loaded_" + config["version"])["remove"]();
+    jQuery("div.IPO_Comment_Status")["remove"]();
+    if (!window["iplusone_post_" + config["version"]]) {
+      window["iplusone_post_" + config["version"]] = {};
+      /** @type {null} */
+      window["iplusone_post_" + config["version"]]["feed_info"] = null;
+      /** @type {null} */
+      window["iplusone_post_" + config["version"]]["story_info"] = null;
+      /** @type {null} */
+      window["iplusone_post_" + config["version"]]["post_info"] = null;
+      /** @type {null} */
+      window["iplusone_post_" + config["version"]]["post_snapshot_info"] = null;
+      /** @type {string} */
+      window["iplusone_post_" + config["version"]]["post_snapshot_id"] = "";
+      /** @type {boolean} */
+      window["iplusone_post_" + config["version"]]["iplusone_loaded"] = false;
+      /** @type {null} */
+      window["iplusone_post_" + config["version"]]["ext_url"] = null;
+      /** @type {null} */
+      window["iplusone_post_" + config["version"]]["post_id"] = null;
     }
-    var f = window["iplusone_post_" + config.version];
-    f.feed_info = null;
-    f.story_info = null;
-    f.post_info = null;
-    f.post_snapshot_info = null;
-    var g = null;
+    var results = window["iplusone_post_" + config["version"]];
+    /** @type {null} */
+    results["feed_info"] = null;
+    /** @type {null} */
+    results["story_info"] = null;
+    /** @type {null} */
+    results["post_info"] = null;
+    /** @type {null} */
+    results["post_snapshot_info"] = null;
+    /** @type {null} */
+    var self = null;
+    /** @type {number} */
     var h = 0;
-    var i = 0;
+    /** @type {number} */
+    var ext = 0;
+    /** @type {number} */
     var j = 0;
-    var k = null;
-    var l = [];
-    console.log(window.location);
-    if (f.iplusone_loaded) {
-      jQuery(document).ready(function () {
-        console.log("post inited");
-        if (window.IPO_Data) {
-          window.IPO_Data.update = Date.now();
-          window.IPO_Data.comemntsContainerCount = 0;
+    /** @type {null} */
+    var attr = null;
+    /** @type {Array} */
+    var x = [];
+    console["log"](window["location"]);
+    if (results["iplusone_loaded"]) {
+      jQuery(document)["ready"](function () {
+        console["log"]("post inited");
+        if (window["IPO_Data"]) {
+          window["IPO_Data"]["update"] = Date["now"]();
+          /** @type {number} */
+          window["IPO_Data"]["comemntsContainerCount"] = 0;
         }
-        r();
+        success();
       });
     } else {
-      jQuery(document).ready(function () {
-        console.log("post un-inited");
-        o();
-        f.iplusone_loaded = true;
-        r();
+      jQuery(document)["ready"](function () {
+        console["log"]("post un-inited");
+        initialize();
+        /** @type {boolean} */
+        results["iplusone_loaded"] = true;
+        success();
       });
     }
-    function m(Q) {
-      if (!Q) {
+    /**
+     * @param {Object} node
+     * @return {?}
+     */
+    var push = function (node) {
+      if (!node) {
         return null;
       }
-      var R = ["^https://www\\.facebook\\.com/[A-Za-z0-9\\._]+/posts/(?<post_id>\\d+|pfbid[A-Za-z0-9]+)", "^https://www\\.facebook\\.com/[A-Za-z0-9\\._]+/videos/(?<post_id>\\d+)", "^https://www\\.facebook\\.com/photo\\.php\\?fbid=(?<post_id>\\d+)&set=a\\.\\d+\\.\\d+\\.\\d+", "^https://www\\.facebook\\.com/photo\\.php\\?fbid=(?<post_id>\\d+)&set=a\\.\\d+([A-Za-z0-9\\._&=]+)", "^https://www\\.facebook\\.com/[A-Za-z0-9\\._]+/photos/a\\.\\d+\\.\\d+\\.\\d+/(?<post_id>\\d+)", "^https://www\\.facebook\\.com/groups/[A-Za-z0-9\\._]+/permalink/(?<post_id>\\d+)", "^https://www\\.facebook\\.com/permalink\\.php\\?story_fbid=(?<post_id>\\d+|pfbid[A-Za-z0-9]+)&id=(\\d+)", "^https://www\\.facebook\\.com/[A-Za-z0-9\\._]+/photos/a\\.\\d+/(?<post_id>\\d+)/[A-Za-z0-9\\._&?]+", "^https://www\\.facebook\\.com/story\\.php\\?story_fbid=(?<post_id>\\d+)&id=\\d+", "^https://www\\.facebook\\.com/groups/[A-Za-z0-9\\._]+/posts/(?<post_id>\\d+)/?(\\?\\w+=\\w+(&\\w+=\\w+)*)?$", "^https://www\\.facebook\\.com/groups/[A-Za-z0-9\\._]+/?\\?multi_permalinks=(?<post_id>\\d+)", "^https://www\\.facebook\\.com/groups/[A-Za-z0-9\\._]+/posts/[\\w%-]+/(?<post_id>\\d+)/?(\\?\\w+=\\w+(&\\w+=\\w+)*)?$"];
-      var S = [];
-      R.forEach(function (V) {
-        S.push(new RegExp(V));
+      /** @type {Array} */
+      var forEach = ["^https://www\\.facebook\\.com/[A-Za-z0-9\\._]+/posts/(?<post_id>\\d+|pfbid[A-Za-z0-9]+)", "^https://www\\.facebook\\.com/[A-Za-z0-9\\._]+/videos/(?<post_id>\\d+)", "^https://www\\.facebook\\.com/photo\\.php\\?fbid=(?<post_id>\\d+)&set=a\\.\\d+\\.\\d+\\.\\d+", "^https://www\\.facebook\\.com/photo\\.php\\?fbid=(?<post_id>\\d+)&set=a\\.\\d+([A-Za-z0-9\\._&=]+)", "^https://www\\.facebook\\.com/[A-Za-z0-9\\._]+/photos/a\\.\\d+\\.\\d+\\.\\d+/(?<post_id>\\d+)", "^https://www\\.facebook\\.com/groups/[A-Za-z0-9\\._]+/permalink/(?<post_id>\\d+)",
+        "^https://www\\.facebook\\.com/permalink\\.php\\?story_fbid=(?<post_id>\\d+|pfbid[A-Za-z0-9]+)&id=(\\d+)", "^https://www\\.facebook\\.com/[A-Za-z0-9\\._]+/photos/a\\.\\d+/(?<post_id>\\d+)/[A-Za-z0-9\\._&?]+", "^https://www\\.facebook\\.com/story\\.php\\?story_fbid=(?<post_id>\\d+)&id=\\d+", "^https://www\\.facebook\\.com/groups/[A-Za-z0-9\\._]+/posts/(?<post_id>\\d+)/?(\\?\\w+=\\w+(&\\w+=\\w+)*)?$", "^https://www\\.facebook\\.com/groups/[A-Za-z0-9\\._]+/?\\?multi_permalinks=(?<post_id>\\d+)",
+        "^https://www\\.facebook\\.com/groups/[A-Za-z0-9\\._]+/posts/[\\w%-]+/(?<post_id>\\d+)/?(\\?\\w+=\\w+(&\\w+=\\w+)*)?$"];
+      /** @type {Array} */
+      var data = [];
+      forEach["forEach"](function (punctuation) {
+        data["push"](new RegExp(punctuation));
       });
-      for (var T = 0; T < S.length; T++) {
-        var U = Q.match(S[T]);
-        if (U && U.groups) {
-          return U.groups.post_id;
+      /** @type {number} */
+      var i = 0;
+      for (; i < data["length"]; i++) {
+        var groups = node["match"](data[i]);
+        if (groups && groups["groups"]) {
+          return groups["groups"]["post_id"];
         }
       }
       return null;
-    }
-    function n(Q) {
-      var R = {};
-      var S = Q.split("&");
-      for (var T = 0; T < S.length; T++) {
-        if (S[T]) {
-          var U = S[T].split("=");
-          R[U[0]] = decodeURIComponent(U[1]);
+    };
+    /**
+     * @param {Object} object
+     * @return {?}
+     */
+    var getOwnPropertyNames = function (object) {
+      var ret = {};
+      var stack = object["split"]("&");
+      /** @type {number} */
+      var i = 0;
+      for (; i < stack["length"]; i++) {
+        if (stack[i]) {
+          var p = stack[i]["split"]("=");
+          /** @type {string} */
+          ret[p[0]] = decodeURIComponent(p[1]);
         }
       }
-      return R;
-    }
-    function o() {
-      jQuery(document).on("click", "#iplusone-import_" + config.version, function () {
-        g.postMessage({
-          operation: "reactFbImport",
-          post_info: f.post_info
+      return ret;
+    };
+    /**
+     * @return {undefined}
+     */
+    var initialize = function () {
+      jQuery(document)["on"]("click", "#iplusone-import_" + config["version"], function () {
+        self["postMessage"]({
+          "operation": "reactFbImport",
+          "post_info": results["post_info"]
         });
       });
-      jQuery(document).on("click", "#iplusone-link_" + config.version, function () {
-        g.postMessage({
-          operation: "reactFbLink",
-          post_info: f.post_info
+      jQuery(document)["on"]("click", "#iplusone-link_" + config["version"], function () {
+        self["postMessage"]({
+          "operation": "reactFbLink",
+          "post_info": results["post_info"]
         });
       });
-      jQuery(document).on("click", "#iplusone-reload_" + config.version, function () {
-        window.location.reload();
+      jQuery(document)["on"]("click", "#iplusone-reload_" + config["version"], function () {
+        window["location"]["reload"]();
       });
-      jQuery(document).on("click", "#iplusone-login_" + config.version, function () {
-        var Q = "https://" + config.domain + "/seller/sellerlogin";
-        window.open(Q, "_blank");
+      jQuery(document)["on"]("click", "#iplusone-login_" + config["version"], function () {
+        /** @type {string} */
+        var myPanel = "https://" + config["domain"] + "/seller/sellerlogin";
+        window["open"](myPanel, "_blank");
       });
-      jQuery(document).on("click", "#iplusone-group_" + config.version, function () {
-        var Q = "https://" + config.domain + "/seller/sellerorders?post_snapshot_id=" + f.post_snapshot_id;
-        window.open(Q, "_blank");
+      jQuery(document)["on"]("click", "#iplusone-group_" + config["version"], function () {
+        var myPanel = "https://" + config["domain"] + "/seller/sellerorders?post_snapshot_id=" + results["post_snapshot_id"];
+        window["open"](myPanel, "_blank");
       });
-      jQuery(document).on("click", "#iplusone-upload_" + config.version, function () {
-        jQuery("#iplusone-upload_" + config.version).hide();
-        K();
+      jQuery(document)["on"]("click", "#iplusone-upload_" + config["version"], function () {
+        jQuery("#iplusone-upload_" + config["version"])["hide"]();
+        start();
       });
-    }
-    function p() {
-      var Q = jQuery();
-      var R = jQuery("div[data-pagelet=\"page\"]:visible");
-      if (R.length == 0) {
-        R = jQuery("div.__fb-light-mode.x1n2onr6.x1vjfegm:visible div.x78zum5.xdt5ytf.x1iyjqo2[role=\"dialog\"]");
+    };
+    /**
+     * @return {?}
+     */
+    var check = function () {
+      var result = jQuery();
+      var row = jQuery('div[data-pagelet="page"]:visible');
+      if (row["length"] == 0) {
+        row = jQuery('div.__fb-light-mode.x1n2onr6.x1vjfegm:visible div.x78zum5.xdt5ytf.x1iyjqo2[role="dialog"]');
       }
-      if (R.length == 0) {
-        R = jQuery("div.__fb-dark-mode.x1n2onr6.x1vjfegm:visible div.x78zum5.xdt5ytf.x1iyjqo2[role=\"dialog\"]");
+      if (row["length"] == 0) {
+        row = jQuery('div.__fb-dark-mode.x1n2onr6.x1vjfegm:visible div.x78zum5.xdt5ytf.x1iyjqo2[role="dialog"]');
       }
-      if (R.length == 0) {
-        R = jQuery("div.x78zum5.xdt5ytf.x10cihs4.x1t2pt76.x1n2onr6.x1ja2u2z:visible");
+      if (row["length"] == 0) {
+        row = jQuery("div.x78zum5.xdt5ytf.x10cihs4.x1t2pt76.x1n2onr6.x1ja2u2z:visible");
       }
-      if (R.length > 0) {
-        var S = R.first();
-        if (Q.length == 0) {
-          Q = S.find("div.__fb-light-mode.x1qjc9v5.x9f619.x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xshlqvt div[role=\"dialog\"]").first();
+      if (row["length"] > 0) {
+        var find = row["first"]();
+        if (result["length"] == 0) {
+          result = find["find"]('div.__fb-light-mode.x1qjc9v5.x9f619.x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xshlqvt div[role="dialog"]')["first"]();
         }
-        if (Q.length == 0) {
-          Q = S.find("div.__fb-dark-mode.x1qjc9v5.x9f619.x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xshlqvt div[role=\"dialog\"]").first();
+        if (result["length"] == 0) {
+          result = find["find"]('div.__fb-dark-mode.x1qjc9v5.x9f619.x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xshlqvt div[role="dialog"]')["first"]();
         }
-        if (Q.length == 0) {
-          Q = S.find("div[aria-posinset=\"1\"]").first();
+        if (result["length"] == 0) {
+          result = find["find"]('div[aria-posinset="1"]')["first"]();
         }
-        if (Q.length == 0) {
-          Q = S.find("div[aria-labelledby^=\"jsc_c_\"][role=\"article\"]").first();
+        if (result["length"] == 0) {
+          result = find["find"]('div[aria-labelledby^="jsc_c_"][role="article"]')["first"]();
         }
-        if (Q.length == 0) {
-          Q = S.find("div[aria-labelledby^=\"jsc_c_\"]").first();
+        if (result["length"] == 0) {
+          result = find["find"]('div[aria-labelledby^="jsc_c_"]')["first"]();
         }
-        if (Q.length == 0) {
-          Q = S.find("div.xh8yej3.x1t2pt76.x193iq5w.xdt5ytf.x78zum5.x6s0dn4[role=\"main\"]").first();
+        if (result["length"] == 0) {
+          result = find["find"]('div.xh8yej3.x1t2pt76.x193iq5w.xdt5ytf.x78zum5.x6s0dn4[role="main"]')["first"]();
         }
       }
-      return Q;
-    }
-    function q() {
-      var Q = jQuery();
-      if (Q.length == 0) {
-        Q = p().find("div.x10wlt62.x6ikm8r.x9jhf4c.x30kzoy.x13lgxp2.x168nmei").prev();
+      return result;
+    };
+    /**
+     * @return {?}
+     */
+    var remove = function () {
+      var scripts = jQuery();
+      return scripts["length"] == 0 && (scripts = check()["find"]("div.x10wlt62.x6ikm8r.x9jhf4c.x30kzoy.x13lgxp2.x168nmei")["prev"]()), scripts["length"] == 0 && (scripts = check()["find"]("div.x10wlt62.x6ikm8r.x9jhf4c.x30kzoy.x13lgxp2.x168nmei")), scripts["length"] == 0 && (scripts = check()["find"]("div.x10wlt62.x6ikm8r.x1a2w583.x1ia1hqs.xeyy32k.xabvvm4")), scripts;
+    };
+    /**
+     * @return {undefined}
+     */
+    var success = function () {
+      if (window["IPOTimerInstance"]) {
+        console["log"]("force stop timer 1");
+        clearTimeout(window["IPOTimerInstance"]);
       }
-      if (Q.length == 0) {
-        Q = p().find("div.x10wlt62.x6ikm8r.x9jhf4c.x30kzoy.x13lgxp2.x168nmei");
-      }
-      if (Q.length == 0) {
-        Q = p().find("div.x10wlt62.x6ikm8r.x1a2w583.x1ia1hqs.xeyy32k.xabvvm4");
-      }
-      return Q;
-    }
-    function r() {
-      if (window.IPOTimerInstance) {
-        console.log("force stop timer 1");
-        clearTimeout(window.IPOTimerInstance);
-      }
-      window.IPOTimerInstance = null;
-      i = 0;
-      f.post_id = m(window.location.href);
-      console.log("post id: %s", f.post_id);
-      var Q = window.location.search.substring(1);
-      var R = n(Q);
-      if (R.ipo_no_ext == "1") {
+      /** @type {null} */
+      window["IPOTimerInstance"] = null;
+      /** @type {number} */
+      ext = 0;
+      results["post_id"] = push(window["location"]["href"]);
+      console["log"]("post id: %s", results["post_id"]);
+      var source = window["location"]["search"]["substring"](1);
+      var delayedStream = getOwnPropertyNames(source);
+      if (delayedStream["ipo_no_ext"] == "1") {
         return;
       }
-      g = chrome.runtime.connect(window.IPO_extension_id, {
-        name: "ipo_ext"
+      self = chrome["runtime"]["connect"](window["IPO_extension_id"], {
+        "name": "ipo_ext"
       });
-      g.onMessage.addListener(w);
-      chrome.runtime.sendMessage(window.IPO_extension_id, {
-        operation: "getSess",
-        source: "post"
-      }, null, function (S) {
-        console.log(S);
-        c = S.execute_from_ext;
-        k = S.source;
-        f.ext_url = S.extUrl;
-        var T = jQuery("div.IPO_Inject");
-        if (T.length != 0) {
-          console.log("already inject");
-          var U = m(window.location.href);
-          if (U) {
-            D("already inject");
+      self["onMessage"]["addListener"](onSuccess);
+      chrome["runtime"]["sendMessage"](window["IPO_extension_id"], {
+        "operation": "getSess",
+        "source": "post"
+      }, null, function (map) {
+        console["log"](map);
+        val = map["execute_from_ext"];
+        attr = map["source"];
+        results["ext_url"] = map["extUrl"];
+        var scripts = jQuery("div.IPO_Inject");
+        if (scripts["length"] != 0) {
+          console["log"]("already inject");
+          var i = push(window["location"]["href"]);
+          if (i) {
+            parse("already inject");
           }
           return;
         }
-        var V = "<div class=\"IPO_Inject\"></div>";
-        jQuery("div[id^=\"mount_0_0\"]").append(V);
-        if (window.location.hostname != "www.facebook.com") {
+        /** @type {string} */
+        var restoreScript = '<div class="IPO_Inject"></div>';
+        jQuery('div[id^="mount_0_0"]')["append"](restoreScript);
+        if (window["location"]["hostname"] != "www.facebook.com") {
           return;
-        } else if (!f.post_id) {
-          return;
-        } else if (S.cookie && S.cookie.value && S.brand && S.brand.value || b) {
-          chrome.runtime.sendMessage(window.IPO_extension_id, {
-            operation: "getBotAutoStatus"
-          }, null, function (X) {
-            console.log(X);
-            d = X.bot_status;
-            if (!d && c) {
-              d = true;
+        } else {
+          if (!results["post_id"]) {
+            return;
+          } else {
+            if (map["cookie"] && (map["cookie"]["value"] && (map["brand"] && map["brand"]["value"])) || b) {
+              chrome["runtime"]["sendMessage"](window["IPO_extension_id"], {
+                "operation": "getBotAutoStatus"
+              }, null, function (message) {
+                console["log"](message);
+                msg = message["bot_status"];
+                if (!msg) {
+                  if (val) {
+                    /** @type {boolean} */
+                    msg = true;
+                  }
+                }
+                setup();
+              });
+            } else {
+              /** @type {string} */
+              var r20 = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+              r20 += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+              r20 += '<button class="btn btn-sm btn-danger ml-2" id="iplusone-login_' + config["version"] + '">\u8acb\u5148\u767b\u5165\u611b+1\u7cfb\u7d71\u5f8c\u53f0</button>';
+              r20 += "</div>";
+              $(function () {
+                remove()["prepend"](r20);
+                jQuery("div.IPO_Inject")["remove"]();
+              }, 2500);
             }
-            u();
-          });
-        } else {
-          var W = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-          W += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-          W += "<button class=\"btn btn-sm btn-danger ml-2\" id=\"iplusone-login_" + config.version + "\">請先登入愛+1系統後台</button>";
-          W += "</div>";
-          s(function () {
-            q().prepend(W);
-            jQuery("div.IPO_Inject").remove();
-          }, 2500);
+          }
         }
       });
-    }
-    function s(Q, R) {
-      if (window.IPOTimerInstance) {
-        clearTimeout(window.IPOTimerInstance);
+    };
+    /**
+     * @param {Function} fn
+     * @param {number} opt_attributes
+     * @return {undefined}
+     */
+    var $ = function (fn, opt_attributes) {
+      if (window["IPOTimerInstance"]) {
+        clearTimeout(window["IPOTimerInstance"]);
       }
-      window.IPOTimerInstance = // TOLOOK
-      setTimeout(function () {
-        window.IPOTimerInstance = null;
-        Q();
-      }, R);
-    }
-    function t(Q) {
-      if (Q.sponsored_data) {
+      /** @type {number} */
+      window["IPOTimerInstance"] = setTimeout(function () {
+        /** @type {null} */
+        window["IPOTimerInstance"] = null;
+        fn();
+      }, opt_attributes);
+    };
+    /**
+     * @param {Object} data
+     * @return {undefined}
+     */
+    var done = function (data) {
+      if (data["sponsored_data"]) {
         return;
       }
-      var R = E(Q.comet_sections);
-      if (R) {
-        window.IPO_Data.stories[R] = Q.comet_sections;
+      var inkey = error(data["comet_sections"]);
+      if (inkey) {
+        window["IPO_Data"]["stories"][inkey] = data["comet_sections"];
       }
-      var S = F(Q.comet_sections);
-      if (S) {
-        window.IPO_Data.stories[S] = Q.comet_sections;
+      var i = log(data["comet_sections"]);
+      if (i) {
+        window["IPO_Data"]["stories"][i] = data["comet_sections"];
       }
-    }
-    function u() {
-      chrome.runtime.sendMessage(window.IPO_extension_id, {
-        operation: "getScripts",
-        source: "post"
-      }, null, function (Q) {
-        console.log(Q);
-        l = Q.scripts;
-        v();
+    };
+    /**
+     * @return {undefined}
+     */
+    var setup = function () {
+      chrome["runtime"]["sendMessage"](window["IPO_extension_id"], {
+        "operation": "getScripts",
+        "source": "post"
+      }, null, function (message) {
+        console["log"](message);
+        x = message["scripts"];
+        update();
       });
-    }
-    function v() {
-      var Q = m(window.location.href);
-      if (!Q) {
+    };
+    /**
+     * @return {undefined}
+     */
+    var update = function () {
+      var i = push(window["location"]["href"]);
+      if (!i) {
         return;
       }
-      console.log("checkContent");
-      i++;
-      var R = jQuery("div.w0hvl6rk.qjjbsfad span").first().text();
+      console["log"]("checkContent");
+      ext++;
+      var R = jQuery("div.w0hvl6rk.qjjbsfad span")["first"]()["text"]();
       if (R) {
-        if (R == "你目前無法使用這項功能") {
-          P("BLOCK");
+        if (R == "\u4f60\u76ee\u524d\u7121\u6cd5\u4f7f\u7528\u9019\u9805\u529f\u80fd") {
+          replace("BLOCK");
           return;
-        } else if (R == "目前無法提供此內容") {
-          P("DELETE");
-          return;
+        } else {
+          if (R == "\u76ee\u524d\u7121\u6cd5\u63d0\u4f9b\u6b64\u5167\u5bb9") {
+            replace("DELETE");
+            return;
+          }
         }
       }
-      if (i > 80) {
-        console.log("check_content_count more than 80", i);
-        var S = p();
-        console.log("check article and ipo data", S, window.IPO_Data);
-        if (S.length > 0 && window.IPO_Data) {
-          console.log("checked, checkPostInfo");
-          s(G, 1000);
+      if (ext > 80) {
+        console["log"]("check_content_count more than 80", ext);
+        var err = check();
+        console["log"]("check article and ipo data", err, window["IPO_Data"]);
+        if (err["length"] > 0 && window["IPO_Data"]) {
+          console["log"]("checked, checkPostInfo");
+          $(init, 1E3);
         } else {
-          console.log("check failed, checkNext");
-          P();
+          console["log"]("check failed, checkNext");
+          replace();
         }
       } else {
-        var T = jQuery(".iplusone_loaded_" + config.version);
-        if (T.length > 0) {
-          s(v, 100);
+        var scripts = jQuery(".iplusone_loaded_" + config["version"]);
+        if (scripts["length"] > 0) {
+          $(update, 100);
         } else {
-          var S = p();
-          if (S.length > 0) {
-            if (window.IPO_Data) {
-              var U = q().find(".IPO_Prepard");
-              if (U.length == 0) {
-                var V = "<div class=\"IPO_Prepard clearfix mt-1 ml-2\">";
-                V += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-                V += "<span class=\"ml-2\">Waiting...<span id=\"IPO_Prepard_Text\"></span></span>";
-                V += "</div>";
-                q().prepend(V);
+          err = check();
+          if (err["length"] > 0) {
+            if (window["IPO_Data"]) {
+              var p = remove()["find"](".IPO_Prepard");
+              if (p["length"] == 0) {
+                /** @type {string} */
+                var r20 = '<div class="IPO_Prepard clearfix mt-1 ml-2">';
+                r20 += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+                r20 += '<span class="ml-2">Waiting...<span id="IPO_Prepard_Text"></span></span>';
+                r20 += "</div>";
+                remove()["prepend"](r20);
               } else {
-                var W = U.find("#IPO_Prepard_Text");
-                W.text(W.text() + ".");
+                var last = p["find"]("#IPO_Prepard_Text");
+                last["text"](last["text"]() + ".");
               }
-              if (window.IPO_Data.update > 0 && window.IPO_Data.update + 2000 > Date.now()) {
-                s(v, 100);
+              if (window["IPO_Data"]["update"] > 0 && window["IPO_Data"]["update"] + 2E3 > Date["now"]()) {
+                $(update, 100);
               } else {
-                console.log("ajax completed, checkPostInfo");
-                s(G, 1000);
+                console["log"]("ajax completed, checkPostInfo");
+                $(init, 1E3);
               }
             } else {
-              console.log("checkPostInfo");
-              s(G, 1000);
+              console["log"]("checkPostInfo");
+              $(init, 1E3);
             }
           } else {
-            s(v, 100);
+            $(update, 100);
           }
         }
       }
-    }
-    function w(Q) {
-      console.log(Q);
-      if (Q.operation == "checkReactFacebookPostInfo") {
-        q().find(".IPO_Query").remove();
-        if (Q.status == "success") {
-          s(function () {
-            jQuery("div.IPO_Inject").remove();
-            x(Q.response);
-          }, 100);
-        } else {
-          s(function () {
-            jQuery("div.IPO_Inject").remove();
-            P();
-          }, 100);
-        }
-      } else if (Q.operation == "uploadReactFacebookComments") {
-        q().find(".IPO_Uploading").remove();
-        s(function () {
-          P();
-        }, 100);
-      }
-    }
-    function x(Q) {
-      jQuery("div.IPO_Inject").remove();
-      var R = "";
-      if (Q.code == 200) {
-        var S = Q.data;
-        f.post_snapshot_info = S;
+    };
+    /**
+     * @param {Object} message
+     * @return {undefined}
+     */
+    var run = function (message) {
+      jQuery("div.IPO_Inject")["remove"]();
+      /** @type {string} */
+      var later = "";
+      if (message["code"] == 200) {
+        var result = message["data"];
+        results["post_snapshot_info"] = result;
         if (b) {
-          S.status = "IMPORTED";
+          /** @type {string} */
+          result["status"] = "IMPORTED";
         }
-        if (S.status == "IMPORTED" || S.status == "NOT_RUNNING") {
-          f.post_snapshot_id = S.post_snapshot_id;
-          if (S.status == "IMPORTED") {
-            R = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-            R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-            R += "<button class=\"btn btn-sm btn-outline-danger disabled ml-2\">已匯入系統</button>";
-            R += "<button class=\"btn btn-sm btn-success ml-2\" id=\"iplusone-reload_" + config.version + "\">更新留言</button>";
-            R += "<button class=\"btn btn-sm btn-info ml-2\" id=\"iplusone-group_" + config.version + "\">前往後台</button>";
-            if (!d) {
-              R += "<button class=\"btn btn-sm btn-warning ml-2\" id=\"iplusone-upload_" + config.version + "\">展開留言並上傳</button>";
+        if (result["status"] == "IMPORTED" || result["status"] == "NOT_RUNNING") {
+          results["post_snapshot_id"] = result["post_snapshot_id"];
+          if (result["status"] == "IMPORTED") {
+            /** @type {string} */
+            later = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+            later += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+            later += '<button class="btn btn-sm btn-outline-danger disabled ml-2">\u5df2\u532f\u5165\u7cfb\u7d71</button>';
+            later += '<button class="btn btn-sm btn-success ml-2" id="iplusone-reload_' + config["version"] + '">\u66f4\u65b0\u7559\u8a00</button>';
+            later += '<button class="btn btn-sm btn-info ml-2" id="iplusone-group_' + config["version"] + '">\u524d\u5f80\u5f8c\u53f0</button>';
+            if (!msg) {
+              later += '<button class="btn btn-sm btn-warning ml-2" id="iplusone-upload_' + config["version"] + '">\u5c55\u958b\u7559\u8a00\u4e26\u4e0a\u50b3</button>';
             }
-            R += "</div>";
-            q().prepend(R);
+            later += "</div>";
+            remove()["prepend"](later);
           } else {
-            R = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-            R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-            R += "<button class=\"btn btn-sm btn-outline-default disabled ml-2\">已結束</button>";
-            R += "<button class=\"btn btn-sm btn-info ml-2\" id=\"iplusone-group_" + config.version + "\">前往後台</button>";
-            if (!d) {
-              R += "<button class=\"btn btn-sm btn-warning ml-2\" id=\"iplusone-upload_" + config.version + "\">展開留言並上傳</button>";
+            /** @type {string} */
+            later = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+            later += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+            later += '<button class="btn btn-sm btn-outline-default disabled ml-2">\u5df2\u7d50\u675f</button>';
+            later += '<button class="btn btn-sm btn-info ml-2" id="iplusone-group_' + config["version"] + '">\u524d\u5f80\u5f8c\u53f0</button>';
+            if (!msg) {
+              later += '<button class="btn btn-sm btn-warning ml-2" id="iplusone-upload_' + config["version"] + '">\u5c55\u958b\u7559\u8a00\u4e26\u4e0a\u50b3</button>';
             }
-            R += "</div>";
-            q().prepend(R);
+            later += "</div>";
+            remove()["prepend"](later);
           }
-          if (d) {
-            K();
+          if (msg) {
+            start();
           }
-        } else if (S.status == "NOT_IMPORT") {
-          R = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-          R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-          R += "<button class=\"btn btn-sm btn-primary ml-2\" id=\"iplusone-import_" + config.version + "\">尚未匯入</button>";
-          R += "<button class=\"btn btn-sm btn-warning ml-2\" id=\"iplusone-link_" + config.version + "\">連結開團</button>";
-          R += "</div>";
-          q().prepend(R);
-          P();
-        } else if (S.status == "NOT_LINK") {
-          R = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-          R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-          R += "<button class=\"btn btn-sm btn-warning ml-2\" id=\"iplusone-link_" + config.version + "\">連結開團</button>";
-          R += "</div>";
-          q().prepend(R);
-          P();
-        } else if (S.status == "NOT_OWNER") {
-          console.log(Q);
-          R = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-          R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-          R += "<button class=\"btn btn-sm btn-outline-danger disabled ml-2\">非貼文擁有者</button>";
-          R += "</div>";
-          q().prepend(R);
-          P();
-        } else if (S.status == "UPLOADING") {
-          console.log(Q);
-          R = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-          R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-          R += "<button class=\"btn btn-sm btn-outline-danger disabled ml-2\">留言處理中，請稍待</button>";
-          R += "</div>";
-          q().prepend(R);
-          P();
         } else {
-          R = "<div class=\"iplusone_loaded_" + config.version + "\">";
-          R += "</div>";
-          q().prepend(R);
-          P();
-        }
-      } else if (Q.code == 50308) {
-        R = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-        R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-        if (config.version == "DEV") {
-          R += "<button class=\"btn btn-sm btn-danger ml-2\">更新 Chrome Extension</button>";
-        } else {
-          R += "<a target=\"_blank\" href=\"" + config.chrome_ext + "\" class=\"btn btn-sm btn-danger ml-2\">更新 Chrome Extension</a>";
-        }
-        R += "</div>";
-        q().prepend(R);
-      } else if (Q.code == 50317) {
-        R = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-        R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-        R += "<button class=\"btn btn-sm btn-outline-danger disabled ml-2\">已被其他商店匯入 [" + Q.log_id + "]</button>";
-        R += "</div>";
-        q().prepend(R);
-        P();
-      } else {
-        R = "<div class=\"IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_" + config.version + "\">";
-        R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-        R += "<button class=\"btn btn-sm btn-outline-danger disabled ml-2\">發生錯誤 [" + Q.log_id + "]：" + Q.message + "</button>";
-        R += "</div>";
-        q().prepend(R);
-        P();
-      }
-    }
-    function y(Q) {
-      if (!Q) {
-        return null;
-      }
-      for (var R in Q) {
-        if (R.startsWith("__reactFiber")) {
-          return Q[R];
-        }
-      }
-      return null;
-    }
-    function z(Q) {
-      var R = {
-        id: Q.id
-      };
-      if (Q.image && Q.image.uri) {
-        R.url = Q.image.uri;
-      } else if (Q.photo_image && Q.photo_image.uri) {
-        R.url = Q.photo_image.uri;
-      } else if (Q.thumbnailImage && Q.thumbnailImage.uri) {
-        R.url = Q.thumbnailImage.uri;
-      } else if (Q.placeholder_image && Q.placeholder_image.uri) {
-        R.url = Q.placeholder_image.uri;
-      }
-      return R;
-    }
-    function A(Q) {
-      var R = [];
-      var S = Q.length;
-      var T = "";
-      var U = 0;
-      var V = false;
-      var W = false;
-      for (var X = 0; X < S; X++) {
-        T = Q.charAt(X);
-        if (V) {
-          if (T == "\\") {
-            if (W) {
-              W = false;
-            } else {
-              W = true;
-            }
-          } else if (T == "\"") {
-            if (W) {
-              W = false;
-            } else {
-              V = false;
-            }
+          if (result["status"] == "NOT_IMPORT") {
+            /** @type {string} */
+            later = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+            later += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+            later += '<button class="btn btn-sm btn-primary ml-2" id="iplusone-import_' + config["version"] + '">\u5c1a\u672a\u532f\u5165</button>';
+            later += '<button class="btn btn-sm btn-warning ml-2" id="iplusone-link_' + config["version"] + '">\u9023\u7d50\u958b\u5718</button>';
+            later += "</div>";
+            remove()["prepend"](later);
+            replace();
           } else {
-            W = false;
-          }
-        } else if (T == "\"") {
-          V = true;
-          W = false;
-        } else if (T == "{") {
-          R.push(T);
-        } else if (T == "[") {
-          R.push(T);
-        } else if (T == "}") {
-          var Y = R.pop();
-          if (Y != "{") {
-            break;
-          }
-          if (R.length == 0) {
-            U = X + 1;
-            break;
-          }
-        } else if (T == "]") {
-          var Y = R.pop();
-          if (Y != "[") {
-            break;
-          }
-          if (R.length == 0) {
-            U = X + 1;
-            break;
-          }
-        }
-      }
-      if (U) {
-        return Q.substring(0, U);
-      }
-      return null;
-    }
-    function B(Q, R) {
-      var S = null;
-      S = Q.indexOf("[],[\"adp_CometGroupRootQueryRelayPreloader_");
-      if (S >= 0) {
-        var T = /\[\],\[\"adp_CometGroupRootQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data && V.__bbox.result.data.group) {
-            R.feed = V.__bbox.result.data.group;
-            var W = null;
-            if (R.feed.profile_header_renderer && R.feed.profile_header_renderer.group && R.feed.profile_header_renderer.group.id && R.feed.profile_header_renderer.group.name && R.feed.profile_header_renderer.group.__typename) {
-              W = R.feed.profile_header_renderer.group;
-            }
-            if (R.feed.viewer_layout_renderer && R.feed.viewer_layout_renderer.group && R.feed.viewer_layout_renderer.group.featurable_title) {
-              var X = R.feed.viewer_layout_renderer.group.featurable_title;
-              if (X.text && X.ranges && X.ranges[0] && X.ranges[0].entity && X.ranges[0].entity.id && X.ranges[0].entity.__typename) {
-                W = X.ranges[0].entity;
-                if (!W.name) {
-                  W.name = X.text;
+            if (result["status"] == "NOT_LINK") {
+              /** @type {string} */
+              later = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+              later += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+              later += '<button class="btn btn-sm btn-warning ml-2" id="iplusone-link_' + config["version"] + '">\u9023\u7d50\u958b\u5718</button>';
+              later += "</div>";
+              remove()["prepend"](later);
+              replace();
+            } else {
+              if (result["status"] == "NOT_OWNER") {
+                console["log"](message);
+                /** @type {string} */
+                later = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+                later += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+                later += '<button class="btn btn-sm btn-outline-danger disabled ml-2">\u975e\u8cbc\u6587\u64c1\u6709\u8005</button>';
+                later += "</div>";
+                remove()["prepend"](later);
+                replace();
+              } else {
+                if (result["status"] == "UPLOADING") {
+                  console["log"](message);
+                  /** @type {string} */
+                  later = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+                  later += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+                  later += '<button class="btn btn-sm btn-outline-danger disabled ml-2">\u7559\u8a00\u8655\u7406\u4e2d\uff0c\u8acb\u7a0d\u5f85</button>';
+                  later += "</div>";
+                  remove()["prepend"](later);
+                  replace();
+                } else {
+                  /** @type {string} */
+                  later = '<div class="iplusone_loaded_' + config["version"] + '">';
+                  later += "</div>";
+                  remove()["prepend"](later);
+                  replace();
                 }
               }
             }
+          }
+        }
+      } else {
+        if (message["code"] == 50308) {
+          /** @type {string} */
+          later = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+          later += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+          if (config["version"] == "DEV") {
+            later += '<button class="btn btn-sm btn-danger ml-2">\u66f4\u65b0 Chrome Extension</button>';
+          } else {
+            later += '<a target="_blank" href="' + config["chrome_ext"] + '" class="btn btn-sm btn-danger ml-2">\u66f4\u65b0 Chrome Extension</a>';
+          }
+          later += "</div>";
+          remove()["prepend"](later);
+        } else {
+          if (message["code"] == 50317) {
+            /** @type {string} */
+            later = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+            later += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+            later += '<button class="btn btn-sm btn-outline-danger disabled ml-2">\u5df2\u88ab\u5176\u4ed6\u5546\u5e97\u532f\u5165 [' + message["log_id"] + "]</button>";
+            later += "</div>";
+            remove()["prepend"](later);
+            replace();
+          } else {
+            /** @type {string} */
+            later = '<div class="IPO_Container IPO_Post_Info clearfix mt-1 iplusone_loaded_' + config["version"] + '">';
+            later += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+            later += '<button class="btn btn-sm btn-outline-danger disabled ml-2">\u767c\u751f\u932f\u8aa4 [' + message["log_id"] + "]\uff1a" + message["message"] + "</button>";
+            later += "</div>";
+            remove()["prepend"](later);
+            replace();
+          }
+        }
+      }
+    };
+    /**
+     * @param {Object} a
+     * @return {?}
+     */
+    var cb = function (a) {
+      if (!a) {
+        return null;
+      }
+      var prefix;
+      for (prefix in a) {
+        if (prefix["startsWith"]("__reactFiber")) {
+          return a[prefix];
+        }
+      }
+      return null;
+    };
+    /**
+     * @param {Object} object
+     * @return {?}
+     */
+    var translate = function (object) {
+      var result = {};
+      result["id"] = object["id"];
+      if (object["image"] && object["image"]["uri"]) {
+        result["url"] = object["image"]["uri"];
+      } else {
+        if (object["photo_image"] && object["photo_image"]["uri"]) {
+          result["url"] = object["photo_image"]["uri"];
+        } else {
+          if (object["thumbnailImage"] && object["thumbnailImage"]["uri"]) {
+            result["url"] = object["thumbnailImage"]["uri"];
+          } else {
+            if (object["placeholder_image"]) {
+              if (object["placeholder_image"]["uri"]) {
+                result["url"] = object["placeholder_image"]["uri"];
+              }
+            }
+          }
+        }
+      }
+      return result;
+    };
+    /**
+     * @param {Object} args
+     * @return {?}
+     */
+    var func = function (args) {
+      /** @type {Array} */
+      var dots = [];
+      var count = args["length"];
+      /** @type {string} */
+      var dot = "";
+      /** @type {number} */
+      var checkpoint = 0;
+      /** @type {boolean} */
+      var V = false;
+      /** @type {boolean} */
+      var W = false;
+      /** @type {number} */
+      var position = 0;
+      for (; position < count; position++) {
+        dot = args["charAt"](position);
+        if (V) {
+          if (dot == "\\") {
             if (W) {
-              R.feed = W;
+              /** @type {boolean} */
+              W = false;
+            } else {
+              /** @type {boolean} */
+              W = true;
             }
-          } else if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data && V.__bbox.result.data.group_address && (!R.feed || !R.feed.name)) {
-            R.feed = V.__bbox.result.data;
-            R.feed.__typename = "Group";
+          } else {
+            if (dot == '"') {
+              if (W) {
+                /** @type {boolean} */
+                W = false;
+              } else {
+                /** @type {boolean} */
+                V = false;
+              }
+            } else {
+              /** @type {boolean} */
+              W = false;
+            }
           }
-        }
-        return;
-      }
-      S = Q.indexOf("[],[\"adp_CometPagePostsRootHeaderQueryRelayPreloader_");
-      if (S >= 0) {
-        var T = /\[\],\[\"adp_CometPagePostsRootHeaderQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data.page) {
-            R.feed = V.__bbox.result.data.page;
-          }
-        }
-        return;
-      }
-      S = Q.indexOf("[],[\"adp_CometPagePostsRootQueryRelayPreloader_");
-      if (S >= 0) {
-        var T = /\[\],\[\"adp_CometPagePostsRootQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data.page) {
-            R.feed = V.__bbox.result.data.page;
-          }
-        }
-        return;
-      }
-      S = Q.indexOf("[],[\"adp_CometGroupPermalinkRootFeedQueryRelayPreloader_");
-      if (S >= 0) {
-        var T = /\[\],\[\"adp_CometGroupPermalinkRootFeedQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data.node) {
-            t(V.__bbox.result.data.node);
-          }
-        }
-      }
-      S = Q.indexOf("[],[\"adp_CometGroupPermalinkRootContentFeedQueryRelayPreloader_");
-      if (S >= 0) {
-        var T = /\[\],\[\"adp_CometGroupPermalinkRootContentFeedQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data.node) {
-            t(V.__bbox.result.data.node);
-          }
-        }
-      }
-      S = Q.indexOf("[],[\"adp_CometSinglePostRootQueryRelayPreloader_");
-      if (S >= 0) {
-        var T = /\[\],\[\"adp_CometSinglePostRootQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data.node) {
-            t(V.__bbox.result.data.node);
-          }
-        }
-      }
-      S = Q.indexOf("[],[\"adp_CometSinglePostContentQueryRelayPreloader_");
-      if (S >= 0) {
-        var T = /\[\],\[\"adp_CometSinglePostContentQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data.node) {
-            t(V.__bbox.result.data.node);
-          }
-        }
-      }
-      S = Q.indexOf("[],[\"adp_CometSinglePostDialogContentQueryRelayPreloader_");
-      if (S >= 0) {
-        var T = /\[\],\[\"adp_CometSinglePostDialogContentQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data.node) {
-            t(V.__bbox.result.data.node);
-          }
-        }
-      }
-      S = Q.indexOf("[],[\"adp_CometPagePostsRootHoistedStoryQueryRelayPreloader_");
-      if (S >= 0) {
-        var T = /\[\],\[\"adp_CometPagePostsRootHoistedStoryQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result) {
-            if (V.__bbox.result.data.node) {
-              t(V.__bbox.result.data.node);
-            } else if (V.__bbox.result.data.nodes && V.__bbox.result.data.nodes.length > 0) {
-              t(V.__bbox.result.data.nodes[0]);
+        } else {
+          if (dot == '"') {
+            /** @type {boolean} */
+            V = true;
+            /** @type {boolean} */
+            W = false;
+          } else {
+            if (dot == "{") {
+              dots["push"](dot);
+            } else {
+              if (dot == "[") {
+                dots["push"](dot);
+              } else {
+                if (dot == "}") {
+                  var Y = dots.pop();
+                  if (Y != "{") {
+                    break;
+                  }
+                  if (dots["length"] == 0) {
+                    /** @type {number} */
+                    checkpoint = position + 1;
+                    break;
+                  }
+                } else {
+                  if (dot == "]") {
+                    Y = dots.pop();
+                    if (Y != "[") {
+                      break;
+                    }
+                    if (dots["length"] == 0) {
+                      /** @type {number} */
+                      checkpoint = position + 1;
+                      break;
+                    }
+                  }
+                }
+              }
             }
           }
         }
       }
-      S = Q.indexOf("[],[\"adp_CometGroupDiscussionRootSuccessQueryRelayPreloader_");
+      if (checkpoint) {
+        return args["substring"](0, checkpoint);
+      }
+      return null;
+    };
+    /**
+     * @param {?} elem
+     * @param {Object} data
+     * @return {undefined}
+     */
+    var callback = function (elem, data) {
+      /** @type {null} */
+      var S = null;
+      S = elem["indexOf"]('[],["adp_CometGroupRootQueryRelayPreloader_');
       if (S >= 0) {
-        var T = /\[\],\[\"adp_CometGroupDiscussionRootSuccessQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
-        var U = T.exec(Q);
-        if (U) {
-          var V = JSON.parse(A(U[1]));
-          if (V && V.__bbox && V.__bbox.result && V.__bbox.result.data.node) {
-            t(V.__bbox.result.data.node);
+        /** @type {RegExp} */
+        var pseudos = /\[\],\[\"adp_CometGroupRootQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        var queue = pseudos["exec"](elem);
+        if (queue) {
+          var result = JSON["parse"](func(queue[1]));
+          if (result && (result["__bbox"] && (result["__bbox"]["result"] && (result["__bbox"]["result"]["data"] && result["__bbox"]["result"]["data"]["group"])))) {
+            data["feed"] = result["__bbox"]["result"]["data"]["group"];
+            /** @type {null} */
+            var config = null;
+            if (data["feed"]["profile_header_renderer"]) {
+              if (data["feed"]["profile_header_renderer"]["group"]) {
+                if (data["feed"]["profile_header_renderer"]["group"]["id"]) {
+                  if (data["feed"]["profile_header_renderer"]["group"]["name"]) {
+                    if (data["feed"]["profile_header_renderer"]["group"]["__typename"]) {
+                      config = data["feed"]["profile_header_renderer"]["group"];
+                    }
+                  }
+                }
+              }
+            }
+            if (data["feed"]["viewer_layout_renderer"] && (data["feed"]["viewer_layout_renderer"]["group"] && data["feed"]["viewer_layout_renderer"]["group"]["featurable_title"])) {
+              var options = data["feed"]["viewer_layout_renderer"]["group"]["featurable_title"];
+              if (options["text"]) {
+                if (options["ranges"]) {
+                  if (options["ranges"][0]) {
+                    if (options["ranges"][0]["entity"]) {
+                      if (options["ranges"][0]["entity"]["id"]) {
+                        if (options["ranges"][0]["entity"]["__typename"]) {
+                          config = options["ranges"][0]["entity"];
+                          if (!config["name"]) {
+                            config["name"] = options["text"];
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            if (config) {
+              data["feed"] = config;
+            }
+          } else {
+            if (result) {
+              if (result["__bbox"]) {
+                if (result["__bbox"]["result"]) {
+                  if (result["__bbox"]["result"]["data"]) {
+                    if (result["__bbox"]["result"]["data"]["group_address"]) {
+                      if (!data["feed"] || !data["feed"]["name"]) {
+                        data["feed"] = result["__bbox"]["result"]["data"];
+                        /** @type {string} */
+                        data["feed"]["__typename"] = "Group";
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        return;
+      }
+      S = elem["indexOf"]('[],["adp_CometPagePostsRootHeaderQueryRelayPreloader_');
+      if (S >= 0) {
+        /** @type {RegExp} */
+        pseudos = /\[\],\[\"adp_CometPagePostsRootHeaderQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        queue = pseudos["exec"](elem);
+        if (queue) {
+          result = JSON["parse"](func(queue[1]));
+          if (result) {
+            if (result["__bbox"]) {
+              if (result["__bbox"]["result"]) {
+                if (result["__bbox"]["result"]["data"]["page"]) {
+                  data["feed"] = result["__bbox"]["result"]["data"]["page"];
+                }
+              }
+            }
+          }
+        }
+        return;
+      }
+      S = elem["indexOf"]('[],["adp_CometPagePostsRootQueryRelayPreloader_');
+      if (S >= 0) {
+        /** @type {RegExp} */
+        pseudos = /\[\],\[\"adp_CometPagePostsRootQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        queue = pseudos["exec"](elem);
+        if (queue) {
+          result = JSON["parse"](func(queue[1]));
+          if (result) {
+            if (result["__bbox"]) {
+              if (result["__bbox"]["result"]) {
+                if (result["__bbox"]["result"]["data"]["page"]) {
+                  data["feed"] = result["__bbox"]["result"]["data"]["page"];
+                }
+              }
+            }
+          }
+        }
+        return;
+      }
+      S = elem["indexOf"]('[],["adp_CometGroupPermalinkRootFeedQueryRelayPreloader_');
+      if (S >= 0) {
+        /** @type {RegExp} */
+        pseudos = /\[\],\[\"adp_CometGroupPermalinkRootFeedQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        queue = pseudos["exec"](elem);
+        if (queue) {
+          result = JSON["parse"](func(queue[1]));
+          if (result) {
+            if (result["__bbox"]) {
+              if (result["__bbox"]["result"]) {
+                if (result["__bbox"]["result"]["data"]["node"]) {
+                  done(result["__bbox"]["result"]["data"]["node"]);
+                }
+              }
+            }
           }
         }
       }
-    }
-    function C() {
-      var Q = {
-        feed: null,
-        story: null,
-        isPageDelegate: false
+      S = elem["indexOf"]('[],["adp_CometGroupPermalinkRootContentFeedQueryRelayPreloader_');
+      if (S >= 0) {
+        /** @type {RegExp} */
+        pseudos = /\[\],\[\"adp_CometGroupPermalinkRootContentFeedQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        queue = pseudos["exec"](elem);
+        if (queue) {
+          result = JSON["parse"](func(queue[1]));
+          if (result) {
+            if (result["__bbox"]) {
+              if (result["__bbox"]["result"]) {
+                if (result["__bbox"]["result"]["data"]["node"]) {
+                  done(result["__bbox"]["result"]["data"]["node"]);
+                }
+              }
+            }
+          }
+        }
+      }
+      S = elem["indexOf"]('[],["adp_CometSinglePostRootQueryRelayPreloader_');
+      if (S >= 0) {
+        /** @type {RegExp} */
+        pseudos = /\[\],\[\"adp_CometSinglePostRootQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        queue = pseudos["exec"](elem);
+        if (queue) {
+          result = JSON["parse"](func(queue[1]));
+          if (result) {
+            if (result["__bbox"]) {
+              if (result["__bbox"]["result"]) {
+                if (result["__bbox"]["result"]["data"]["node"]) {
+                  done(result["__bbox"]["result"]["data"]["node"]);
+                }
+              }
+            }
+          }
+        }
+      }
+      S = elem["indexOf"]('[],["adp_CometSinglePostContentQueryRelayPreloader_');
+      if (S >= 0) {
+        /** @type {RegExp} */
+        pseudos = /\[\],\[\"adp_CometSinglePostContentQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        queue = pseudos["exec"](elem);
+        if (queue) {
+          result = JSON["parse"](func(queue[1]));
+          if (result) {
+            if (result["__bbox"]) {
+              if (result["__bbox"]["result"]) {
+                if (result["__bbox"]["result"]["data"]["node"]) {
+                  done(result["__bbox"]["result"]["data"]["node"]);
+                }
+              }
+            }
+          }
+        }
+      }
+      S = elem["indexOf"]('[],["adp_CometSinglePostDialogContentQueryRelayPreloader_');
+      if (S >= 0) {
+        /** @type {RegExp} */
+        pseudos = /\[\],\[\"adp_CometSinglePostDialogContentQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        queue = pseudos["exec"](elem);
+        if (queue) {
+          result = JSON["parse"](func(queue[1]));
+          if (result) {
+            if (result["__bbox"]) {
+              if (result["__bbox"]["result"]) {
+                if (result["__bbox"]["result"]["data"]["node"]) {
+                  done(result["__bbox"]["result"]["data"]["node"]);
+                }
+              }
+            }
+          }
+        }
+      }
+      S = elem["indexOf"]('[],["adp_CometPagePostsRootHoistedStoryQueryRelayPreloader_');
+      if (S >= 0) {
+        /** @type {RegExp} */
+        pseudos = /\[\],\[\"adp_CometPagePostsRootHoistedStoryQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        queue = pseudos["exec"](elem);
+        if (queue) {
+          result = JSON["parse"](func(queue[1]));
+          if (result && (result["__bbox"] && result["__bbox"]["result"])) {
+            if (result["__bbox"]["result"]["data"]["node"]) {
+              done(result["__bbox"]["result"]["data"]["node"]);
+            } else {
+              if (result["__bbox"]["result"]["data"]["nodes"]) {
+                if (result["__bbox"]["result"]["data"]["nodes"]["length"] > 0) {
+                  done(result["__bbox"]["result"]["data"]["nodes"][0]);
+                }
+              }
+            }
+          }
+        }
+      }
+      S = elem["indexOf"]('[],["adp_CometGroupDiscussionRootSuccessQueryRelayPreloader_');
+      if (S >= 0) {
+        /** @type {RegExp} */
+        pseudos = /\[\],\[\"adp_CometGroupDiscussionRootSuccessQueryRelayPreloader_[a-z0-9]+\",(\{.*\})\]\]/g;
+        queue = pseudos["exec"](elem);
+        if (queue) {
+          result = JSON["parse"](func(queue[1]));
+          if (result) {
+            if (result["__bbox"]) {
+              if (result["__bbox"]["result"]) {
+                if (result["__bbox"]["result"]["data"]["node"]) {
+                  done(result["__bbox"]["result"]["data"]["node"]);
+                }
+              }
+            }
+          }
+        }
+      }
+    };
+    /**
+     * @return {?}
+     */
+    var next = function () {
+      var args = {
+        "feed": null,
+        "story": null,
+        "isPageDelegate": false
       };
       if (!e) {
-        if (window.document.scripts) {
-          for (var R in Object.keys(window.document.scripts)) {
-            var S = window.document.scripts[R];
-            if (S && S.tagName == "SCRIPT" && S.type == "application/json" && S.textContent) {
-              B(S.textContent, Q);
+        if (window["document"]["scripts"]) {
+          var unlock;
+          for (unlock in Object["keys"](window["document"]["scripts"])) {
+            var cache = window["document"]["scripts"][unlock];
+            if (cache) {
+              if (cache["tagName"] == "SCRIPT") {
+                if (cache["type"] == "application/json") {
+                  if (cache["textContent"]) {
+                    callback(cache["textContent"], args);
+                  }
+                }
+              }
             }
           }
         }
-        if (l.length > 0) {
-          l.forEach(function (W) {
-            B(W, Q);
+        if (x["length"] > 0) {
+          x["forEach"](function (chunk) {
+            callback(chunk, args);
           });
         }
+        /** @type {boolean} */
         e = true;
       }
-      if (Q.feed && Q.feed.__typename == "Group") {
-        window.IPO_Data.groups[Q.feed.id] = Q.feed;
-      }
-      if (window.IPO_Data && f.post_id && window.IPO_Data.stories[f.post_id]) {
-        Q.story = window.IPO_Data.stories[f.post_id];
-      }
-      if (Q.story && !Q.feed) {
-        var T = null;
-        if (Q.story.context_layout.story.comet_sections.title.story.comet_sections && Q.story.context_layout.story.comet_sections.title.story.comet_sections.action_link && Q.story.context_layout.story.comet_sections.title.story.comet_sections.action_link.group) {
-          T = Q.story.context_layout.story.comet_sections.title.story.comet_sections.action_link.group;
-          T.__typename = "Group";
-        } else if (Q.story.context_layout.story.comet_sections.title.story.to) {
-          T = Q.story.context_layout.story.comet_sections.title.story.to;
-        } else {
-          T = Q.story.context_layout.story.comet_sections.title.story.actors[0];
+      if (args["feed"]) {
+        if (args["feed"]["__typename"] == "Group") {
+          window["IPO_Data"]["groups"][args["feed"]["id"]] = args["feed"];
         }
-        if (T) {
-          console.log(T);
-          if (T.__typename == "User") {
-            if (window.IPO_Data && window.IPO_Data.users[T.id]) {
-              Q.feed = window.IPO_Data.users[T.id];
-            }
-          } else if (T.__typename == "Page") {
-            if (window.IPO_Data && window.IPO_Data.pages[T.id]) {
-              Q.feed = window.IPO_Data.pages[T.id];
-            }
-          } else if (T.__typename == "Group" && window.IPO_Data && window.IPO_Data.groups[T.id]) {
-            Q.feed = window.IPO_Data.groups[T.id];
+      }
+      if (window["IPO_Data"]) {
+        if (results["post_id"]) {
+          if (window["IPO_Data"]["stories"][results["post_id"]]) {
+            args["story"] = window["IPO_Data"]["stories"][results["post_id"]];
           }
-          if (!Q.feed) {
-            Q.feed = {
-              __typename: T.__typename,
-              id: T.id,
-              name: T.name
+        }
+      }
+      if (args["story"] && !args["feed"]) {
+        /** @type {null} */
+        var rowData = null;
+        if (args["story"]["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"] && (args["story"]["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]["action_link"] && args["story"]["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]["action_link"]["group"])) {
+          rowData = args["story"]["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]["action_link"]["group"];
+          /** @type {string} */
+          rowData["__typename"] = "Group";
+        } else {
+          if (args["story"]["context_layout"]["story"]["comet_sections"]["title"]["story"].to) {
+            rowData = args["story"]["context_layout"]["story"]["comet_sections"]["title"]["story"].to;
+          } else {
+            rowData = args["story"]["context_layout"]["story"]["comet_sections"]["title"]["story"]["actors"][0];
+          }
+        }
+        if (rowData) {
+          console["log"](rowData);
+          if (rowData["__typename"] == "User") {
+            if (window["IPO_Data"]) {
+              if (window["IPO_Data"]["users"][rowData["id"]]) {
+                args["feed"] = window["IPO_Data"]["users"][rowData["id"]];
+              }
+            }
+          } else {
+            if (rowData["__typename"] == "Page") {
+              if (window["IPO_Data"]) {
+                if (window["IPO_Data"]["pages"][rowData["id"]]) {
+                  args["feed"] = window["IPO_Data"]["pages"][rowData["id"]];
+                }
+              }
+            } else {
+              if (rowData["__typename"] == "Group") {
+                if (window["IPO_Data"]) {
+                  if (window["IPO_Data"]["groups"][rowData["id"]]) {
+                    args["feed"] = window["IPO_Data"]["groups"][rowData["id"]];
+                  }
+                }
+              }
+            }
+          }
+          if (!args["feed"]) {
+            args["feed"] = {
+              "__typename": rowData["__typename"],
+              "id": rowData["id"],
+              "name": rowData["name"]
             };
           }
         }
       }
-      if (Q.story) {
-        var U = Q.story;
-        var V = null;
-        if (U.context_layout.story.comet_sections && U.context_layout.story.comet_sections.action_link && U.context_layout.story.comet_sections.action_link.group) {
-          V = U.context_layout.story.comet_sections.action_link.group.id;
-        } else if (U.context_layout.story.comet_sections.title && U.context_layout.story.comet_sections.title.story && U.context_layout.story.comet_sections.title.story.comet_sections && U.context_layout.story.comet_sections.title.story.comet_sections.action_link && U.context_layout.story.comet_sections.title.story.comet_sections.action_link.group) {
-          V = U.context_layout.story.comet_sections.title.story.comet_sections.action_link.group.id;
-        }
-        if (V && (!Q.feed || Q.feed && Q.feed.id != V) && window.IPO_Data && window.IPO_Data.groups[V]) {
-          Q.feed = window.IPO_Data.groups[V];
-          console.log("use cache feed %o", Q.feed);
-        }
-      }
-      if (Q.story && Q.story.footer && Q.story.footer.story && Q.story.footer.story.delegate_page_id && Q.feed) {
-        Q.feed.id = Q.story.footer.story.delegate_page_id;
-        Q.feed.__typename = "Page";
-        Q.isPageDelegate = true;
-      }
-      return Q;
-    }
-    function D(Q) {
-      if (Q) {
-        var R = a[Q];
-        if (R) {
-          var S = "<div class=\"IPO_Container IPO_Query clearfix mt-1 ml-2\">";
-          S += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-          S += "<span class=\"ml-2 text-danger\">" + R + "</span>";
-          S += "<button class=\"btn btn-sm btn-danger ml-2\" id=\"iplusone-reload_" + config.version + "\">重新整理</button>";
-          S += "</div>";
-          q().prepend(S);
-        }
-        jQuery("div.IPO_Inject").remove();
-        P();
-      }
-    }
-    function E(Q) {
-      var R = null;
-      if (Q.feedback && Q.feedback.story && Q.feedback.story.feedback_context && Q.feedback.story.feedback_context.feedback_target_with_context && Q.feedback.story.feedback_context.feedback_target_with_context.subscription_target_id) {
-        R = Q.feedback.story.feedback_context.feedback_target_with_context.subscription_target_id;
-      }
-      var S = null;
-      if (Q.context_layout && Q.context_layout.story && Q.context_layout.story.id) {
-        S = atob(Q.context_layout.story.id);
-      } else if (Q.id) {
-        S = atob(Q.id);
-      }
-      var T = null;
-      var U = null;
-      var V = null;
-      T = /^S:_I\d+:(VK:)?(?<post_id>\d+)(:\d+)?$/g;
-      U = T.exec(S);
-      if (U) {
-        R = U.groups.post_id;
-      }
-      return R;
-    }
-    function F(Q) {
-      var R = null;
-      var S = null;
-      if (Q.feedback && Q.feedback.story && Q.feedback.story.url) {
-        S = Q.feedback.story.url;
-      } else if (Q.feedback && Q.feedback.story && Q.feedback.story.comet_feed_ufi_container && Q.feedback.story.comet_feed_ufi_container.story && Q.feedback.story.comet_feed_ufi_container.story.url) {
-        S = Q.feedback.story.comet_feed_ufi_container.story.url;
-      } else if (Q.feedback && Q.feedback.story && Q.feedback.story.comet_feed_ufi_container && Q.feedback.story.comet_feed_ufi_container.story && Q.feedback.story.comet_feed_ufi_container.story.story_ufi_container && Q.feedback.story.comet_feed_ufi_container.story.story_ufi_container.story && Q.feedback.story.comet_feed_ufi_container.story.story_ufi_container.story.url) {
-        S = Q.feedback.story.comet_feed_ufi_container.story.story_ufi_container.story.url;
-      } else if (Q.feedback && Q.feedback.story && Q.feedback.story.story_ufi_container && Q.feedback.story.story_ufi_container.story && Q.feedback.story.story_ufi_container.story.url) {
-        S = Q.feedback.story.story_ufi_container.story.url;
-      }
-      if (S) {
-        var T = /story_fbid=(?<post_fbid>pfbid[A-Za-z0-9]+)/g;
-        var U = T.exec(S);
-        if (U) {
-          R = U.groups.post_fbid;
+      if (args["story"]) {
+        var pageY = args["story"];
+        /** @type {null} */
+        var index = null;
+        if (pageY["context_layout"]["story"]["comet_sections"] && (pageY["context_layout"]["story"]["comet_sections"]["action_link"] && pageY["context_layout"]["story"]["comet_sections"]["action_link"]["group"])) {
+          index = pageY["context_layout"]["story"]["comet_sections"]["action_link"]["group"]["id"];
         } else {
-          T = /posts\/(?<post_fbid>pfbid[A-Za-z0-9]+)/g;
-          U = T.exec(S);
-          if (U) {
-            R = U.groups.post_fbid;
+          if (pageY["context_layout"]["story"]["comet_sections"]["title"]) {
+            if (pageY["context_layout"]["story"]["comet_sections"]["title"]["story"]) {
+              if (pageY["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]) {
+                if (pageY["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]["action_link"]) {
+                  if (pageY["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]["action_link"]["group"]) {
+                    index = pageY["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]["action_link"]["group"]["id"];
+                  }
+                }
+              }
+            }
+          }
+        }
+        if (index) {
+          if (!args["feed"] || args["feed"] && args["feed"]["id"] != index) {
+            if (window["IPO_Data"]) {
+              if (window["IPO_Data"]["groups"][index]) {
+                args["feed"] = window["IPO_Data"]["groups"][index];
+                console["log"]("use cache feed %o", args["feed"]);
+              }
+            }
           }
         }
       }
-      return R;
-    }
-    function G() {
-      var Q = C();
-      var R = Q.feed;
-      var S = Q.story;
-      var T = null;
-      console.log("isPageDelegate %o", Q.isPageDelegate);
-      console.log("feed %o", R);
-      console.log("story %o", S);
-      q().find(".IPO_Prepard").remove();
-      if (f.post_id && !S) {
-        D("NO_STORY");
+      return args["story"] && (args["story"]["footer"] && (args["story"]["footer"]["story"] && (args["story"]["footer"]["story"]["delegate_page_id"] && (args["feed"] && (args["feed"]["id"] = args["story"]["footer"]["story"]["delegate_page_id"], args["feed"]["__typename"] = "Page", args["isPageDelegate"] = true))))), args;
+    };
+    /**
+     * @param {string} key
+     * @return {undefined}
+     */
+    var parse = function (key) {
+      if (key) {
+        var value = $cookies[key];
+        if (value) {
+          /** @type {string} */
+          var r20 = '<div class="IPO_Container IPO_Query clearfix mt-1 ml-2">';
+          r20 += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+          r20 += '<span class="ml-2 text-danger">' + value + "</span>";
+          r20 += '<button class="btn btn-sm btn-danger ml-2" id="iplusone-reload_' + config["version"] + '">\u91cd\u65b0\u6574\u7406</button>';
+          r20 += "</div>";
+          remove()["prepend"](r20);
+        }
+        jQuery("div.IPO_Inject")["remove"]();
+        replace();
+      }
+    };
+    /**
+     * @param {Object} collection
+     * @return {?}
+     */
+    var error = function (collection) {
+      /** @type {null} */
+      var post_id = null;
+      if (collection["feedback"]) {
+        if (collection["feedback"]["story"]) {
+          if (collection["feedback"]["story"]["feedback_context"]) {
+            if (collection["feedback"]["story"]["feedback_context"]["feedback_target_with_context"]) {
+              if (collection["feedback"]["story"]["feedback_context"]["feedback_target_with_context"]["subscription_target_id"]) {
+                post_id = collection["feedback"]["story"]["feedback_context"]["feedback_target_with_context"]["subscription_target_id"];
+              }
+            }
+          }
+        }
+      }
+      /** @type {null} */
+      var cDigit = null;
+      if (collection["context_layout"] && (collection["context_layout"]["story"] && collection["context_layout"]["story"]["id"])) {
+        cDigit = atob(collection["context_layout"]["story"]["id"]);
+      } else {
+        if (collection["id"]) {
+          cDigit = atob(collection["id"]);
+        }
+      }
+      /** @type {null} */
+      var HEREGEX_OMIT = null;
+      /** @type {null} */
+      var nDigit = null;
+      /** @type {null} */
+      var V = null;
+      return HEREGEX_OMIT = /^S:_I\d+:(VK:)?(?<post_id>\d+)(:\d+)?$/g, nDigit = HEREGEX_OMIT["exec"](cDigit), nDigit && (post_id = nDigit["groups"]["post_id"]), post_id;
+    };
+    /**
+     * @param {Object} txt
+     * @return {?}
+     */
+    var log = function (txt) {
+      /** @type {null} */
+      var n = null;
+      /** @type {null} */
+      var value = null;
+      if (txt["feedback"] && (txt["feedback"]["story"] && txt["feedback"]["story"]["url"])) {
+        value = txt["feedback"]["story"]["url"];
+      } else {
+        if (txt["feedback"] && (txt["feedback"]["story"] && (txt["feedback"]["story"]["comet_feed_ufi_container"] && (txt["feedback"]["story"]["comet_feed_ufi_container"]["story"] && txt["feedback"]["story"]["comet_feed_ufi_container"]["story"]["url"])))) {
+          value = txt["feedback"]["story"]["comet_feed_ufi_container"]["story"]["url"];
+        } else {
+          if (txt["feedback"] && (txt["feedback"]["story"] && (txt["feedback"]["story"]["comet_feed_ufi_container"] && (txt["feedback"]["story"]["comet_feed_ufi_container"]["story"] && (txt["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"] && (txt["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]["story"] && txt["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]["story"]["url"])))))) {
+            value = txt["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]["story"]["url"];
+          } else {
+            if (txt["feedback"]) {
+              if (txt["feedback"]["story"]) {
+                if (txt["feedback"]["story"]["story_ufi_container"]) {
+                  if (txt["feedback"]["story"]["story_ufi_container"]["story"]) {
+                    if (txt["feedback"]["story"]["story_ufi_container"]["story"]["url"]) {
+                      value = txt["feedback"]["story"]["story_ufi_container"]["story"]["url"];
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      if (value) {
+        /** @type {RegExp} */
+        var splatParam = /story_fbid=(?<post_fbid>pfbid[A-Za-z0-9]+)/g;
+        var isFunction = splatParam["exec"](value);
+        if (isFunction) {
+          n = isFunction["groups"]["post_fbid"];
+        } else {
+          /** @type {RegExp} */
+          splatParam = /posts\/(?<post_fbid>pfbid[A-Za-z0-9]+)/g;
+          isFunction = splatParam["exec"](value);
+          if (isFunction) {
+            n = isFunction["groups"]["post_fbid"];
+          }
+        }
+      }
+      return n;
+    };
+    /**
+     * @return {undefined}
+     */
+    var init = function () {
+      var m = next();
+      var args = m["feed"];
+      var e = m["story"];
+      /** @type {null} */
+      var params = null;
+      console["log"]("isPageDelegate %o", m["isPageDelegate"]);
+      console["log"]("feed %o", args);
+      console["log"]("story %o", e);
+      remove()["find"](".IPO_Prepard")["remove"]();
+      if (results["post_id"] && !e) {
+        parse("NO_STORY");
         return;
       }
-      if (R && S) {
-        T = {};
-        if (!R.__typename && R.featurable_title && R.featurable_title.ranges) {
-          R.featurable_title.ranges.forEach(function (a5) {
-            if (a5.entity && a5.entity.__typename && a5.entity.id == R.id) {
-              R.__typename = a5.entity.__typename;
+      if (args && e) {
+        params = {};
+        if (!args["__typename"]) {
+          if (args["featurable_title"]) {
+            if (args["featurable_title"]["ranges"]) {
+              args["featurable_title"]["ranges"]["forEach"](function (entities) {
+                if (entities["entity"]) {
+                  if (entities["entity"]["__typename"]) {
+                    if (entities["entity"]["id"] == args["id"]) {
+                      args["__typename"] = entities["entity"]["__typename"];
+                    }
+                  }
+                }
+              });
             }
-          });
-        }
-        if (!R.name && R.featurable_title && R.featurable_title.text) {
-          R.name = R.featurable_title.text;
-        }
-        if ((!R.__typename || !R.name) && R.profile_header_renderer && R.profile_header_renderer.group && R.profile_header_renderer.group.id && R.profile_header_renderer.group.featurable_title) {
-          if (!R.name && R.profile_header_renderer.group.featurable_title.text) {
-            R.name = R.profile_header_renderer.group.featurable_title.text;
           }
-          if (!R.__typename) {
-            R.profile_header_renderer.group.featurable_title.ranges.forEach(function (a5) {
-              if (a5.entity && a5.entity.__typename && a5.entity.id == R.id) {
-                R.__typename = a5.entity.__typename;
+        }
+        if (!args["name"]) {
+          if (args["featurable_title"]) {
+            if (args["featurable_title"]["text"]) {
+              args["name"] = args["featurable_title"]["text"];
+            }
+          }
+        }
+        if (!args["__typename"] || !args["name"]) {
+          if (args["profile_header_renderer"]) {
+            if (args["profile_header_renderer"]["group"]) {
+              if (args["profile_header_renderer"]["group"]["id"]) {
+                if (args["profile_header_renderer"]["group"]["featurable_title"]) {
+                  if (!args["name"]) {
+                    if (args["profile_header_renderer"]["group"]["featurable_title"]["text"]) {
+                      args["name"] = args["profile_header_renderer"]["group"]["featurable_title"]["text"];
+                    }
+                  }
+                  if (!args["__typename"]) {
+                    args["profile_header_renderer"]["group"]["featurable_title"]["ranges"]["forEach"](function (entities) {
+                      if (entities["entity"]) {
+                        if (entities["entity"]["__typename"]) {
+                          if (entities["entity"]["id"] == args["id"]) {
+                            args["__typename"] = entities["entity"]["__typename"];
+                          }
+                        }
+                      }
+                    });
+                  }
+                }
               }
-            });
+            }
           }
         }
-        f.feed_info = R;
-        f.story_info = S;
-        var U = E(S);
-        var V = F(S);
-        var W = null;
-        console.log("body feed id: %s", R.id);
-        console.log("url post id: %s", f.post_id);
-        console.log("body post id: %s", U);
-        console.log("body post fbid: %s", V);
-        if (V == f.post_id) {
-          f.post_id = U;
+        results["feed_info"] = args;
+        results["story_info"] = e;
+        var key = error(e);
+        var coord = log(e);
+        /** @type {null} */
+        var linkTarget = null;
+        console["log"]("body feed id: %s", args["id"]);
+        console["log"]("url post id: %s", results["post_id"]);
+        console["log"]("body post id: %s", key);
+        console["log"]("body post fbid: %s", coord);
+        if (coord == results["post_id"]) {
+          results["post_id"] = key;
         }
-        if (U != f.post_id) {
-          if (S.content.story.attached_story) {
-            console.log("attached story");
-            console.log(S.content.story.attached_story);
-            jQuery("div.IPO_Inject").remove();
+        if (key != results["post_id"]) {
+          if (e["content"]["story"]["attached_story"]) {
+            console["log"]("attached story");
+            console["log"](e["content"]["story"]["attached_story"]);
+            jQuery("div.IPO_Inject")["remove"]();
           } else {
-            D("POST_ID_MISMATCH");
+            parse("POST_ID_MISMATCH");
           }
           return;
         }
-        console.log(R.__typename);
-        if (R.__typename == "Group") {
-          if (S.context_layout.story.comet_sections && S.context_layout.story.comet_sections.action_link && S.context_layout.story.comet_sections.action_link.group) {
-            W = S.context_layout.story.comet_sections.action_link.group.id;
-          } else if (S.context_layout.story.comet_sections.title && S.context_layout.story.comet_sections.title.story && S.context_layout.story.comet_sections.title.story.comet_sections && S.context_layout.story.comet_sections.title.story.comet_sections.action_link && S.context_layout.story.comet_sections.title.story.comet_sections.action_link.group) {
-            W = S.context_layout.story.comet_sections.title.story.comet_sections.action_link.group.id;
+        console["log"](args["__typename"]);
+        if (args["__typename"] == "Group") {
+          if (e["context_layout"]["story"]["comet_sections"] && (e["context_layout"]["story"]["comet_sections"]["action_link"] && e["context_layout"]["story"]["comet_sections"]["action_link"]["group"])) {
+            linkTarget = e["context_layout"]["story"]["comet_sections"]["action_link"]["group"]["id"];
+          } else {
+            if (e["context_layout"]["story"]["comet_sections"]["title"]) {
+              if (e["context_layout"]["story"]["comet_sections"]["title"]["story"]) {
+                if (e["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]) {
+                  if (e["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]["action_link"]) {
+                    if (e["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]["action_link"]["group"]) {
+                      linkTarget = e["context_layout"]["story"]["comet_sections"]["title"]["story"]["comet_sections"]["action_link"]["group"]["id"];
+                    }
+                  }
+                }
+              }
+            }
           }
-          if (W) {
-            console.log("body group id: %s", W);
-            if (W != R.id) {
-              var X = "^https:\\/\\/www\\.facebook\\.com\\/groups\\/[A-Za-z0-9\\._]+\\/(permalink|posts)\\/(?<post_id>\\d+)";
-              var Y = new RegExp(X);
-              if (Y.test(window.location.href)) {
-                console.log(window.location);
-                var Z = "/groups/" + W + "/permalink/" + U + window.location.search;
-                console.log(Z);
-                window.history.replaceState({}, null, Z);
-                D("RENAMED_GROUP_ID");
+          if (linkTarget) {
+            console["log"]("body group id: %s", linkTarget);
+            if (linkTarget != args["id"]) {
+              /** @type {string} */
+              var regexS = "^https:\\/\\/www\\.facebook\\.com\\/groups\\/[A-Za-z0-9\\._]+\\/(permalink|posts)\\/(?<post_id>\\d+)";
+              /** @type {RegExp} */
+              var regex = new RegExp(regexS);
+              if (regex["test"](window["location"]["href"])) {
+                console["log"](window["location"]);
+                var stringVersion = "/groups/" + linkTarget + "/permalink/" + key + window["location"]["search"];
+                console["log"](stringVersion);
+                window["history"]["replaceState"]({}, null, stringVersion);
+                parse("RENAMED_GROUP_ID");
                 return;
               }
             }
           }
         }
-        if (S.context_layout.story.comet_sections.timestamp) {
-          T.created_timestamp = S.context_layout.story.comet_sections.timestamp.story.creation_time;
-        } else if (S.context_layout.story.comet_sections.metadata) {
-          S.context_layout.story.comet_sections.metadata.forEach(function (a5) {
-            if ((a5.__typename == "CometFeedStoryTimestampStrategy" || a5.__typename == "CometFeedStoryMinimizedTimestampStrategy") && a5.story && a5.story.creation_time) {
-              T.created_timestamp = a5.story.creation_time;
-            }
-          });
-        }
-        T.created_time = new Date(T.created_timestamp * 1000).toISOString();
-        T.product_imgs = [];
-        T.comments = [];
-        T.total_comments = 0;
-        if (R.__typename == "Group") {
-          T.fb_feed_type = "group";
-        } else if (R.__typename == "Page") {
-          T.fb_feed_type = "page";
-        } else if (R.__typename == "User") {
-          T.fb_feed_type = "user";
+        if (e["context_layout"]["story"]["comet_sections"]["timestamp"]) {
+          params["created_timestamp"] = e["context_layout"]["story"]["comet_sections"]["timestamp"]["story"]["creation_time"];
         } else {
-          T.fb_feed_type = "unknow";
-        }
-        T.fb_feed_id = R.id;
-        T.fb_feed_title = R.name;
-        T.fb_post_id = R.id + "_" + U;
-        T.post_type = "normal";
-        T.message = "";
-        if (S.content.story.comet_sections.message) {
-          if (S.content.story.comet_sections.message.story && S.content.story.comet_sections.message.story.message && S.content.story.comet_sections.message.story.message.text) {
-            T.message = S.content.story.comet_sections.message.story.message.text;
-          } else if (S.content.story.comet_sections.message.rich_message) {
-            var a0 = [];
-            S.content.story.comet_sections.message.rich_message.forEach(function (a5) {
-              a0.push(a5.text);
+          if (e["context_layout"]["story"]["comet_sections"]["metadata"]) {
+            e["context_layout"]["story"]["comet_sections"]["metadata"]["forEach"](function (dataAndEvents) {
+              if (dataAndEvents["__typename"] == "CometFeedStoryTimestampStrategy" || dataAndEvents["__typename"] == "CometFeedStoryMinimizedTimestampStrategy") {
+                if (dataAndEvents["story"]) {
+                  if (dataAndEvents["story"]["creation_time"]) {
+                    params["created_timestamp"] = dataAndEvents["story"]["creation_time"];
+                  }
+                }
+              }
             });
-            T.message = a0.join("\n");
           }
         }
-        if (T.fb_feed_type == "group") {
-          var a1 = null;
-          if (S.feedback.story.comet_feed_ufi_container && S.feedback.story.comet_feed_ufi_container.story && S.feedback.story.comet_feed_ufi_container.story.feedback_context && S.feedback.story.comet_feed_ufi_container.story.feedback_context.feedback_target_with_context && S.feedback.story.comet_feed_ufi_container.story.feedback_context.feedback_target_with_context.ufi_renderer && S.feedback.story.comet_feed_ufi_container.story.feedback_context.feedback_target_with_context.ufi_renderer.feedback && S.feedback.story.comet_feed_ufi_container.story.feedback_context.feedback_target_with_context.ufi_renderer.feedback.comet_ufi_summary_and_actions_renderer && S.feedback.story.comet_feed_ufi_container.story.feedback_context.feedback_target_with_context.ufi_renderer.feedback.comet_ufi_summary_and_actions_renderer.feedback) {
-            a1 = S.feedback.story.comet_feed_ufi_container.story.feedback_context.feedback_target_with_context.ufi_renderer.feedback.comet_ufi_summary_and_actions_renderer.feedback;
-          }
-          if (!a1 && S.feedback.story.comet_feed_ufi_container && S.feedback.story.comet_feed_ufi_container.story && S.feedback.story.comet_feed_ufi_container.story.story_ufi_container && S.feedback.story.comet_feed_ufi_container.story.story_ufi_container.story && S.feedback.story.comet_feed_ufi_container.story.story_ufi_container.story.feedback_context && S.feedback.story.comet_feed_ufi_container.story.story_ufi_container.story.feedback_context.feedback_target_with_context && S.feedback.story.comet_feed_ufi_container.story.story_ufi_container.story.feedback_context.feedback_target_with_context.comment_list_renderer && S.feedback.story.comet_feed_ufi_container.story.story_ufi_container.story.feedback_context.feedback_target_with_context.comment_list_renderer.feedback) {
-            a1 = S.feedback.story.comet_feed_ufi_container.story.story_ufi_container.story.feedback_context.feedback_target_with_context.comment_list_renderer.feedback;
-          }
-          if (a1 && a1.comment_rendering_instance && a1.comment_rendering_instance.comments) {
-            var a2 = a1.comment_rendering_instance.comments;
-            if (a2.total_count) {
-              T.total_comments = a2.total_count;
+        params["created_time"] = (new Date(params["created_timestamp"] * 1E3))["toISOString"]();
+        /** @type {Array} */
+        params["product_imgs"] = [];
+        /** @type {Array} */
+        params["comments"] = [];
+        /** @type {number} */
+        params["total_comments"] = 0;
+        if (args["__typename"] == "Group") {
+          /** @type {string} */
+          params["fb_feed_type"] = "group";
+        } else {
+          if (args["__typename"] == "Page") {
+            /** @type {string} */
+            params["fb_feed_type"] = "page";
+          } else {
+            if (args["__typename"] == "User") {
+              /** @type {string} */
+              params["fb_feed_type"] = "user";
+            } else {
+              /** @type {string} */
+              params["fb_feed_type"] = "unknow";
             }
           }
-          if (a1 && a1.comment_rendering_instance_for_feed_location && a1.comment_rendering_instance_for_feed_location.comments) {
-            var a2 = a1.comment_rendering_instance_for_feed_location.comments;
-            if (a2.edges) {
-              if (!window.IPO_Data.comemntsContainer) {
-                window.IPO_Data.comemntsContainer = {};
-              }
-              if (!window.IPO_Data.comemntsContainer[f.post_id]) {
-                window.IPO_Data.comemntsContainer[f.post_id] = [];
-              }
-              a2.edges.forEach(function (a5) {
-                if (a5.node) {
-                  var a6 = null;
-                  var a7 = "";
-                  var a8 = [];
-                  if (a5.node.author.__typename == "User") {
-                    a6 = "user";
-                  } else if (a5.node.author.__typename == "Page") {
-                    a6 = "page";
-                  }
-                  if (a5.node.body && a5.node.body.text) {
-                    a7 = a5.node.body.text;
-                  } else {
-                    a7 = "";
-                  }
-                  if (a5.node.body && a5.node.body.ranges) {
-                    a5.node.body.ranges.forEach(function (aa) {
-                      var ab = a5.node.body.text.substring(aa.offset, aa.offset + aa.length);
-                      if (aa.entity.__typename == "User") {
-                        a6 = "user";
-                      } else if (aa.entity.__typename == "Page") {
-                        a6 = "page";
+        }
+        params["fb_feed_id"] = args["id"];
+        params["fb_feed_title"] = args["name"];
+        params["fb_post_id"] = args["id"] + "_" + key;
+        /** @type {string} */
+        params["post_type"] = "normal";
+        /** @type {string} */
+        params["message"] = "";
+        if (e["content"]["story"]["comet_sections"]["message"]) {
+          if (e["content"]["story"]["comet_sections"]["message"]["story"] && (e["content"]["story"]["comet_sections"]["message"]["story"]["message"] && e["content"]["story"]["comet_sections"]["message"]["story"]["message"]["text"])) {
+            params["message"] = e["content"]["story"]["comet_sections"]["message"]["story"]["message"]["text"];
+          } else {
+            if (e["content"]["story"]["comet_sections"]["message"]["rich_message"]) {
+              /** @type {Array} */
+              var clrs = [];
+              e["content"]["story"]["comet_sections"]["message"]["rich_message"]["forEach"](function (outObj) {
+                clrs["push"](outObj["text"]);
+              });
+              params["message"] = clrs["join"]("\n");
+            }
+          }
+        }
+        if (params["fb_feed_type"] == "group") {
+          /** @type {null} */
+          var comments = null;
+          if (e["feedback"]["story"]["comet_feed_ufi_container"]) {
+            if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]) {
+              if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["feedback_context"]) {
+                if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]) {
+                  if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]["ufi_renderer"]) {
+                    if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]["ufi_renderer"]["feedback"]) {
+                      if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]["ufi_renderer"]["feedback"]["comet_ufi_summary_and_actions_renderer"]) {
+                        if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]["ufi_renderer"]["feedback"]["comet_ufi_summary_and_actions_renderer"]["feedback"]) {
+                          comments = e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]["ufi_renderer"]["feedback"]["comet_ufi_summary_and_actions_renderer"]["feedback"];
+                        }
                       }
-                      var ac = {
-                        profile_id: aa.entity.id,
-                        type: a6,
-                        name: ab
-                      };
-                      a8.push(ac);
+                    }
+                  }
+                }
+              }
+            }
+          }
+          if (!comments) {
+            if (e["feedback"]["story"]["comet_feed_ufi_container"]) {
+              if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]) {
+                if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]) {
+                  if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]["story"]) {
+                    if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]["story"]["feedback_context"]) {
+                      if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]) {
+                        if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]["comment_list_renderer"]) {
+                          if (e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]["comment_list_renderer"]["feedback"]) {
+                            comments = e["feedback"]["story"]["comet_feed_ufi_container"]["story"]["story_ufi_container"]["story"]["feedback_context"]["feedback_target_with_context"]["comment_list_renderer"]["feedback"];
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          if (comments && (comments["comment_rendering_instance"] && comments["comment_rendering_instance"]["comments"])) {
+            var mods = comments["comment_rendering_instance"]["comments"];
+            if (mods["total_count"]) {
+              params["total_comments"] = mods["total_count"];
+            }
+          }
+          if (comments && (comments["comment_rendering_instance_for_feed_location"] && comments["comment_rendering_instance_for_feed_location"]["comments"])) {
+            mods = comments["comment_rendering_instance_for_feed_location"]["comments"];
+            if (mods["edges"]) {
+              if (!window["IPO_Data"]["comemntsContainer"]) {
+                window["IPO_Data"]["comemntsContainer"] = {};
+              }
+              if (!window["IPO_Data"]["comemntsContainer"][results["post_id"]]) {
+                /** @type {Array} */
+                window["IPO_Data"]["comemntsContainer"][results["post_id"]] = [];
+              }
+              mods["edges"]["forEach"](function (pair) {
+                if (pair["node"]) {
+                  /** @type {null} */
+                  var type = null;
+                  /** @type {string} */
+                  var output = "";
+                  /** @type {Array} */
+                  var paths = [];
+                  if (pair["node"]["author"]["__typename"] == "User") {
+                    /** @type {string} */
+                    type = "user";
+                  } else {
+                    if (pair["node"]["author"]["__typename"] == "Page") {
+                      /** @type {string} */
+                      type = "page";
+                    }
+                  }
+                  if (pair["node"]["body"] && pair["node"]["body"]["text"]) {
+                    output = pair["node"]["body"]["text"];
+                  } else {
+                    /** @type {string} */
+                    output = "";
+                  }
+                  if (pair["node"]["body"]) {
+                    if (pair["node"]["body"]["ranges"]) {
+                      pair["node"]["body"]["ranges"]["forEach"](function (result) {
+                        var errorName = pair["node"]["body"]["text"]["substring"](result["offset"], result["offset"] + result["length"]);
+                        if (result["entity"]["__typename"] == "User") {
+                          /** @type {string} */
+                          type = "user";
+                        } else {
+                          if (result["entity"]["__typename"] == "Page") {
+                            /** @type {string} */
+                            type = "page";
+                          }
+                        }
+                        var args = {
+                          "profile_id": result["entity"]["id"],
+                          "type": type,
+                          "name": errorName
+                        };
+                        paths["push"](args);
+                      });
+                    }
+                  }
+                  var defaults = {
+                    "id": pair["node"]["legacy_token"],
+                    "message": output,
+                    "from": {
+                      "name": pair["node"]["author"]["name"],
+                      "profile_id": pair["node"]["author"]["id"],
+                      "type": type
+                    },
+                    "created_timestamp": pair["node"]["created_time"],
+                    "message_tags": paths
+                  };
+                  window["IPO_Data"]["comemntsContainer"][results["post_id"]]["push"](defaults);
+                }
+              });
+            }
+            window["IPO_Data"]["comemntsContainerCount"] = window["IPO_Data"]["comemntsContainer"][results["post_id"]]["length"];
+          }
+        }
+        if (e["context_layout"]["story"]["actors"] && e["context_layout"]["story"]["actors"]["length"] > 0) {
+          params["user_profile_id"] = e["context_layout"]["story"]["actors"][0]["id"];
+          params["user_profile_type"] = e["context_layout"]["story"]["actors"][0]["__typename"];
+        } else {
+          if (e["context_layout"]["story"]["comet_sections"]["title"] && (e["context_layout"]["story"]["comet_sections"]["title"]["story"] && (e["context_layout"]["story"]["comet_sections"]["title"]["story"]["actors"] && e["context_layout"]["story"]["comet_sections"]["title"]["story"]["actors"]["length"] > 0))) {
+            params["user_profile_id"] = e["context_layout"]["story"]["comet_sections"]["title"]["story"]["actors"][0]["id"];
+            params["user_profile_type"] = e["context_layout"]["story"]["comet_sections"]["title"]["story"]["actors"][0]["__typename"];
+          } else {
+            if (m["isPageDelegate"]) {
+              params["user_profile_id"] = args["id"];
+              params["user_profile_type"] = args["__typename"];
+            }
+          }
+        }
+        if (e["content"]["story"]["attachments"]) {
+          e["content"]["story"]["attachments"]["forEach"](function (override) {
+            if (override["styles"]["__typename"] == "StoryAttachmentGroupSellProductItemStyleRenderer") {
+              var storedName = override["styles"]["attachment"]["title_with_entities"]["text"]["trim"]();
+              /** @type {string} */
+              var expires = "";
+              /** @type {string} */
+              var optsData = "";
+              /** @type {string} */
+              params["post_type"] = "sale";
+              override["styles"]["attachment"]["properties"]["forEach"](function (obj) {
+                if (obj["key"] == "price") {
+                  expires = obj["value"]["text"]["trim"]();
+                }
+                if (obj["key"] == "description") {
+                  optsData = obj["value"]["text"]["trim"]();
+                }
+              });
+              params["message"] = storedName + "\n" + expires + "\n\n" + optsData;
+            } else {
+              if (override["styles"]["__typename"] == "StoryAttachmentAlbumStyleRenderer" || (override["styles"]["__typename"] == "StoryAttachmentVideoStyleRenderer" || (override["styles"]["__typename"] == "StoryAttachmentPhotoStyleRenderer" || (override["styles"]["__typename"] == "StoryAttachmentProfileMediaStyleRenderer" || (override["styles"]["__typename"] == "StoryAttachmentAlbumSaleItemStyleRenderer" || override["styles"]["__typename"] == "StoryAttachmentCommerceAttachmentStyleRenderer"))))) {
+                if (override["styles"]["__typename"] == "StoryAttachmentCommerceAttachmentStyleRenderer") {
+                  storedName = override["styles"]["attachment"]["title_with_entities"]["text"]["trim"]();
+                  /** @type {string} */
+                  expires = "";
+                  /** @type {string} */
+                  params["post_type"] = "sale";
+                  if (override["styles"]["attachment"]["target"]) {
+                    if (override["styles"]["attachment"]["target"]["formatted_price"]) {
+                      expires = override["styles"]["attachment"]["target"]["formatted_price"]["text"]["trim"]();
+                    }
+                  }
+                  params["message"] = storedName + "\n" + expires + "\n\n" + params["message"];
+                }
+                if (override["styles"]["attachment"]["media"]) {
+                  var value = override["styles"]["attachment"]["media"];
+                  if (value["__typename"] == "Photo" || value["__typename"] == "Video") {
+                    params["product_imgs"]["push"](translate(value));
+                  }
+                }
+                if (override["styles"]["attachment"]["all_subattachments"]) {
+                  if (override["styles"]["attachment"]["all_subattachments"]["nodes"]) {
+                    override["styles"]["attachment"]["all_subattachments"]["nodes"]["forEach"](function (mediaMap) {
+                      if (mediaMap["media"]) {
+                        if (mediaMap["media"]["__typename"] == "Photo" || mediaMap["media"]["__typename"] == "Video") {
+                          params["product_imgs"]["push"](translate(mediaMap["media"]));
+                        }
+                      }
                     });
                   }
-                  var a9 = {
-                    id: a5.node.legacy_token,
-                    message: a7,
-                    from: {
-                      name: a5.node.author.name,
-                      profile_id: a5.node.author.id,
-                      type: a6
-                    },
-                    created_timestamp: a5.node.created_time,
-                    message_tags: a8
-                  };
-                  window.IPO_Data.comemntsContainer[f.post_id].push(a9);
                 }
-              });
-            }
-            window.IPO_Data.comemntsContainerCount = window.IPO_Data.comemntsContainer[f.post_id].length;
-          }
-        }
-        if (S.context_layout.story.actors && S.context_layout.story.actors.length > 0) {
-          T.user_profile_id = S.context_layout.story.actors[0].id;
-          T.user_profile_type = S.context_layout.story.actors[0].__typename;
-        } else if (S.context_layout.story.comet_sections.title && S.context_layout.story.comet_sections.title.story && S.context_layout.story.comet_sections.title.story.actors && S.context_layout.story.comet_sections.title.story.actors.length > 0) {
-          T.user_profile_id = S.context_layout.story.comet_sections.title.story.actors[0].id;
-          T.user_profile_type = S.context_layout.story.comet_sections.title.story.actors[0].__typename;
-        } else if (Q.isPageDelegate) {
-          T.user_profile_id = R.id;
-          T.user_profile_type = R.__typename;
-        }
-        if (S.content.story.attachments) {
-          S.content.story.attachments.forEach(function (a5) {
-            if (a5.styles.__typename == "StoryAttachmentGroupSellProductItemStyleRenderer") {
-              var a6 = a5.styles.attachment.title_with_entities.text.trim();
-              var a7 = "";
-              var a8 = "";
-              T.post_type = "sale";
-              a5.styles.attachment.properties.forEach(function (ac) {
-                if (ac.key == "price") {
-                  a7 = ac.value.text.trim();
-                }
-                if (ac.key == "description") {
-                  a8 = ac.value.text.trim();
-                }
-              });
-              T.message = a6 + "\n" + a7 + `
-
-` + a8;
-            } else if (a5.styles.__typename == "StoryAttachmentAlbumStyleRenderer" || a5.styles.__typename == "StoryAttachmentVideoStyleRenderer" || a5.styles.__typename == "StoryAttachmentPhotoStyleRenderer" || a5.styles.__typename == "StoryAttachmentProfileMediaStyleRenderer" || a5.styles.__typename == "StoryAttachmentAlbumSaleItemStyleRenderer" || a5.styles.__typename == "StoryAttachmentCommerceAttachmentStyleRenderer") {
-              if (a5.styles.__typename == "StoryAttachmentCommerceAttachmentStyleRenderer") {
-                var a6 = a5.styles.attachment.title_with_entities.text.trim();
-                var a7 = "";
-                T.post_type = "sale";
-                if (a5.styles.attachment.target && a5.styles.attachment.target.formatted_price) {
-                  a7 = a5.styles.attachment.target.formatted_price.text.trim();
-                }
-                T.message = a6 + "\n" + a7 + `
-
-` + T.message;
-              }
-              if (a5.styles.attachment.media) {
-                var a9 = a5.styles.attachment.media;
-                if (a9.__typename == "Photo" || a9.__typename == "Video") {
-                  T.product_imgs.push(z(a9));
-                }
-              }
-              if (a5.styles.attachment.all_subattachments && a5.styles.attachment.all_subattachments.nodes) {
-                a5.styles.attachment.all_subattachments.nodes.forEach(function (ac) {
-                  if (ac.media && (ac.media.__typename == "Photo" || ac.media.__typename == "Video")) {
-                    T.product_imgs.push(z(ac.media));
+              } else {
+                if (override["styles"]["__typename"] == "StoryAttachmentAlbumFrameStyleRenderer") {
+                  var attachments = override["styles"]["attachment"];
+                  /** @type {null} */
+                  var forEach = null;
+                  if (attachments) {
+                    if (attachments["five_photos_subattachments"] && attachments["five_photos_subattachments"]["nodes"]) {
+                      forEach = attachments["five_photos_subattachments"]["nodes"];
+                    } else {
+                      if (attachments["four_photos_subattachments"] && attachments["four_photos_subattachments"]["nodes"]) {
+                        forEach = attachments["four_photos_subattachments"]["nodes"];
+                      } else {
+                        if (attachments["three_photos_subattachments"] && attachments["three_photos_subattachments"]["nodes"]) {
+                          forEach = attachments["three_photos_subattachments"]["nodes"];
+                        } else {
+                          if (attachments["two_photos_subattachments"]) {
+                            if (attachments["two_photos_subattachments"]["nodes"]) {
+                              forEach = attachments["two_photos_subattachments"]["nodes"];
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
-                });
-              }
-            } else if (a5.styles.__typename == "StoryAttachmentAlbumFrameStyleRenderer") {
-              var aa = a5.styles.attachment;
-              var ab = null;
-              if (aa) {
-                if (aa.five_photos_subattachments && aa.five_photos_subattachments.nodes) {
-                  ab = aa.five_photos_subattachments.nodes;
-                } else if (aa.four_photos_subattachments && aa.four_photos_subattachments.nodes) {
-                  ab = aa.four_photos_subattachments.nodes;
-                } else if (aa.three_photos_subattachments && aa.three_photos_subattachments.nodes) {
-                  ab = aa.three_photos_subattachments.nodes;
-                } else if (aa.two_photos_subattachments && aa.two_photos_subattachments.nodes) {
-                  ab = aa.two_photos_subattachments.nodes;
-                }
-              }
-              if (ab) {
-                ab.forEach(function (ac) {
-                  var ad = ac.media;
-                  if (ad && (ad.__typename == "Photo" || ad.__typename == "Video")) {
-                    T.product_imgs.push(z(ad));
+                  if (forEach) {
+                    forEach["forEach"](function ($cookies) {
+                      var value = $cookies["media"];
+                      if (value) {
+                        if (value["__typename"] == "Photo" || value["__typename"] == "Video") {
+                          params["product_imgs"]["push"](translate(value));
+                        }
+                      }
+                    });
                   }
-                });
+                }
               }
             }
           });
         }
-        console.log(T);
-        f.post_info = T;
+        console["log"](params);
+        results["post_info"] = params;
       }
-      if (T) {
-        var a3 = q().find(".IPO_Query");
-        if (a3.length == 0) {
-          var a4 = "<div class=\"IPO_Query clearfix mt-1 ml-2\">";
-          a4 += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-          a4 += "<span class=\"ml-2\">Checking...</span>";
-          a4 += "</div>";
-          q().prepend(a4);
+      if (params) {
+        var result = remove()["find"](".IPO_Query");
+        if (result["length"] == 0) {
+          /** @type {string} */
+          var r20 = '<div class="IPO_Query clearfix mt-1 ml-2">';
+          r20 += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+          r20 += '<span class="ml-2">Checking...</span>';
+          r20 += "</div>";
+          remove()["prepend"](r20);
         }
-        g.postMessage({
-          operation: "checkReactFacebookPostInfo",
-          post_info: T
+        self["postMessage"]({
+          "operation": "checkReactFacebookPostInfo",
+          "post_info": params
         });
       } else {
-        jQuery("div.IPO_Inject").remove();
-        P();
+        jQuery("div.IPO_Inject")["remove"]();
+        replace();
       }
-    }
-    function H() {
-      q().find(".IPO_Loading").remove();
-    }
-    function I() {
-      var Q = null;
-      var R = null;
-      var S = 1;
-      var T = p();
-      T.find("ul").each(function (U, V) {
-        var W = y(V);
-        if (W && W.return && W.return.pendingProps.commentsListRenderProps && W.return.pendingProps.commentsListRenderProps.listState) {
-          R = W.return.pendingProps.commentsListRenderProps;
-          Q = V;
-          S = 1;
-        } else if (W && W.return && W.return.return && W.return.return.pendingProps.commentsListRenderProps && W.return.return.pendingProps.commentsListRenderProps.listState) {
-          R = W.return.return.pendingProps.commentsListRenderProps;
-          Q = V;
-          S = 1;
+    };
+    /**
+     * @return {undefined}
+     */
+    var removeClass = function () {
+      remove()["find"](".IPO_Loading")["remove"]();
+    };
+    /**
+     * @return {?}
+     */
+    var create = function () {
+      /** @type {null} */
+      var error = null;
+      /** @type {null} */
+      var comments_info = null;
+      /** @type {number} */
+      var comments_type = 1;
+      var err = check();
+      return err["find"]("ul")["each"](function (dataAndEvents, err) {
+        var ret = cb(err);
+        if (ret && (ret["return"] && (ret["return"]["pendingProps"]["commentsListRenderProps"] && ret["return"]["pendingProps"]["commentsListRenderProps"]["listState"]))) {
+          comments_info = ret["return"]["pendingProps"]["commentsListRenderProps"];
+          error = err;
+          /** @type {number} */
+          comments_type = 1;
+        } else {
+          if (ret) {
+            if (ret["return"]) {
+              if (ret["return"]["return"]) {
+                if (ret["return"]["return"]["pendingProps"]["commentsListRenderProps"]) {
+                  if (ret["return"]["return"]["pendingProps"]["commentsListRenderProps"]["listState"]) {
+                    comments_info = ret["return"]["return"]["pendingProps"]["commentsListRenderProps"];
+                    error = err;
+                    /** @type {number} */
+                    comments_type = 1;
+                  }
+                }
+              }
+            }
+          }
         }
-      });
-      if (S == 1 && (!Q || !R)) {
-        T.find("div.html-div.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1gslohp").each(function (U, V) {
-          Q = V;
-          S = 2;
-        });
-      }
-      if (S == 1 && (!Q || !R)) {
-        T.find("div.x1pi30zi.x1swvt13.x1n2onr6 > div.x1gslohp").each(function (U, V) {
-          Q = V;
-          S = 2;
-        });
-      }
-      return {
-        story_container: T,
-        comments_type: S,
-        comments_container: Q,
-        comments_info: R
+      }), comments_type == 1 && ((!error || !comments_info) && err["find"]("div.html-div.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1gslohp")["each"](function (dataAndEvents, err) {
+        /** @type {(Date|string)} */
+        error = err;
+        /** @type {number} */
+        comments_type = 2;
+      })), comments_type == 1 && ((!error || !comments_info) && err["find"]("div.x1pi30zi.x1swvt13.x1n2onr6 > div.x1gslohp")["each"](function (dataAndEvents, err) {
+        /** @type {(Date|string)} */
+        error = err;
+        /** @type {number} */
+        comments_type = 2;
+      })), {
+        "story_container": err,
+        "comments_type": comments_type,
+        "comments_container": error,
+        "comments_info": comments_info
       };
-    }
-    function J(Q, R) {
-      if (R == 1) {
-        var S = jQuery();
-        if (S.length == 0) {
-          S = Q.find("div.x6s0dn4.x78zum5.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xe0p6wg span");
+    };
+    /**
+     * @param {Object} arg
+     * @param {number} format
+     * @return {undefined}
+     */
+    var fn = function (arg, format) {
+      if (format == 1) {
+        var elements = jQuery();
+        if (elements["length"] == 0) {
+          elements = arg["find"]("div.x6s0dn4.x78zum5.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xe0p6wg span");
         }
-        if (S.length > 0) {
-          S.click();
-          s(function () {
-            var U = -1;
-            var V = jQuery();
-            if (V.length == 0) {
-              V = jQuery("div.x1n2onr6.x1fqp7bg[role=\"menu\"]");
+        if (elements["length"] > 0) {
+          elements["click"]();
+          $(function () {
+            /** @type {number} */
+            var text = -1;
+            var p = jQuery();
+            if (p["length"] == 0) {
+              p = jQuery('div.x1n2onr6.x1fqp7bg[role="menu"]');
             }
-            if (V.length == 0) {
-              V = jQuery("div.x1n2onr6.xcxhlts[role=\"menu\"]");
+            if (p["length"] == 0) {
+              p = jQuery('div.x1n2onr6.xcxhlts[role="menu"]');
             }
-            if (V.length == 0) {
-              s(K, 1000);
+            if (p["length"] == 0) {
+              $(start, 1E3);
               return;
             }
-            var W = y(V.get(0));
-            var X = null;
-            if (W && W.child && W.child.pendingProps && W.child.pendingProps.children && W.child.pendingProps.children.props && W.child.pendingProps.children.props.children) {
-              console.log(W.child.pendingProps.children.props.children);
-              if (jQuery.isArray(W.child.pendingProps.children.props.children)) {
-                X = W.child.pendingProps.children.props.children;
-              } else if (jQuery.isArray(W.child.pendingProps.children.props.children.props.children)) {
-                X = W.child.pendingProps.children.props.children.props.children;
+            var keepChildren = cb(p["get"](0));
+            /** @type {null} */
+            var forEach = null;
+            if (keepChildren && (keepChildren["child"] && (keepChildren["child"]["pendingProps"] && (keepChildren["child"]["pendingProps"]["children"] && (keepChildren["child"]["pendingProps"]["children"]["props"] && keepChildren["child"]["pendingProps"]["children"]["props"]["children"]))))) {
+              console["log"](keepChildren["child"]["pendingProps"]["children"]["props"]["children"]);
+              if (jQuery["isArray"](keepChildren["child"]["pendingProps"]["children"]["props"]["children"])) {
+                forEach = keepChildren["child"]["pendingProps"]["children"]["props"]["children"];
+              } else {
+                if (jQuery["isArray"](keepChildren["child"]["pendingProps"]["children"]["props"]["children"]["props"]["children"])) {
+                  forEach = keepChildren["child"]["pendingProps"]["children"]["props"]["children"]["props"]["children"];
+                }
               }
-              if (X) {
-                X.forEach(function (Z, a0) {
-                  console.log(Z);
-                  if (Z.key == "RANKED_UNFILTERED") {
-                    U = a0;
-                  } else if (Z.key == "TOPLEVEL") {
-                    U = a0;
-                  } else if (Z.key == "RECENT_ACTIVITY") {
-                    U = a0;
+              if (forEach) {
+                forEach["forEach"](function (message, textAlt) {
+                  console["log"](message);
+                  if (message["key"] == "RANKED_UNFILTERED") {
+                    /** @type {number} */
+                    text = textAlt;
+                  } else {
+                    if (message["key"] == "TOPLEVEL") {
+                      /** @type {number} */
+                      text = textAlt;
+                    } else {
+                      if (message["key"] == "RECENT_ACTIVITY") {
+                        /** @type {number} */
+                        text = textAlt;
+                      }
+                    }
                   }
                 });
               }
             }
-            console.log("menuitem idx: " + U);
+            console["log"]("menuitem idx: " + text);
+            /** @type {boolean} */
             var Y = false;
-            V.find("div[role=\"menuitem\"]").each(function (Z, a0) {
+            p["find"]('div[role="menuitem"]')["each"](function (type, option) {
               if (Y) {
                 return;
               }
-              if (U != -1) {
-                if (Z == U) {
-                  a0.click();
+              if (text != -1) {
+                if (type == text) {
+                  option["click"]();
+                  /** @type {boolean} */
                   Y = true;
-                  s(K, 1000);
+                  $(start, 1E3);
                 }
               } else {
-                var a1 = jQuery(a0).find("span:first").text();
-                console.log(a1);
-                if (a1 == "所有回應" || a1 == "所有留言" || a1 == "All comments") {
-                  a0.click();
+                var message = jQuery(option)["find"]("span:first")["text"]();
+                console["log"](message);
+                if (message == "\u6240\u6709\u56de\u61c9" || (message == "\u6240\u6709\u7559\u8a00" || message == "All comments")) {
+                  option["click"]();
+                  /** @type {boolean} */
                   Y = true;
-                  s(K, 1000);
+                  $(start, 1E3);
                 }
               }
             });
           }, 100);
-          N();
+          reset();
         } else {
-          s(K, 1000);
+          $(start, 1E3);
         }
-      } else if (R == 2) {
-        var S = jQuery();
-        if (S.length == 0) {
-          S = Q.find("div.x6s0dn4.x78zum5.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xe0p6wg > div > span");
-        }
-        var T = S.text().trim();
-        if (S.length > 0 && !(T == "所有回應" || T == "所有留言" || T == "從舊到新" || T == "All comments")) {
-          S.click();
-          s(function () {
-            var U = -1;
-            var V = jQuery();
-            if (V.length == 0) {
-              V = jQuery("div.x1n2onr6.x1fqp7bg[role=\"menu\"]");
-            }
-            if (V.length == 0) {
-              V = jQuery("div.x1n2onr6.xcxhlts[role=\"menu\"]");
-            }
-            if (V.length == 0) {
-              s(K, 1000);
-              return;
-            }
-            var W = false;
-            V.find("div[role=\"menuitem\"]").each(function (X, Y) {
-              if (W) {
+      } else {
+        if (format == 2) {
+          elements = jQuery();
+          if (elements["length"] == 0) {
+            elements = arg["find"]("div.x6s0dn4.x78zum5.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xe0p6wg > div > span");
+          }
+          var cz = elements["text"]()["trim"]();
+          if (elements["length"] > 0 && !(cz == "\u6240\u6709\u56de\u61c9" || (cz == "\u6240\u6709\u7559\u8a00" || (cz == "\u5f9e\u820a\u5230\u65b0" || cz == "All comments")))) {
+            elements["click"]();
+            $(function () {
+              /** @type {number} */
+              var U = -1;
+              var elements = jQuery();
+              if (elements["length"] == 0) {
+                elements = jQuery('div.x1n2onr6.x1fqp7bg[role="menu"]');
+              }
+              if (elements["length"] == 0) {
+                elements = jQuery('div.x1n2onr6.xcxhlts[role="menu"]');
+              }
+              if (elements["length"] == 0) {
+                $(start, 1E3);
                 return;
               }
-              var Z = jQuery(Y).find("span:first").text().trim();
-              console.log(Z);
-              if (Z == "所有回應" || Z == "所有留言" || Z == "從舊到新" || Z == "All comments") {
-                Y.click();
-                W = true;
-                s(K, 1000);
-              }
-            });
-          }, 100);
-          N();
-        } else {
-          s(K, 1000);
+              /** @type {boolean} */
+              var W = false;
+              elements["find"]('div[role="menuitem"]')["each"](function (dataAndEvents, option) {
+                if (W) {
+                  return;
+                }
+                var message = jQuery(option)["find"]("span:first")["text"]()["trim"]();
+                console["log"](message);
+                if (message == "\u6240\u6709\u56de\u61c9" || (message == "\u6240\u6709\u7559\u8a00" || (message == "\u5f9e\u820a\u5230\u65b0" || message == "All comments"))) {
+                  option["click"]();
+                  /** @type {boolean} */
+                  W = true;
+                  $(start, 1E3);
+                }
+              });
+            }, 100);
+            reset();
+          } else {
+            $(start, 1E3);
+          }
         }
       }
-    }
-    function K() {
-      var Q = q().find(".IPO_Loading");
-      if (Q.length == 0) {
-        var R = "<div class=\"IPO_Loading clearfix mt-1 ml-2\">";
-        R += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-        R += "<span class=\"ml-2\">載入留言中...<span id=\"IPO_Loading_Text\"></span></span>";
-        R += "</div>";
-        q().find(".IPO_Container").after(R);
+    };
+    /**
+     * @return {undefined}
+     */
+    var start = function () {
+      var result = remove()["find"](".IPO_Loading");
+      if (result["length"] == 0) {
+        /** @type {string} */
+        var r20 = '<div class="IPO_Loading clearfix mt-1 ml-2">';
+        r20 += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+        r20 += '<span class="ml-2">\u8f09\u5165\u7559\u8a00\u4e2d...<span id="IPO_Loading_Text"></span></span>';
+        r20 += "</div>";
+        remove()["find"](".IPO_Container")["after"](r20);
       } else {
-        var S = Q.find("#IPO_Loading_Text");
-        S.text(S.text() + ".");
+        var last = result["find"]("#IPO_Loading_Text");
+        last["text"](last["text"]() + ".");
       }
-      var T = I();
-      var U = T.story_container;
-      var V = T.comments_container;
-      var W = T.comments_info;
-      var X = T.comments_type;
-      if (!U || !V) {
-        console.log("no story_container");
+      var m = create();
+      var e = m["story_container"];
+      var scripts = m["comments_container"];
+      var args = m["comments_info"];
+      var format = m["comments_type"];
+      if (!e || !scripts) {
+        console["log"]("no story_container");
         h++;
         if (h < 5) {
-          if (U) {
-            J(U, X);
+          if (e) {
+            fn(e, format);
           } else {
-            s(K, 1000);
-            N();
+            $(start, 1E3);
+            reset();
           }
         } else {
-          H();
-          P();
+          removeClass();
+          replace();
         }
         return;
       }
-      if (X == 1) {
-        if (W) {
-          console.log(W.viewOption);
-          if (W.viewOption != "RANKED_UNFILTERED" && W.viewOption != "TOPLEVEL" && W.viewOption != "RECENT_ACTIVITY") {
-            var Y = jQuery();
-            if (Y.length == 0) {
-              Y = U.find("div.x6s0dn4.x78zum5.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xe0p6wg span");
+      if (format == 1) {
+        if (args) {
+          console["log"](args["viewOption"]);
+          if (args["viewOption"] != "RANKED_UNFILTERED" && (args["viewOption"] != "TOPLEVEL" && args["viewOption"] != "RECENT_ACTIVITY")) {
+            var elements = jQuery();
+            if (elements["length"] == 0) {
+              elements = e["find"]("div.x6s0dn4.x78zum5.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xe0p6wg span");
             }
-            if (Y.length > 0) {
-              Y.click();
-              s(function () {
-                var a3 = -1;
-                var a4 = jQuery();
-                if (a4.length == 0) {
-                  a4 = jQuery("div.x1n2onr6.x1fqp7bg[role=\"menu\"]");
+            if (elements["length"] > 0) {
+              elements["click"]();
+              $(function () {
+                /** @type {number} */
+                var text = -1;
+                var p = jQuery();
+                if (p["length"] == 0) {
+                  p = jQuery('div.x1n2onr6.x1fqp7bg[role="menu"]');
                 }
-                if (a4.length == 0) {
-                  a4 = jQuery("div.x1n2onr6.xcxhlts[role=\"menu\"]");
+                if (p["length"] == 0) {
+                  p = jQuery('div.x1n2onr6.xcxhlts[role="menu"]');
                 }
-                if (a4.length == 0) {
-                  s(K, 1000);
+                if (p["length"] == 0) {
+                  $(start, 1E3);
                   return;
                 }
-                var a5 = y(a4.get(0));
-                var a6 = null;
-                if (a5 && a5.child && a5.child.pendingProps && a5.child.pendingProps.children && a5.child.pendingProps.children.props && a5.child.pendingProps.children.props.children) {
-                  console.log(a5.child.pendingProps.children.props.children);
-                  if (jQuery.isArray(a5.child.pendingProps.children.props.children)) {
-                    a6 = a5.child.pendingProps.children.props.children;
-                  } else if (jQuery.isArray(a5.child.pendingProps.children.props.children.props.children)) {
-                    a6 = a5.child.pendingProps.children.props.children.props.children;
+                var keepChildren = cb(p["get"](0));
+                /** @type {null} */
+                var forEach = null;
+                if (keepChildren && (keepChildren["child"] && (keepChildren["child"]["pendingProps"] && (keepChildren["child"]["pendingProps"]["children"] && (keepChildren["child"]["pendingProps"]["children"]["props"] && keepChildren["child"]["pendingProps"]["children"]["props"]["children"]))))) {
+                  console["log"](keepChildren["child"]["pendingProps"]["children"]["props"]["children"]);
+                  if (jQuery["isArray"](keepChildren["child"]["pendingProps"]["children"]["props"]["children"])) {
+                    forEach = keepChildren["child"]["pendingProps"]["children"]["props"]["children"];
+                  } else {
+                    if (jQuery["isArray"](keepChildren["child"]["pendingProps"]["children"]["props"]["children"]["props"]["children"])) {
+                      forEach = keepChildren["child"]["pendingProps"]["children"]["props"]["children"]["props"]["children"];
+                    }
                   }
-                  if (a6) {
-                    a6.forEach(function (a8, a9) {
-                      console.log(a8);
-                      if (a8.key == "RANKED_UNFILTERED") {
-                        a3 = a9;
-                      } else if (a8.key == "TOPLEVEL") {
-                        a3 = a9;
-                      } else if (a8.key == "RECENT_ACTIVITY") {
-                        a3 = a9;
+                  if (forEach) {
+                    forEach["forEach"](function (message, textAlt) {
+                      console["log"](message);
+                      if (message["key"] == "RANKED_UNFILTERED") {
+                        /** @type {number} */
+                        text = textAlt;
+                      } else {
+                        if (message["key"] == "TOPLEVEL") {
+                          /** @type {number} */
+                          text = textAlt;
+                        } else {
+                          if (message["key"] == "RECENT_ACTIVITY") {
+                            /** @type {number} */
+                            text = textAlt;
+                          }
+                        }
                       }
                     });
                   }
                 }
-                console.log("menuitem idx: " + a3);
+                console["log"]("menuitem idx: " + text);
+                /** @type {boolean} */
                 var a7 = false;
-                a4.find("div[role=\"menuitem\"]").each(function (a8, a9) {
+                p["find"]('div[role="menuitem"]')["each"](function (type, option) {
                   if (a7) {
                     return;
                   }
-                  if (a3 != -1) {
-                    if (a8 == a3) {
-                      a9.click();
+                  if (text != -1) {
+                    if (type == text) {
+                      option["click"]();
+                      /** @type {boolean} */
                       a7 = true;
-                      s(K, 1000);
+                      $(start, 1E3);
                     }
                   } else {
-                    var aa = jQuery(a9).find("span:first").text();
-                    console.log(aa);
-                    if (aa == "所有回應" || aa == "所有留言" || aa == "All comments") {
-                      a9.click();
+                    var message = jQuery(option)["find"]("span:first")["text"]();
+                    console["log"](message);
+                    if (message == "\u6240\u6709\u56de\u61c9" || (message == "\u6240\u6709\u7559\u8a00" || message == "All comments")) {
+                      option["click"]();
+                      /** @type {boolean} */
                       a7 = true;
-                      s(K, 1000);
+                      $(start, 1E3);
                     }
                   }
                 });
               }, 100);
-              N();
+              reset();
               return;
             }
           }
-          if (W.listState.pagers.backward || W.listState.pagers.forward) {
-            var Z = jQuery();
-            if (Z.length == 0) {
-              Z = U.find("div.x78zum5.x1iyjqo2.x21xpn4.x1n2onr6 span.x78zum5.x1w0mnb.xeuugli");
+          if (args["listState"]["pagers"]["backward"] || args["listState"]["pagers"]["forward"]) {
+            var src = jQuery();
+            if (src["length"] == 0) {
+              src = e["find"]("div.x78zum5.x1iyjqo2.x21xpn4.x1n2onr6 span.x78zum5.x1w0mnb.xeuugli");
             }
-            Z.each(function (a3, a4) {
-              var a5 = jQuery(a4).text();
-              var a6 = ["^檢視另 *d+ *則留言$", "^查看更多留言$", "^顯示先前的留言$", "^查看另 *d+ *則留言$", "^檢視另 *d+ *則回答$", "^查看更多回答$", "^顯示先前的回答$", "^查看先前的回答$", "^查看另 *d+ *則回答$", "^查看 *d+ *則先前的留言$", "^查看 *d+ *個之前的答案$"];
-              var a7 = [];
-              a6.forEach(function (a8) {
-                a7.push(new RegExp(a8));
+            src["each"](function (dataAndEvents, option) {
+              var escapes = jQuery(option)["text"]();
+              /** @type {Array} */
+              var forEach = ["^\u6aa2\u8996\u53e6 *d+ *\u5247\u7559\u8a00$", "^\u67e5\u770b\u66f4\u591a\u7559\u8a00$", "^\u986f\u793a\u5148\u524d\u7684\u7559\u8a00$", "^\u67e5\u770b\u53e6 *d+ *\u5247\u7559\u8a00$", "^\u6aa2\u8996\u53e6 *d+ *\u5247\u56de\u7b54$", "^\u67e5\u770b\u66f4\u591a\u56de\u7b54$", "^\u986f\u793a\u5148\u524d\u7684\u56de\u7b54$", "^\u67e5\u770b\u5148\u524d\u7684\u56de\u7b54$", "^\u67e5\u770b\u53e6 *d+ *\u5247\u56de\u7b54$", "^\u67e5\u770b *d+ *\u5247\u5148\u524d\u7684\u7559\u8a00$",
+                "^\u67e5\u770b *d+ *\u500b\u4e4b\u524d\u7684\u7b54\u6848$"];
+              /** @type {Array} */
+              var paths = [];
+              forEach["forEach"](function (punctuation) {
+                paths["push"](new RegExp(punctuation));
               });
-              a7.forEach(function (a8) {
-                var a9 = a5.match(a8);
-                if (a9) {
-                  N();
-                  a4.click();
+              paths["forEach"](function (owner) {
+                var unlock = escapes["match"](owner);
+                if (unlock) {
+                  reset();
+                  option["click"]();
                 }
               });
             });
-            s(K, 1000);
+            $(start, 1E3);
           } else {
-            console.log("comments count: " + Object.keys(W.listState.commentsByID).length);
-            s(M, 100);
+            console["log"]("comments count: " + Object["keys"](args["listState"]["commentsByID"])["length"]);
+            $(render, 100);
           }
-        }
-      } else if (X == 2) {
-        var Y = jQuery();
-        if (Y.length == 0) {
-          Y = U.find("div.x6s0dn4.x78zum5.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xe0p6wg > div > span");
-        }
-        var a0 = Y.text().trim();
-        if (Y.length > 0 && !(a0 == "所有回應" || a0 == "所有留言" || a0 == "從舊到新" || a0 == "All comments")) {
-          Y.click();
-          s(function () {
-            var a3 = -1;
-            var a4 = jQuery();
-            if (a4.length == 0) {
-              a4 = jQuery("div.x1n2onr6.x1fqp7bg[role=\"menu\"]");
-            }
-            if (a4.length == 0) {
-              a4 = jQuery("div.x1n2onr6.xcxhlts[role=\"menu\"]");
-            }
-            if (a4.length == 0) {
-              s(K, 1000);
-              return;
-            }
-            var a5 = false;
-            a4.find("div[role=\"menuitem\"]").each(function (a6, a7) {
-              if (a5) {
-                return;
-              }
-              var a8 = jQuery(a7).find("span:first").text().trim();
-              console.log(a8);
-              if (a8 == "所有回應" || a8 == "所有留言" || a8 == "從舊到新" || a8 == "All comments") {
-                a7.click();
-                a5 = true;
-                s(K, 1000);
-              }
-            });
-          }, 100);
-          N();
-        } else if (!window.IPO_Data.comemntsContainer && window.IPO_Data.updateCount < 2) {
-          window.IPO_Data.updateCount += 1;
-          s(K, 1000);
-          N();
-        } else if (window.IPO_Data.comemntsContainer && !window.IPO_Data.comemntsContainer[f.post_id] && window.IPO_Data.updateCount < 2) {
-          window.IPO_Data.updateCount += 1;
-          s(K, 1000);
-          N();
-        } else if (window.IPO_Data.comemntsContainer && window.IPO_Data.comemntsContainer[f.post_id] && (window.IPO_Data.comemntsContainer[f.post_id].length != window.IPO_Data.comemntsContainerCount || window.IPO_Data.updateCount < 2)) {
-          if (window.IPO_Data.comemntsContainer[f.post_id].length != window.IPO_Data.comemntsContainerCount) {
-            window.IPO_Data.comemntsContainerCount = window.IPO_Data.comemntsContainer[f.post_id].length;
-            var a1 = false;
-            var a2 = jQuery(V).find("> div.x78zum5.x13a6bvl > div.x1iyjqo2 div[role=\"button\"]");
-            if (a2.length > 0) {
-              if (a2.find("div[role=\"status\"]").length > 0) {
-                s(K, 100);
-              } else {
-                a2.each(function (a3, a4) {
-                  if (a1) {
-                    return;
-                  }
-                  a4.click();
-                  window.IPO_Data.updateCount = 0;
-                  s(K, 1000);
-                });
-              }
-            } else {
-              L(U);
-              s(K, 1000);
-            }
-            N();
-          } else {
-            window.IPO_Data.updateCount += 1;
-            L(U);
-            s(K, 1000);
-            N();
-          }
-        } else {
-          var a1 = false;
-          var a2 = jQuery(V).find("> div.x78zum5.x13a6bvl > div.x1iyjqo2 div[role=\"button\"]");
-          if (a2.length > 0) {
-            if (a2.find("div[role=\"status\"]").length > 0) {
-              s(K, 100);
-            } else {
-              a2.each(function (a3, a4) {
-                if (a1) {
-                  return;
-                }
-                a4.click();
-                window.IPO_Data.updateCount = 0;
-                s(K, 1000);
-              });
-            }
-          } else {
-            L(U);
-            s(M, 100);
-          }
-          N();
         }
       } else {
-        H();
-        P();
-      }
-    }
-    function L(Q) {
-      var R = Q.find("div.x78zum5.xdt5ytf.x1iyjqo2.x1n2onr6.xaci4zi.x129vozr");
-      if (R.length > 0) {
-        var S = R.get(0).scrollHeight;
-        R.parent().get(0).scrollTo(0, S);
-      }
-    }
-    function M() {
-      H();
-      var emjoiRanges = ["[-]", "�[�-�]", "�[�-�]", "�[�-�]", "�[�-�]"];
-      var Q = I();
-      var R = Q.comments_container;
-      var S = Q.comments_type;
-      var T = 0;
-      var U = 0;
-      var V = 0;
-      if (S == 1) {
-        jQuery(R).children("li").each(function (a7, a8) {
-          V++;
-          var a9 = jQuery(a8).find("div.x1ye3gou.xwib8y2.xn6708d.x1y1aw1k").get(0);
-          if (!a9) {
-            U++;
-            return;
+        if (format == 2) {
+          elements = jQuery();
+          if (elements["length"] == 0) {
+            elements = e["find"]("div.x6s0dn4.x78zum5.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xe0p6wg > div > span");
           }
-          var aa = y(a8).child.pendingProps;
-          var ab = jQuery(a9).find("div.x1iorvi4.xjkvuk6.x1lliihq div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x1vvkbs").get(0);
-          var ac = null;
-          if (ab) {
-            var ad = y(ab);
-            if (ad) {
-              ac = ad.return.pendingProps;
+          var cz = elements["text"]()["trim"]();
+          if (elements["length"] > 0 && !(cz == "\u6240\u6709\u56de\u61c9" || (cz == "\u6240\u6709\u7559\u8a00" || (cz == "\u5f9e\u820a\u5230\u65b0" || cz == "All comments")))) {
+            elements["click"]();
+            $(function () {
+              /** @type {number} */
+              var a3 = -1;
+              var elements = jQuery();
+              if (elements["length"] == 0) {
+                elements = jQuery('div.x1n2onr6.x1fqp7bg[role="menu"]');
+              }
+              if (elements["length"] == 0) {
+                elements = jQuery('div.x1n2onr6.xcxhlts[role="menu"]');
+              }
+              if (elements["length"] == 0) {
+                $(start, 1E3);
+                return;
+              }
+              /** @type {boolean} */
+              var a5 = false;
+              elements["find"]('div[role="menuitem"]')["each"](function (dataAndEvents, option) {
+                if (a5) {
+                  return;
+                }
+                var message = jQuery(option)["find"]("span:first")["text"]()["trim"]();
+                console["log"](message);
+                if (message == "\u6240\u6709\u56de\u61c9" || (message == "\u6240\u6709\u7559\u8a00" || (message == "\u5f9e\u820a\u5230\u65b0" || message == "All comments"))) {
+                  option["click"]();
+                  /** @type {boolean} */
+                  a5 = true;
+                  $(start, 1E3);
+                }
+              });
+            }, 100);
+            reset();
+          } else {
+            if (!window["IPO_Data"]["comemntsContainer"] && window["IPO_Data"]["updateCount"] < 2) {
+              window["IPO_Data"]["updateCount"] += 1;
+              $(start, 1E3);
+              reset();
+            } else {
+              if (window["IPO_Data"]["comemntsContainer"] && (!window["IPO_Data"]["comemntsContainer"][results["post_id"]] && window["IPO_Data"]["updateCount"] < 2)) {
+                window["IPO_Data"]["updateCount"] += 1;
+                $(start, 1E3);
+                reset();
+              } else {
+                if (window["IPO_Data"]["comemntsContainer"] && (window["IPO_Data"]["comemntsContainer"][results["post_id"]] && (window["IPO_Data"]["comemntsContainer"][results["post_id"]]["length"] != window["IPO_Data"]["comemntsContainerCount"] || window["IPO_Data"]["updateCount"] < 2))) {
+                  if (window["IPO_Data"]["comemntsContainer"][results["post_id"]]["length"] != window["IPO_Data"]["comemntsContainerCount"]) {
+                    window["IPO_Data"]["comemntsContainerCount"] = window["IPO_Data"]["comemntsContainer"][results["post_id"]]["length"];
+                    /** @type {boolean} */
+                    var a1 = false;
+                    var p = jQuery(scripts)["find"]('> div.x78zum5.x13a6bvl > div.x1iyjqo2 div[role="button"]');
+                    if (p["length"] > 0) {
+                      if (p["find"]('div[role="status"]')["length"] > 0) {
+                        $(start, 100);
+                      } else {
+                        p["each"](function (dataAndEvents, evts) {
+                          if (a1) {
+                            return;
+                          }
+                          evts["click"]();
+                          /** @type {number} */
+                          window["IPO_Data"]["updateCount"] = 0;
+                          $(start, 1E3);
+                        });
+                      }
+                    } else {
+                      find(e);
+                      $(start, 1E3);
+                    }
+                    reset();
+                  } else {
+                    window["IPO_Data"]["updateCount"] += 1;
+                    find(e);
+                    $(start, 1E3);
+                    reset();
+                  }
+                } else {
+                  /** @type {boolean} */
+                  a1 = false;
+                  p = jQuery(scripts)["find"]('> div.x78zum5.x13a6bvl > div.x1iyjqo2 div[role="button"]');
+                  if (p["length"] > 0) {
+                    if (p["find"]('div[role="status"]')["length"] > 0) {
+                      $(start, 100);
+                    } else {
+                      p["each"](function (dataAndEvents, evts) {
+                        if (a1) {
+                          return;
+                        }
+                        evts["click"]();
+                        /** @type {number} */
+                        window["IPO_Data"]["updateCount"] = 0;
+                        $(start, 1E3);
+                      });
+                    }
+                  } else {
+                    find(e);
+                    $(render, 100);
+                  }
+                  reset();
+                }
+              }
             }
           }
-          var ae = {};
-          var af = y(jQuery(a9).parent().get(0));
-          var ag = null;
-          if (af && af.return.pendingProps.comment) {
-            ag = af.return.pendingProps.comment;
-          }
-          if (!ag) {
-            U++;
+        } else {
+          removeClass();
+          replace();
+        }
+      }
+    };
+    /**
+     * @param {Object} what
+     * @return {undefined}
+     */
+    var find = function (what) {
+      var p = what["find"]("div.x78zum5.xdt5ytf.x1iyjqo2.x1n2onr6.xaci4zi.x129vozr");
+      if (p["length"] > 0) {
+        var r20 = p["get"](0)["scrollHeight"];
+        p["parent"]()["get"](0)["scrollTo"](0, r20);
+      }
+    };
+    /**
+     * @return {undefined}
+     */
+    var render = function () {
+      removeClass();
+      /** @type {Array} */
+      var dashes = ["[\ue000-\uf8ff]", "\ud83c[\udc00-\udfff]", "\ud83d[\udc00-\ude4f]", "\ud83d[\ude80-\udeff]", "\ud83e[\udd10-\uddff]"];
+      var m = create();
+      var scripts = m["comments_container"];
+      var formula = m["comments_type"];
+      /** @type {number} */
+      var T = 0;
+      /** @type {number} */
+      var i = 0;
+      /** @type {number} */
+      var last = 0;
+      if (formula == 1) {
+        jQuery(scripts)["children"]("li")["each"](function (dataAndEvents, r) {
+          last++;
+          var scripts = jQuery(r)["find"]("div.x1ye3gou.xwib8y2.xn6708d.x1y1aw1k")["get"](0);
+          if (!scripts) {
+            i++;
             return;
           }
-          var ah = ag.legacy_fbid;
-          var ai = atob(ag.id);
-          var aj = /:([0-9_]+)$/g;
-          var ak = aj.exec(ai);
-          if (!ak) {
-            U++;
+          var c = cb(r)["child"]["pendingProps"];
+          var e = jQuery(scripts)["find"]("div.x1iorvi4.xjkvuk6.x1lliihq div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x1vvkbs")["get"](0);
+          /** @type {null} */
+          var value = null;
+          if (e) {
+            var ret = cb(e);
+            if (ret) {
+              value = ret["return"]["pendingProps"];
+            }
+          }
+          var obj = {};
+          var future = cb(jQuery(scripts)["parent"]()["get"](0));
+          /** @type {null} */
+          var values = null;
+          if (future) {
+            if (future["return"]["pendingProps"]["comment"]) {
+              values = future["return"]["pendingProps"]["comment"];
+            }
+          }
+          if (!values) {
+            i++;
             return;
           }
-          ae.id = ak[1];
-          if (aa.comment && aa.comment.created_time) {
-            ae.created_timestamp = aa.comment.created_time;
-          } else if (ag.created_time) {
-            ae.created_timestamp = ag.created_time;
+          var uid = values["legacy_fbid"];
+          var byteString = atob(values["id"]);
+          /** @type {RegExp} */
+          var r20 = /:([0-9_]+)$/g;
+          var def = r20["exec"](byteString);
+          if (!def) {
+            i++;
+            return;
+          }
+          obj["id"] = def[1];
+          if (c["comment"] && c["comment"]["created_time"]) {
+            obj["created_timestamp"] = c["comment"]["created_time"];
           } else {
-            U++;
-            return;
+            if (values["created_time"]) {
+              obj["created_timestamp"] = values["created_time"];
+            } else {
+              i++;
+              return;
+            }
           }
-          ae.created_time = new Date(ae.created_timestamp * 1000).toISOString();
-          if (ag.preferred_body && ag.preferred_body.text != undefined) {
-            ae.message = ag.preferred_body.text;
-          } else if (ac && ac.text != undefined) {
-            ae.message = ac.text;
-          } else if (ag.attachments && ag.attachments.length > 0) {
-            ae.message = "";
+          obj["created_time"] = (new Date(obj["created_timestamp"] * 1E3))["toISOString"]();
+          if (values["preferred_body"] && values["preferred_body"]["text"] != undefined) {
+            obj["message"] = values["preferred_body"]["text"];
           } else {
-            U++;
-            return;
-          }
-          ae.from = {};
-          ae.from.profile_id = ag.author.id;
-          ae.from.name = ag.author.name;
-          ae.message_tags = [];
-          var al = y(ab);
-          if (al && al.return.pendingProps.ranges) {
-            var am = al.return.pendingProps.text.replace(new RegExp(emjoiRanges.join("|"), "g"), " ");
-            al.return.pendingProps.ranges.forEach(function (an) {
-              var ao = am.substring(an.offset, an.offset + an.length);
-              if (ao.indexOf("http") !== -1 && ao.indexOf("facebook.com") !== -1) {
+            if (value && value["text"] != undefined) {
+              obj["message"] = value["text"];
+            } else {
+              if (values["attachments"] && values["attachments"]["length"] > 0) {
+                /** @type {string} */
+                obj["message"] = "";
+              } else {
+                i++;
                 return;
               }
-              if (!an.entity) {
+            }
+          }
+          obj["from"] = {};
+          obj["from"]["profile_id"] = values["author"]["id"];
+          obj["from"]["name"] = values["author"]["name"];
+          /** @type {Array} */
+          obj["message_tags"] = [];
+          var res = cb(e);
+          if (res && res["return"]["pendingProps"]["ranges"]) {
+            var location = res["return"]["pendingProps"]["text"]["replace"](new RegExp(dashes["join"]("|"), "g"), " ");
+            res["return"]["pendingProps"]["ranges"]["forEach"](function (result) {
+              var fn = location["substring"](result["offset"], result["offset"] + result["length"]);
+              if (fn["indexOf"]("http") !== -1 && fn["indexOf"]("facebook.com") !== -1) {
                 return;
               }
-              if (an.entity.__typename == "User") {
-                var ap = {
-                  profile_id: an.entity.id,
-                  type: "user",
-                  name: ao
-                };
-                ae.message_tags.push(ap);
-              } else if (an.entity.__typename == "Page") {
-                var ap = {
-                  profile_id: an.entity.id,
-                  type: "page",
-                  name: ao
-                };
-                ae.message_tags.push(ap);
+              if (!result["entity"]) {
+                return;
+              }
+              if (result["entity"]["__typename"] == "User") {
+                var params = {};
+                params["profile_id"] = result["entity"]["id"];
+                /** @type {string} */
+                params["type"] = "user";
+                params["name"] = fn;
+                obj["message_tags"]["push"](params);
+              } else {
+                if (result["entity"]["__typename"] == "Page") {
+                  params = {};
+                  params["profile_id"] = result["entity"]["id"];
+                  /** @type {string} */
+                  params["type"] = "page";
+                  params["name"] = fn;
+                  obj["message_tags"]["push"](params);
+                }
               }
             });
           }
-          f.post_info.comments.push(ae);
-          if (f.post_snapshot_info.comments[ah]) {
-            jQuery(a9).append("<div class=\"IPO_Container IPO_Comment_Status\"><span class=\"badge badge-pill badge-success ml-2\">✔️ 已匯入</span></div>");
+          results["post_info"]["comments"]["push"](obj);
+          if (results["post_snapshot_info"]["comments"][uid]) {
+            jQuery(scripts)["append"]('<div class="IPO_Container IPO_Comment_Status"><span class="badge badge-pill badge-success ml-2">\u2714\ufe0f \u5df2\u532f\u5165</span></div>');
           } else {
-            jQuery(a9).append("<div class=\"IPO_Container IPO_Comment_Status\"><span class=\"badge badge-pill badge-info ml-2\">➕ 新留言，上傳系統中</span></div>");
+            jQuery(scripts)["append"]('<div class="IPO_Container IPO_Comment_Status"><span class="badge badge-pill badge-info ml-2">\u2795 \u65b0\u7559\u8a00\uff0c\u4e0a\u50b3\u7cfb\u7d71\u4e2d</span></div>');
             T++;
           }
         });
-      } else if (S == 2) {
-        var W = jQuery();
-        if (W.length == 0) {
-          W = jQuery(R).find("> div.x78zum5.xdt5ytf > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x169t7cy.x19f6ikt > div.x1n2onr6");
-        }
-        if (W.length == 0) {
-          W = jQuery(R).find("> div > div.x169t7cy.x19f6ikt > div.html-div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1n2onr6");
-        }
-        if (W.length == 0) {
-          W = jQuery(R).find("> div > div.x169t7cy.x19f6ikt > div.x1n2onr6.x1swvt13.x1iorvi4.x78zum5.x1q0g3np.x1a2a7pz");
-        }
-        if (W.length == 0) {
-          W = jQuery(R).find("> div > div.x169t7cy.x19f6ikt > div.x1n2onr6.x1ye3gou.x1iorvi4.x78zum5.x1q0g3np.x1a2a7pz");
-        }
-        if (W.length == 0) {
-          W = jQuery(R).find("> div > div.x16hk5td.x12rz0ws > div.html-div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1n2onr6");
-        }
-        if (W.length == 0) {
-          W = jQuery(R).find("> div > div.x16hk5td.x12rz0ws > div.x1n2onr6.x1swvt13.x1iorvi4.x78zum5.x1q0g3np.x1a2a7pz");
-        }
-        if (W.length == 0) {
-          W = jQuery(R).find("> div > div.x16hk5td.x12rz0ws > div.x1n2onr6.x1ye3gou.x1iorvi4.x78zum5.x1q0g3np.x1a2a7pz");
-        }
-        W.each(function (a7, a8) {
-          var a9 = {
-            id: null,
-            message: null,
-            from: null,
-            message_tags: []
-          };
-          var aa = jQuery(a8).find("> div[role=\"article\"]");
-          if (aa.length == 0) {
-            aa = jQuery(a8);
+      } else {
+        if (formula == 2) {
+          var p = jQuery();
+          if (p["length"] == 0) {
+            p = jQuery(scripts)["find"]("> div.x78zum5.xdt5ytf > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x169t7cy.x19f6ikt > div.x1n2onr6");
           }
-          var ab = aa.find("div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x1vvkbs");
-          if (ab.length > 0) {
-            var ac = y(ab.get(0));
-            if (ac && ac.return && ac.return.pendingProps) {
-              if (ac.return.pendingProps.text) {
-                a9.message = ac.return.pendingProps.text;
-                if (ac.return.pendingProps.ranges) {
-                  var ad = ac.return.pendingProps.text.replace(new RegExp(emjoiRanges.join("|"), "g"), " ");
-                  ac.return.pendingProps.ranges.forEach(function (ak) {
-                    var al = ad.substring(ak.offset, ak.offset + ak.length);
-                    if (al.indexOf("http") !== -1 && al.indexOf("facebook.com") !== -1) {
-                      return;
-                    }
-                    if (!ak.entity) {
-                      return;
-                    }
-                    if (ak.entity.__typename == "User") {
-                      var am = {
-                        profile_id: ak.entity.id,
-                        type: "user",
-                        name: al
-                      };
-                      a9.message_tags.push(am);
-                    } else if (ak.entity.__typename == "Page") {
-                      var am = {
-                        profile_id: ak.entity.id,
-                        type: "page",
-                        name: al
-                      };
-                      a9.message_tags.push(am);
-                    }
-                  });
+          if (p["length"] == 0) {
+            p = jQuery(scripts)["find"]("> div > div.x169t7cy.x19f6ikt > div.html-div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1n2onr6");
+          }
+          if (p["length"] == 0) {
+            p = jQuery(scripts)["find"]("> div > div.x169t7cy.x19f6ikt > div.x1n2onr6.x1swvt13.x1iorvi4.x78zum5.x1q0g3np.x1a2a7pz");
+          }
+          if (p["length"] == 0) {
+            p = jQuery(scripts)["find"]("> div > div.x169t7cy.x19f6ikt > div.x1n2onr6.x1ye3gou.x1iorvi4.x78zum5.x1q0g3np.x1a2a7pz");
+          }
+          if (p["length"] == 0) {
+            p = jQuery(scripts)["find"]("> div > div.x16hk5td.x12rz0ws > div.html-div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1n2onr6");
+          }
+          if (p["length"] == 0) {
+            p = jQuery(scripts)["find"]("> div > div.x16hk5td.x12rz0ws > div.x1n2onr6.x1swvt13.x1iorvi4.x78zum5.x1q0g3np.x1a2a7pz");
+          }
+          if (p["length"] == 0) {
+            p = jQuery(scripts)["find"]("> div > div.x16hk5td.x12rz0ws > div.x1n2onr6.x1ye3gou.x1iorvi4.x78zum5.x1q0g3np.x1a2a7pz");
+          }
+          p["each"](function (dataAndEvents, parent) {
+            var data = {
+              "id": null,
+              "message": null,
+              "from": null,
+              "message_tags": []
+            };
+            var obj = jQuery(parent)["find"]('> div[role="article"]');
+            if (obj["length"] == 0) {
+              obj = jQuery(parent);
+            }
+            var p = obj["find"]("div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x1vvkbs");
+            if (p["length"] > 0) {
+              var ret = cb(p["get"](0));
+              if (ret && (ret["return"] && ret["return"]["pendingProps"])) {
+                if (ret["return"]["pendingProps"]["text"]) {
+                  data["message"] = ret["return"]["pendingProps"]["text"];
+                  if (ret["return"]["pendingProps"]["ranges"]) {
+                    var location = ret["return"]["pendingProps"]["text"]["replace"](new RegExp(dashes["join"]("|"), "g"), " ");
+                    ret["return"]["pendingProps"]["ranges"]["forEach"](function (result) {
+                      var fn = location["substring"](result["offset"], result["offset"] + result["length"]);
+                      if (fn["indexOf"]("http") !== -1 && fn["indexOf"]("facebook.com") !== -1) {
+                        return;
+                      }
+                      if (!result["entity"]) {
+                        return;
+                      }
+                      if (result["entity"]["__typename"] == "User") {
+                        var params = {};
+                        params["profile_id"] = result["entity"]["id"];
+                        /** @type {string} */
+                        params["type"] = "user";
+                        params["name"] = fn;
+                        data["message_tags"]["push"](params);
+                      } else {
+                        if (result["entity"]["__typename"] == "Page") {
+                          params = {};
+                          params["profile_id"] = result["entity"]["id"];
+                          /** @type {string} */
+                          params["type"] = "page";
+                          params["name"] = fn;
+                          data["message_tags"]["push"](params);
+                        }
+                      }
+                    });
+                  }
                 }
               }
             }
-          }
-          var ae = aa.find("> div.xqcrz7y.x14yjl9h.xudhj91.x18nykt9.xww2gxu.x1lliihq.x1w0mnb.xr9ek0c.x1n2onr6");
-          if (ae.length > 0) {
-            var af = y(ae.get(0));
-            if (af && af.return && af.return.pendingProps && af.return.pendingProps.actor && af.return.pendingProps.comment) {
-              var ag = atob(af.return.pendingProps.comment.__id);
-              var ah = /:([0-9_]+)$/g;
-              var ai = ah.exec(ag);
-              if (ai) {
-                a9.id = ai[1];
-              }
-              a9.created_timestamp = af.return.pendingProps.comment.created_time;
-              a9.from = {
-                name: af.return.pendingProps.actor.name,
-                profile_id: af.return.pendingProps.actor.id
-              };
-              if (af.return.pendingProps.actor.__typename == "User") {
-                a9.from.type = "user";
-              } else if (af.return.pendingProps.actor.__typename == "Page") {
-                a9.from.type = "page";
+            var result = obj["find"]("> div.xqcrz7y.x14yjl9h.xudhj91.x18nykt9.xww2gxu.x1lliihq.x1w0mnb.xr9ek0c.x1n2onr6");
+            if (result["length"] > 0) {
+              var future = cb(result["get"](0));
+              if (future && (future["return"] && (future["return"]["pendingProps"] && (future["return"]["pendingProps"]["actor"] && future["return"]["pendingProps"]["comment"])))) {
+                var format = atob(future["return"]["pendingProps"]["comment"]["__id"]);
+                /** @type {RegExp} */
+                var pattern = /:([0-9_]+)$/g;
+                var bits = pattern["exec"](format);
+                if (bits) {
+                  data["id"] = bits[1];
+                }
+                data["created_timestamp"] = future["return"]["pendingProps"]["comment"]["created_time"];
+                data["from"] = {
+                  "name": future["return"]["pendingProps"]["actor"]["name"],
+                  "profile_id": future["return"]["pendingProps"]["actor"]["id"]
+                };
+                if (future["return"]["pendingProps"]["actor"]["__typename"] == "User") {
+                  /** @type {string} */
+                  data["from"]["type"] = "user";
+                } else {
+                  if (future["return"]["pendingProps"]["actor"]["__typename"] == "Page") {
+                    /** @type {string} */
+                    data["from"]["type"] = "page";
+                  }
+                }
               }
             }
-          }
-          if (a9.id && a9.from && a9.message && a9.created_timestamp) {
-            f.post_info.comments.push(a9);
-            var ah = /^([0-9]+_)?([0-9]+)$/g;
-            var ai = ah.exec(a9.id);
-            var aj = ai[2];
-            if (f.post_snapshot_info.comments[aj]) {
-              ab.append("<div class=\"IPO_Container IPO_Comment_Status\"><span class=\"badge badge-pill badge-success ml-2\">✔️ 已匯入</span></div>");
-            } else {
-              ab.append("<div class=\"IPO_Container IPO_Comment_Status\"><span class=\"badge badge-pill badge-info ml-2\">➕ 新留言，上傳系統中</span></div>");
-              T++;
+            if (data["id"] && (data["from"] && (data["message"] && data["created_timestamp"]))) {
+              results["post_info"]["comments"]["push"](data);
+              /** @type {RegExp} */
+              pattern = /^([0-9]+_)?([0-9]+)$/g;
+              bits = pattern["exec"](data["id"]);
+              var high = bits[2];
+              if (results["post_snapshot_info"]["comments"][high]) {
+                p["append"]('<div class="IPO_Container IPO_Comment_Status"><span class="badge badge-pill badge-success ml-2">\u2714\ufe0f \u5df2\u532f\u5165</span></div>');
+              } else {
+                p["append"]('<div class="IPO_Container IPO_Comment_Status"><span class="badge badge-pill badge-info ml-2">\u2795 \u65b0\u7559\u8a00\uff0c\u4e0a\u50b3\u7cfb\u7d71\u4e2d</span></div>');
+                T++;
+              }
             }
-          }
+          });
+        }
+      }
+      if (window["IPO_Data"]["comemntsContainer"][results["post_id"]]) {
+        window["IPO_Data"]["comemntsContainer"][results["post_id"]]["forEach"](function (dep) {
+          results["post_info"]["comments"]["push"](dep);
         });
       }
-      if (window.IPO_Data.comemntsContainer[f.post_id]) {
-        window.IPO_Data.comemntsContainer[f.post_id].forEach(function (a7) {
-          f.post_info.comments.push(a7);
-        });
-      }
-      if (V > 0 && U == V) {
+      if (last > 0 && i == last) {
         j++;
         if (j > 2) {
-          D("cannot read comments");
+          parse("cannot read comments");
         } else {
-          s(M, 1000);
-          N();
+          $(render, 1E3);
+          reset();
         }
         return;
       }
-      var X = {};
-      var Y = [];
-      f.post_info.comments.forEach(function (a7) {
-        if (X[a7.id]) {
+      var storage = {};
+      /** @type {Array} */
+      var missing = [];
+      results["post_info"]["comments"]["forEach"](function (dep) {
+        if (storage[dep["id"]]) {
           return;
         }
-        Y.push(a7);
-        X[a7.id] = true;
+        missing["push"](dep);
+        /** @type {boolean} */
+        storage[dep["id"]] = true;
       });
-      f.post_info.comments = Y;
-      f.post_info.comments.sort(function (a7, a8) {
-        return a7.created_timestamp - a8.created_timestamp;
+      /** @type {Array} */
+      results["post_info"]["comments"] = missing;
+      results["post_info"]["comments"]["sort"](function (mat0, mat1) {
+        return mat0["created_timestamp"] - mat1["created_timestamp"];
       });
-      console.log(f.post_info);
+      console["log"](results["post_info"]);
       if (T > 0) {
-        var Z = C();
-        var a0 = Z.feed;
-        var a1 = Z.story;
-        var a2 = E(a1);
-        var a3 = F(a1);
-        var a4 = m(window.location.href);
-        console.log("post id: %s", a2);
-        console.log("post fbid: %s", a3);
-        console.log("url post id: %s", a4);
-        if (a4 == a3) {
-          a4 = a2;
+        var data = next();
+        var feed = data["feed"];
+        var e = data["story"];
+        var expr = error(e);
+        var key = log(e);
+        var old = push(window["location"]["href"]);
+        console["log"]("post id: %s", expr);
+        console["log"]("post fbid: %s", key);
+        console["log"]("url post id: %s", old);
+        if (old == key) {
+          old = expr;
         }
-        if (a4 != f.post_id) {
-          D("POST_ID_MISMATCH");
+        if (old != results["post_id"]) {
+          parse("POST_ID_MISMATCH");
           return;
         }
-        if (a2 != a4) {
-          D("POST_ID_MISMATCH");
+        if (expr != old) {
+          parse("POST_ID_MISMATCH");
           return;
         }
-        var a5 = q().find(".IPO_Uploading");
-        if (a5.length == 0) {
-          var a6 = "<div class=\"IPO_Uploading clearfix mt-1 ml-2\">";
-          a6 += "<img src=\"" + f.ext_url + "images/iPlusOne_icon_color_48x48_h.png\" class=\"IPO_Logo\" title=\"" + config.title + "\">";
-          a6 += "<span class=\"ml-2\">上傳留言中...</span>";
-          a6 += "</div>";
-          q().find(".IPO_Container.IPO_Post_Info").after(a6);
+        var result = remove()["find"](".IPO_Uploading");
+        if (result["length"] == 0) {
+          /** @type {string} */
+          var r20 = '<div class="IPO_Uploading clearfix mt-1 ml-2">';
+          r20 += '<img src="' + results["ext_url"] + 'images/iPlusOne_icon_color_48x48_h.png" class="IPO_Logo" title="' + config["title"] + '">';
+          r20 += '<span class="ml-2">\u4e0a\u50b3\u7559\u8a00\u4e2d...</span>';
+          r20 += "</div>";
+          remove()["find"](".IPO_Container.IPO_Post_Info")["after"](r20);
         }
-        O();
+        templateFunc();
         if (b) {
-          q().find(".IPO_Uploading").remove();
-          P();
+          remove()["find"](".IPO_Uploading")["remove"]();
+          replace();
         } else {
-          g.postMessage({
-            operation: "uploadReactFacebookComments",
-            post_info: f.post_info
+          self["postMessage"]({
+            "operation": "uploadReactFacebookComments",
+            "post_info": results["post_info"]
           });
         }
       } else {
-        g.postMessage({
-          operation: "uploadReactFacebookComments",
-          post_info: f.post_info
+        self["postMessage"]({
+          "operation": "uploadReactFacebookComments",
+          "post_info": results["post_info"]
         });
-        P();
+        replace();
       }
-    }
-    function N() {
-      if (c) {
-        g.postMessage({
-          operation: "refreshRecovery"
-        });
-      }
-    }
-    function O() {
-      if (c) {
-        g.postMessage({
-          operation: "stopRecovery"
+    };
+    /**
+     * @return {undefined}
+     */
+    var reset = function () {
+      if (val) {
+        self["postMessage"]({
+          "operation": "refreshRecovery"
         });
       }
-    }
-    function P() {
-      jQuery("div.IPO_Inject").remove();
-      console.log("checkNext");
-      if (c) {
-        g.postMessage({
-          operation: "checkNext"
+    };
+    /**
+     * @return {undefined}
+     */
+    var templateFunc = function () {
+      if (val) {
+        self["postMessage"]({
+          "operation": "stopRecovery"
         });
       }
-    }
+    };
+    /**
+     * @return {undefined}
+     */
+    var replace = function () {
+      jQuery("div.IPO_Inject")["remove"]();
+      console["log"]("checkNext");
+      if (val) {
+        self["postMessage"]({
+          "operation": "checkNext"
+        });
+      }
+    };
   };
-  window["iplusone_script_" + config.version]();
+  window["iplusone_script_" + config["version"]]();
 }, 500);
