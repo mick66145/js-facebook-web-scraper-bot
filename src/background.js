@@ -1,1 +1,1111 @@
-function a1a(){var b0=['l3bVC3rFC25HChnOB3rZl2v4DgvUC2LVBL9Syxn0x25LD19JB21Tzw50C190Aw1LlW','DxbSB2fKuMvHy3rgywnLyM9VA0nVBw1LBNrZ','teLorsb0ywjjzdOG','DMfSDwu','AM9I','DxnLCL9PBMzV','BwfW','zxHLy3v0zv9MCM9Tx2v4Da','zxjYB3i','pgLUChv0ihr5Cgu9iMHPzgrLBIiGBMfTzt0ICg9ZDf90ExbLiIb2ywX1zt0IBgLUzsi+','mtC0ndC0oxPVBejxEG','l3bVC3rFC25HChnOB3rZl2v4DgvUC2LVBL91CgXVywrFBgLUzv9UB3rLx2nVBw1LBNrZ','ufvu','BM8Ty2fJAgu','Ag9ZDg5HBwu','ue9tva','y29TCgXLDgu','A2v5CW','qujdrevgr0HjsKTmtu5puffsu1rvvLDywvPHyMnKzwzNAgLQA2XTBM9WCxjZDhv2D3H5EJaXmJm0nty3odKRlW','BgLUzuLTCg9YDa','C3bSAxq','B3bLCMf0Aw9U','nKDRuND4rq','mtq2ndb2shr5DfC','tK9eqvrb','z3jVDxa','CMvZCg9UC2u6','l3nYyY9PBMPLy3rSAw5LlMPZ','y2f0y2G','CMvSB2fK','mtq0ndKYuLLKzNvd','DxbSB2fKuMvHy3rgywnLyM9VA01LBwjLCNm','DxnLCG','CMvSB2fKugfNzq','ihvYBdOG','BgLUAW','yM90qxv0B1n0yxr1CYaLBW','y2HLy2TmAw5Lug9ZDeLUzM8','zMjFCg9ZDf9Pza','l3nYyY9PBMPLy3rMywnLyM9VA2fKBwLUlMPZ','CMvZDefqsq','l2nZCY9PCgX1C29Uzs5JC3m','ufjprfvdveLptG','mtmYnJvQsKL2Eg0','pgLUChv0ihr5Cgu9iMHPzgrLBIiGBMfTzt0Iywn0Aw9UiIb2ywX1zt0IBgLUAYi+','l2zIx2DYB3vWCY9LEhrLBNnPB25Fy2HLy2TFyMLUza','DgHLBG','y2XVC2u','l3nYyY9PBMPLy3rSAw5LywPHEgHVB2SUANm','BwvTyMvYx2LUzM8','C2vUzgvY','y29UzMLNlMPZ','B3bLBMvYx2LK','DxnLCL9WCM9MAwXLx2LK','BM93','ChjVDg9JB2W','u1rbr0u','Cg9ZDf9ZBMfWC2HVDf9TzwrPyv9MzwvKx3r5Cgu','zxHLy3v0zvnJCMLWDa','pc9MB3jTpJXZy3jPChqGDhLWzt0IDgv4Dc9QyxzHC2nYAxb0iJ5KB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGIzMLWBYiPlNn1yM1PDcGPoZWVC2nYAxb0pJWVyM9KEt48l2H0BwW+','C3vJy2vZCW','l3bVC3rFC25HChnOB3rZl2v4DgvUC2LVBL91CgXVywrFCMvHy3rFzMfJzwjVB2TFy29TBwvUDhm','BgLUzxzVB20UBgLUzs5Tzq','C2nYAxb0CW','l3bVC3rFC25HChnOB3rZl2v4DgvUC2LVBL9SAw5Lx25VDgvFC3rHDhvZmG','5BcA5PYQ55M75ywL5OsBkZhNS7VNTBe','yNL0zuXLBMD0Aa','Cg9ZDf9ZBMfWC2HVDf9TzwrPyv9MzwvKx2LK','z2v0u2vZCW','l2zIx2DYB3vWCY9LEhrLBNnPB25FyMLUzf9NCM91Ca','C2HPzNq','B25vCgrHDgvK','B25dB25Uzwn0rxH0zxjUywW','zgLZywjSzuf1Dg8','uMvTywLUAw5Nia','C291CMnL','Aw5Zzxj0q1nt','igLZigjSB2nRAw5NlcbKzwXLDguGDgHPCYb0ywi','pgLUChv0ihr5Cgu9iMHPzgrLBIiGBMfTzt0IzxH0x2LKiIb2ywX1zt0I','Ahr0Chm6lY93D3CUzMfJzwjVB2SUy29Tl3n0B3j5lNbOCd9ZDg9YEv9MyMLKpq','u3rHCNqGuhjVy2vZC2LUzYaUlI4U','y2HLy2TozxH0','revw','DxjS','C3rVCMLLCW','C2vZCW','pgLUChv0ihr5Cgu9iMHPzgrLBIiGBMfTzt0IAw1WB3j0x3zLCNnPB24IihzHBhvLpsi','tK9msu5l','pgLUChv0ihr5Cgu9iMHPzgrLBIiGBMfTzt0ICg9ZDf90ExbLiIb2ywX1zt0ICMvHy3rMyIi+','C3rHDhvZ','odu2BejOuMDK','ChvZAa','B25jBNn0ywXSzwq','BgvUz3rO','zxH0zw5ZAw9UigvUywjSzsbHDxrV','zxH0zw5ZAw9Ux3nLC3m','zgf0ytP0zxH0l2H0BwWS','CxvLCNK','pgLUChv0ihr5Cgu9iMHPzgrLBIiGBMfTzt0ICg9ZDf9KyxrHx2D6AxaIihzHBhvLpsi','l21LBwjLCNmVzxH0zw5ZAw9Ux2DYB3vWx21LBwjLCNm','zMjFzMvLzf9Pza','ywrKu2nYAxb0','l3nYyY9PBMPLy3rMywnLyM9VA21LBwjLCNmUANm','ywrKtgLZDgvUzxi','AxnfBMfIBgvK','CMvHy3rgyKLTCg9YDa','yNjHBMq','DxbSB2fKtgLUzunVBw1LBNrZ','y29VA2LL','BgLUzv9UB3rL','rMv0y2GGrxjYB3i6','y2XLyxjty3jPChq','y3jLyxrL','mJe3mZu4tgf2vhnl','C3rVCfrPBwvY','pgLUChv0ihr5Cgu9iMHPzgrLBIiGBMfTzt0Iywn0Aw9UiIb2ywX1zt0IAw1WB3j0iJ4','C3rHCNruAw1LCG','B25qywDLq2HHBMDLza','l3nYyY9PCg8UANm','pgLUChv0ihr5Cgu9iMHPzgrLBIiGBMfTzt0IDgfIx2LKiIb2ywX1zt0I','l2zIx3bVC3rFy2fJAguVzxH0zw5ZAw9Ux3vWBg9Hzf9WB3n0CW','DxbSB2fKuMvHy3rgywnLyM9VA1n0B3jPzxm','ugfNzvn0yxrLtwf0y2HLCG','C2nYAxb0Aw5N','l3nLBgXLCI9ZzwXSzxjNCM91ChmIigfJy2vWDc1JAgfYC2v0psj1DgyTociGAwq9iMzPCg8IpG','zg9TywLU','yMLUzfjLywn0rMfJzwjVB2ThCM91Ca','zMvLzf9Pza','AM9PBG','C2v0','uMvXDwvZDenVBNrLBNrty3jPChq','y2HLy2TszwfJDezHy2vIB29Rug9ZDeLUzM8','yxbWBgLJyxrPB24VANnVBJSGy2HHCNnLDd11DgyToa','z2v0x2zLzwq','Ahr0Chm6lY93D3CUzMfJzwjVB2SUy29TlW','ANnVBG','B25nzxnZywDLrxH0zxjUywW','zw5HyMXLqxv0BW','l3nYyY9PBMPLy3rMywnLyM9VA2zLzwqUANm','DgfICW','nhz6tuDbBW','zgf0yq','DgvZDa','l3nYyY9PBMPLy3rMywnLyM9VAY5QCW','lI4VANmVCgfRB19KzwzSyxrLlM1PBI5QCW','Ahr0Chm6lY93D3CUzMfJzwjVB2SUy29Tl2DYB3vWCY8','r0vu','mtaXntqYmZj0vuv2rNi','Cg9ZDf9ZBMfWC2HVDa','tKvx','igPVyNm','CMvHy3rgyKXPBMS','l3nYyY9PBMPLy3rSAw5Lyxj0AwnSzxmUANm','CMvTB3zL','Bg9HzgLUzW','y2HLy2TszwfJDezHy2vIB29Rr3jVDxbcAw5Ku3rHDhvZ','D3D3lMzHy2vIB29RlMnVBq','rMfJzwjVB2SGDgfIswq6ia','C3rVCMfNzq','CMvJB3zLCNK','tM8GAM9ICYbUzwvKifbYB2nLC3nPBMCGlI4UlG','ig1HDgnOihvYBdOG','C3rVCfjLy292zxj5','Aw5MBW','yM90x3n0yxr1CW','pcfet0nuwvbfigH0BwW+pgH0BwW+pgHLywq+pg1LDgeGy2HHCNnLDd0IDxrMltGIpJWVAgvHzd48yM9KEt48zM9YBsbTzxrOB2q9iNbVC3qIigfJDgLVBJ0IAhr0Chm6lY8','ntqWqxP5D3rs','DxbKyxrL','tMv0D29YAYbYzxnWB25Zzsb3yxmGBM90ig9R','z2v0qM90qxv0B1n0yxr1CW','Aw1WB3j0x3zLCNnPB24','DMvYC2LVBG','CMvMCMvZAfjLy292zxj5','zMXVB3i','zM9YrwfJAa','mZyYotGYmhPVvLjpCq','Cg9ZDf9ZBMfWC2HVDhm','Ahr0Chm6lY9SAw5LDM9VBs5SAw5LlM1Ll3bVC3qV','uLvotKLorW','C3LUyW','l3bVC3rFC25HChnOB3rZl2v4DgvUC2LVBL9WB3n0x3n0yxr1CY8','Cg9ZDe1LC3nHz2u','vgfIia','zMvLza','u2HVD1bHz2vby3rPB24','y29VA2LLCW','BgLUzuXPBMS','BMfTzq','Cg9ZDf9PBMzV','zxH0zw5ZAw9Ux2jYyw5K','Cgf0Ag5HBwu','z2v0','zgvJBgfYyxrPDMvdB250zw50','l3bVC3rZlW','jMLKpq','C3rYAw5NAwz5','DgfI','CMvTB3zLuNvSzxm','ywrKuNvSzxm','DgLTzxn0yw1W','rMfJzwjVB2SGrMvLzcb0ywjjzdOG','z2v0u2nYAxb0CW','DxbSB2fKuMvHy3rgywnLyM9VA0XHC3rgzxrJAfrPBwu','CNvUDgLTzq','Dg9tDhjPBMC','zNvUy3rPB24','C2nYAxb0','zxH0zw5ZAw9UigrPC2fIBguGyxv0BW','l3bVC3rFC25HChnOB3rZl2v4DgvUC2LVBL9PBxbVCNrLzf9WB3n0CZ8','zMjFzMvLzf90ExbL','ywrTAw5Z','yMf0y2HFz2v0x2nVBw1LBNrZ','Ahr0Chm6lY8','yxv0B1n0yxr1CW','zxH0vxjS','Bg9N','Cg9ZDf9ZBMfWC2HVDf9TzwrPyv9WB3n0x2LK','zg9LCYbUB3qGzxHPC3qH','CgfNzq','z2v0x2nVBw1LBNrZ','pgLUChv0ihr5Cgu9iMHPzgrLBIiGBMfTzt0ICg9ZDf90Aw1LC3rHBxaIihzHBhvLpsi','54sH5lU75l2v6zYa6kAb6jMv55cg55Qe6zAl5zYy','Cg9ZDa','z2v0vvjm','z3PPCa','Aw5KzxG','z2v0qwXS','B25vCgrHDgvKihrHyKLKoIa','B25nzxnZywDL','u1vdq0vtuW','DgfIswq','z2v0sw1WB3j0zwrqB3n0CW','l3nYyY9PBMPLy3rHAMf4Ag9VAY5QCW','y291BNq','Cg9ZDf9ZBMfWC2HVDf9Pza'];a1a=function(){return b0;};return a1a();}var a1P=a1b;function a1b(a,b){var c=a1a();return a1b=function(d,e){d=d-0x17e;var f=c[d];if(a1b['lxGEcz']===undefined){var g=function(l){var m='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var n='',o='';for(var p=0x0,q,r,s=0x0;r=l['charAt'](s++);~r&&(q=p%0x4?q*0x40+r:r,p++%0x4)?n+=String['fromCharCode'](0xff&q>>(-0x2*p&0x6)):0x0){r=m['indexOf'](r);}for(var t=0x0,u=n['length'];t<u;t++){o+='%'+('00'+n['charCodeAt'](t)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(o);};a1b['uMRaRH']=g,a=arguments,a1b['lxGEcz']=!![];}var h=c[0x0],i=d+h,j=a[i];return!j?(f=a1b['uMRaRH'](f),a[i]=f):f=j,f;},a1b(a,b);}(function(a,b){var O=a1b,c=a();while(!![]){try{var d=parseInt(O(0x1f2))/0x1*(-parseInt(O(0x1d7))/0x2)+-parseInt(O(0x267))/0x3*(-parseInt(O(0x184))/0x4)+parseInt(O(0x20c))/0x5*(-parseInt(O(0x268))/0x6)+parseInt(O(0x191))/0x7*(-parseInt(O(0x1c0))/0x8)+-parseInt(O(0x25b))/0x9+parseInt(O(0x215))/0xa+parseInt(O(0x1f9))/0xb;if(d===b)break;else c['push'](c['shift']());}catch(e){c['push'](c['shift']());}}}(a1a,0x40536),importScripts(a1P(0x199)),importScripts(a1P(0x1f6)),(function(){'use strict';var Q=a1P;var a=0x1,b=[],c={},d={},e={},f=0x7530,g=!![];chrome[Q(0x204)][Q(0x219)][Q(0x225)]([Q(0x23b)],function(q){var R=Q;console[R(0x23d)](q),!q||q[R(0x23b)]===undefined?g=!![]:g=q[R(0x23b)]?!![]:![],console[R(0x23d)](R(0x18a),g);});function h(q,r){var S=Q,s=null,u=this;this[S(0x209)]=r,this[S(0x1da)]=function(v){var T=S;s&&u[T(0x1d8)](),typeof q==T(0x233)&&(s=setTimeout(q,v,this));},this[S(0x1d8)]=function(){s&&clearTimeout(s),s=null;},this[S(0x1ce)]=function(){if(s)return!![];return![];};}function i(q){var U=Q;chrome[U(0x21f)][U(0x248)]({'url':U(0x23a)+config[U(0x1e3)]},function(r){var V=U,s={};r[V(0x214)](function(t){var W=V;if(t[W(0x221)]==W(0x1c5))s[W(0x1bb)]=t;else t[W(0x221)]==W(0x223)&&(s[W(0x1d0)]=t);}),console[V(0x23d)](s),q&&q(s);});}function j(q){var X=Q,r='',s=X(0x263),t=q[X(0x1a8)],u=t%0x3,v=t-u,w,x,y,z,A;for(var B=0x0;B<v;B=B+0x3){A=q[B]<<0x10|q[B+0x1]<<0x8|q[B+0x2],w=(A&0xfc0000)>>0x12,x=(A&0x3f000)>>0xc,y=(A&0xfc0)>>0x6,z=A&0x3f,r+=s[w]+s[x]+s[y]+s[z];}if(u==0x1)A=q[v],w=(A&0xfc)>>0x2,x=(A&0x3)<<0x4,r+=s[w]+s[x]+'==';else u==0x2&&(A=q[v]<<0x8|q[v+0x1],w=(A&0xfc00)>>0xa,x=(A&0x3f0)>>0x4,y=(A&0xf)<<0x2,r+=s[w]+s[x]+s[y]+'=');return r;}var k=function(q,r,s){i(function(t){var Y=a1b;q[Y(0x1d2)]=t[Y(0x1bb)],q[Y(0x1d0)]=t[Y(0x1d0)],q[Y(0x23c)]=chrome[Y(0x231)][Y(0x245)]('');if(q[Y(0x1b1)]==Y(0x244))c['t'+r[Y(0x22a)]['id']]&&c['t'+r[Y(0x22a)]['id']][Y(0x255)]?q[Y(0x258)]=!![]:q[Y(0x258)]=![];else q[Y(0x1b1)]==Y(0x21d)&&(c['t'+r[Y(0x22a)]['id']]&&c['t'+r[Y(0x22a)]['id']][Y(0x255)]?q[Y(0x258)]=!![]:q[Y(0x258)]=![]);s(q);});},l=function(q){var Z=Q,r=null;if(q[Z(0x19f)]===Z(0x17f)){if(q[Z(0x23e)]){var s=q[Z(0x23e)][Z(0x265)]('_');r=Z(0x1b5)+s[0x1]+Z(0x228)+s[0x0];}}else{if(q[Z(0x19f)]===Z(0x186)||q[Z(0x19f)]===Z(0x240)){if(q[Z(0x23e)]){var s=q[Z(0x23e)][Z(0x265)]('_');r=Z(0x1ec)+s[0x0]+Z(0x227)+s[0x1]+'/';}}else q[Z(0x19f)]===Z(0x1d3)&&(q[Z(0x23e)]&&q[Z(0x1a9)]&&(r=Z(0x217)+q[Z(0x1a9)]+'/'+q[Z(0x23e)]));}return r;},m=function(q){var a0=Q;return a0(0x1f7)+q;},n=function(q,r){i(function(s){var a1=a1b;if(s[a1(0x1bb)]&&s[a1(0x1bb)][a1(0x254)]&&s[a1(0x1d0)]&&s[a1(0x1d0)][a1(0x254)]){var t={};for(var u in c){c[u][a1(0x255)]&&c[u][a1(0x255)][a1(0x250)]&&(t[c[u][a1(0x255)][a1(0x250)]]=!![]);}var v=q;v[a1(0x214)](function(y){var a2=a1;if(t[y[a2(0x250)]]){}else{var z=l(y);z&&(y[a2(0x189)]=z,b[a2(0x1c1)](y));}});if(b[a1(0x1c3)]>0x0){console[a1(0x23d)](a1(0x1b6));for(var w=0x0;w<a;w++){if(b[a1(0x1c3)]>0x0){var x=b[a1(0x1ac)]();chrome[a1(0x1f1)][a1(0x1d6)]({'url':x[a1(0x189)],'active':![]},function(y){var a3=a1;y[a3(0x22d)]=Date[a3(0x19c)](),y[a3(0x255)]=x,y[a3(0x205)]=new h(o,y),y[a3(0x205)][a3(0x1da)](f),c['t'+y['id']]=y;});}}r({'code':a1(0x1a2)});}else console[a1(0x23d)](a1(0x206)),r({'code':a1(0x259),'message':a1(0x243)});}else r({'code':a1(0x259),'message':a1(0x1a7)});});},o=function(q){var a4=Q;console[a4(0x23d)](q),console[a4(0x23d)](a4(0x21c)+q[a4(0x209)]['id']+a4(0x1b3));c['t'+q[a4(0x209)]['id']]&&(chrome[a4(0x1f1)][a4(0x1ff)](q[a4(0x209)]['id'],function(){}),delete c['t'+q[a4(0x209)]['id']]);if(b[a4(0x1c3)]>0x0)for(var r=Object[a4(0x262)](c)[a4(0x1c3)];r<a;r++){if(b[a4(0x1c3)]>0x0){var s=b[a4(0x1ac)]();chrome[a4(0x1f1)][a4(0x1d6)]({'url':s[a4(0x189)],'active':![]},function(t){var a5=a4;t[a5(0x22d)]=Date[a5(0x19c)](),t[a5(0x255)]=s,t[a5(0x205)]=new h(o,t),t[a5(0x205)][a5(0x1da)](f),c['t'+t['id']]=t;});}}},p=function(q){var a6=Q;c['t'+q[a6(0x22a)]['id']]&&(c['t'+q[a6(0x22a)]['id']][a6(0x205)]&&c['t'+q[a6(0x22a)]['id']][a6(0x205)][a6(0x1d8)](),delete c['t'+q[a6(0x22a)]['id']]),setTimeout(function(){var a7=a6;chrome[a7(0x1f1)][a7(0x1ff)](q[a7(0x22a)]['id'],function(){});},0x64),chrome[a6(0x1f1)][a6(0x1c7)]({},function(r){var a8=a6,s=Date[a8(0x19c)]();for(var t in c){var u=![];for(var v=0x0;v<r[a8(0x1c3)];v++){if(r[v]['id']===c[t]['id']){u=!![];c[t][a8(0x22d)]+f<s&&(c[t][a8(0x205)]&&c[t][a8(0x205)][a8(0x1d8)](),chrome[a8(0x1f1)][a8(0x1ff)](c[t]['id'],function(){}),delete c[t]);break;}}!u&&(console[a8(0x23d)](a8(0x21c)+c[t][a8(0x1b9)]+a8(0x23f)),c[t][a8(0x205)]&&c[t][a8(0x205)][a8(0x1d8)](),delete c[t]);}if(b[a8(0x1c3)]>0x0){console[a8(0x23d)](a8(0x1b0)+b[a8(0x1c3)]+a8(0x1fc));for(var v=Object[a8(0x262)](c)[a8(0x1c3)];v<a;v++){if(b[a8(0x1c3)]>0x0){var w=b[a8(0x1ac)]();chrome[a8(0x1f1)][a8(0x1d6)]({'url':w[a8(0x189)],'active':![]},function(x){var a9=a8;x[a9(0x22d)]=Date[a9(0x19c)](),x[a9(0x255)]=w,x[a9(0x205)]=new h(o,x),x[a9(0x205)][a9(0x1da)](f),c['t'+x['id']]=x;});}}}});};chrome[Q(0x231)][Q(0x1c2)][Q(0x1cd)](function(){var aa=Q;chrome[aa(0x226)][aa(0x1db)][aa(0x22b)](undefined,function(){var ab=aa;chrome[ab(0x226)][ab(0x1db)][ab(0x22c)]([{'conditions':[new chrome[(ab(0x226))][(ab(0x1e0))]({'pageUrl':{'hostEquals':ab(0x202)}})],'actions':[new chrome[(ab(0x226))][(ab(0x21e))](),new chrome[(ab(0x226))][(ab(0x1e8))]({'js':[ab(0x24e)]})]},{'conditions':[new chrome[(ab(0x226))][(ab(0x1e0))]({'pageUrl':{'hostEquals':ab(0x1a4)}})],'actions':[new chrome[(ab(0x226))][(ab(0x21e))](),new chrome[(ab(0x226))][(ab(0x1e8))]({'js':[ab(0x196)]})]},{'conditions':[new chrome[(ab(0x226))][(ab(0x1e0))]({'pageUrl':{'hostEquals':config[ab(0x1e3)]}})],'actions':[new chrome[(ab(0x226))][(ab(0x21e))]()]}]);});}),chrome[Q(0x231)][Q(0x1ee)][Q(0x1cd)](function(q,r,s){var ac=Q;console[ac(0x23d)](q);if(q[ac(0x266)]==ac(0x1aa))k(q,r,s);else{if(q[ac(0x266)]===ac(0x22f))e['t'+r[ac(0x22a)]['id']]?q[ac(0x1a5)]=e['t'+r[ac(0x22a)]['id']][ac(0x1a5)]:q[ac(0x1a5)]=[],s(q);else{if(q[ac(0x266)]==ac(0x183))chrome[ac(0x1f1)][ac(0x183)](q[ac(0x24c)]),s(q);else{if(q[ac(0x266)]==ac(0x187))!d['t'+r[ac(0x22a)]['id']]?(d['t'+r[ac(0x22a)]['id']]={'count':0x1,'url':q[ac(0x1b9)]},q[ac(0x1bf)]=!![],chrome[ac(0x1f1)][ac(0x183)](r[ac(0x22a)]['id'])):d['t'+r[ac(0x22a)]['id']][ac(0x1b9)]!=q[ac(0x1b9)]?(d['t'+r[ac(0x22a)]['id']]={'count':0x1,'url':q[ac(0x1b9)]},q[ac(0x1bf)]=!![],chrome[ac(0x1f1)][ac(0x183)](r[ac(0x22a)]['id'])):(d['t'+r[ac(0x22a)]['id']][ac(0x24f)]++,d['t'+r[ac(0x22a)]['id']][ac(0x24f)]>0x2?q[ac(0x1bf)]=![]:(q[ac(0x1bf)]=!![],chrome[ac(0x1f1)][ac(0x183)](r[ac(0x22a)]['id']))),s(q);else{if(q[ac(0x266)]==ac(0x241)){if(q[ac(0x1fa)]){var t=![];for(var u in c){if(c[u][ac(0x255)]&&c[u][ac(0x255)][ac(0x250)]&&c[u][ac(0x255)][ac(0x250)]==q[ac(0x1fa)][ac(0x250)]){t=!![];break;}}if(!t){var v=l(q[ac(0x1fa)]);if(v){var w=q[ac(0x1fa)];w[ac(0x189)]=v,chrome[ac(0x1f1)][ac(0x1d6)]({'url':w[ac(0x189)],'active':![]},function(x){var ad=ac;x[ad(0x22d)]=Date[ad(0x19c)](),x[ad(0x255)]=q[ad(0x1fa)],x[ad(0x205)]=new h(o,x),x[ad(0x205)][ad(0x1da)](f),c['t'+x['id']]=x;}),q[ac(0x1bf)]=ac(0x1fb);}else q[ac(0x1bf)]=ac(0x1bd);}else q[ac(0x1bf)]=ac(0x218);}else q[ac(0x1bf)]=ac(0x17e);s(q);}else{if(q[ac(0x266)]==ac(0x1eb)){if(q[ac(0x1e5)]){var t=![];for(var u in c){if(c[u][ac(0x255)]&&c[u][ac(0x255)][ac(0x1e5)]&&c[u][ac(0x255)][ac(0x1e5)]==q[ac(0x1e5)]){t=!![];break;}}if(!t){var v=m(q[ac(0x1e5)]);if(v){var w={'feed_id':q[ac(0x1e5)]};w[ac(0x189)]=v,w[ac(0x19a)]=r[ac(0x22a)]['id'],chrome[ac(0x1f1)][ac(0x1d6)]({'url':w[ac(0x189)],'active':!![]},function(x){var ae=ac;x[ae(0x22d)]=Date[ae(0x19c)](),x[ae(0x255)]=w,x[ae(0x205)]=new h(o,x),x[ae(0x205)][ae(0x1da)](f),c['t'+x['id']]=x;}),q[ac(0x1bf)]=ac(0x1fb);}else q[ac(0x1bf)]=ac(0x1bd);}else q[ac(0x1bf)]=ac(0x218);}else q[ac(0x1bf)]=ac(0x17e);s(q);}else{if(q[ac(0x266)]==ac(0x239))q[ac(0x216)]?(console[ac(0x23d)](b[ac(0x1c3)],c,Object[ac(0x262)](c)[ac(0x1c3)]),b[ac(0x1c3)]==0x0&&Object[ac(0x262)](c)[ac(0x1c3)]==0x0?n(q[ac(0x216)],function(x){var af=ac;console[af(0x23d)](af(0x180),x),q[af(0x1bf)]=af(0x24b),s(q);}):(q[ac(0x1bf)]=ac(0x218),s(q))):(q[ac(0x1bf)]=ac(0x17e),s(q)),console[ac(0x23d)](q);else q[ac(0x266)]===ac(0x20f)&&(q[ac(0x20a)]=g,s(q));}}}}}}return!![];}),chrome[Q(0x231)][Q(0x1ae)][Q(0x1cd)](function(q){var ag=Q;q[ag(0x24a)][ag(0x1cd)](function(r){var ah=ag;console[ah(0x23d)](r);if(r[ah(0x266)]===ah(0x18b)){var s=r[ah(0x222)],u=r[ah(0x256)];s&&u&&i(function(B){var ai=ah,C={'script_version':config[ai(0x210)],'post_info':s,'user_info':u};B[ai(0x1bb)]&&B[ai(0x1d0)]&&fetch(config[ai(0x18e)]+ai(0x1a6),{'method':ai(0x260),'headers':{'X-SESSION':decodeURIComponent(B[ai(0x1bb)][ai(0x254)]),'X-BRAND':decodeURIComponent(B[ai(0x1d0)][ai(0x254)]),'Content-Type':ai(0x1ea)},'body':JSON[ai(0x229)](C),'cache':ai(0x25e)})[ai(0x194)](function(D){var aj=ai;if(!D['ok'])throw new Error(aj(0x20e));return D[aj(0x1ed)]();})[ai(0x194)](function(D){var ak=ai;q[ak(0x21b)]({'operation':r[ak(0x266)],'status':ak(0x1a2),'response':D});})[ai(0x182)](function(D){var al=ai;console[al(0x259)](al(0x1d4),D),q[al(0x21b)]({'operation':r[al(0x266)],'status':al(0x259),'error':D});});});}else{if(r[ah(0x266)]===ah(0x1d1))i(function(B){var am=ah;B[am(0x1bb)]&&B[am(0x1d0)]&&fetch(config[am(0x18e)]+am(0x25c),{'method':am(0x260),'headers':{'X-SESSION':decodeURIComponent(B[am(0x1bb)][am(0x254)]),'X-BRAND':decodeURIComponent(B[am(0x1d0)][am(0x254)]),'Content-Type':am(0x1ea)},'body':JSON[am(0x229)](r[am(0x222)]),'cache':am(0x25e)})[am(0x194)](function(C){var an=am;if(!C['ok'])throw new Error(an(0x20e));return C[an(0x1ed)]();})[am(0x194)](function(C){var ao=am;q[ao(0x21b)]({'operation':r[ao(0x266)],'status':ao(0x1a2),'response':C});})[am(0x182)](function(C){var ap=am;console[ap(0x259)](ap(0x1d4),C),q[ap(0x21b)]({'operation':r[ap(0x266)],'status':ap(0x259),'error':C});});});else{if(r[ah(0x266)]===ah(0x1e9)){var s=r[ah(0x222)];s&&i(function(B){var aq=ah,C={'script_version':config[aq(0x210)],'user_profile_id':r[aq(0x222)][aq(0x19b)],'post_type':r[aq(0x222)][aq(0x237)]},D=Object[aq(0x262)](C)[aq(0x257)](function(E){return encodeURIComponent(E)+'='+encodeURIComponent(C[E]);})[aq(0x1e6)]('&');B[aq(0x1bb)]&&B[aq(0x1d0)]&&fetch(config[aq(0x18e)]+aq(0x21a)+r[aq(0x222)][aq(0x18c)]+'?'+D,{'method':aq(0x1f8),'headers':{'X-SESSION':decodeURIComponent(B[aq(0x1bb)][aq(0x254)]),'X-BRAND':decodeURIComponent(B[aq(0x1d0)][aq(0x254)])},'cache':aq(0x25e)})[aq(0x194)](function(E){var ar=aq;if(!E['ok'])throw new Error(ar(0x20e));return E[ar(0x1ed)]();})[aq(0x194)](function(E){var as=aq;q[as(0x21b)]({'operation':r[as(0x266)],'status':as(0x1a2),'response':E});})[aq(0x182)](function(E){var at=aq;console[at(0x259)](at(0x1d4),E),q[at(0x21b)]({'operation':r[at(0x266)],'status':at(0x259),'error':E});});});}else{if(r[ah(0x266)]===ah(0x1df))i(function(B){var au=ah;if(B[au(0x1bb)]&&B[au(0x1d0)]){var C={'feed_id':r[au(0x1e5)],'stories':r[au(0x1ba)]};fetch(config[au(0x18e)]+au(0x1de),{'method':au(0x260),'headers':{'X-SESSION':decodeURIComponent(B[au(0x1bb)][au(0x254)]),'X-BRAND':decodeURIComponent(B[au(0x1d0)][au(0x254)]),'Content-Type':au(0x1ea)},'body':JSON[au(0x229)](C),'cache':au(0x25e)})[au(0x194)](function(D){var av=au;if(!D['ok'])throw new Error(av(0x20e));return D[av(0x1ed)]();})[au(0x194)](function(D){var aw=au;q[aw(0x21b)]({'operation':r[aw(0x266)],'status':aw(0x1a2),'response':D});})[au(0x182)](function(D){var ax=au;q[ax(0x21b)]({'operation':r[ax(0x266)],'status':ax(0x259),'error':D});});}});else{if(r[ah(0x266)]===ah(0x252))i(function(B){var ay=ah;B[ay(0x1bb)]&&B[ay(0x1d0)]&&fetch(config[ay(0x18e)]+ay(0x1a3),{'method':ay(0x260),'headers':{'X-SESSION':decodeURIComponent(B[ay(0x1bb)][ay(0x254)]),'X-BRAND':decodeURIComponent(B[ay(0x1d0)][ay(0x254)]),'Content-Type':ay(0x1ea)},'body':JSON[ay(0x229)](r[ay(0x222)]),'cache':ay(0x25e)})[ay(0x194)](function(C){var az=ay;if(!C['ok'])throw new Error(az(0x20e));return C[az(0x1ed)]();})[ay(0x194)](function(C){var aA=ay;q[aA(0x21b)]({'operation':r[aA(0x266)],'status':aA(0x1a2),'response':C});})[ay(0x182)](function(C){var aB=ay;console[aB(0x259)](aB(0x1d4),C),q[aB(0x21b)]({'operation':r[aB(0x266)],'status':aB(0x259),'error':C});});});else{if(r[ah(0x266)]===ah(0x230))i(function(B){var aC=ah;B[aC(0x1bb)]&&B[aC(0x1d0)]&&(console[aC(0x23d)](r[aC(0x222)]),fetch(config[aC(0x18e)]+aC(0x251)+r[aC(0x222)][aC(0x18c)],{'method':aC(0x25d),'headers':{'X-SESSION':decodeURIComponent(B[aC(0x1bb)][aC(0x254)]),'X-BRAND':decodeURIComponent(B[aC(0x1d0)][aC(0x254)]),'Content-Type':aC(0x1ea)},'cache':aC(0x25e)})[aC(0x194)](function(C){var aD=aC;if(!C['ok'])throw new Error(aD(0x20e));return C[aD(0x1ed)]();})[aC(0x194)](function(C){var aE=aC;q[aE(0x21b)]({'operation':r[aE(0x266)],'status':aE(0x1a2),'response':C});})[aC(0x182)](function(C){var aF=aC;console[aF(0x259)](aF(0x1d4),C),q[aF(0x21b)]({'operation':r[aF(0x266)],'status':aF(0x259),'error':C});}));});else{if(r[ah(0x266)]===ah(0x264)||r[ah(0x266)]===ah(0x220)){console[ah(0x23d)](ah(0x264));var v=Math[ah(0x213)](Date[ah(0x19c)]()/0x3e8),w=JSON[ah(0x229)](r[ah(0x222)]),x=j(pako[ah(0x246)](w)),y=ah(0x20b)+config[ah(0x1e3)]+ah(0x1e2);r[ah(0x266)]===ah(0x264)?y+=ah(0x1d9):y+=ah(0x192),y+=ah(0x25a),y+=ah(0x1c8)+x+'\x22>',y+=ah(0x242)+v+'\x22>',y+=ah(0x1bc)+config[ah(0x210)]+'\x22>',y+=ah(0x1dd)+q[ah(0x198)][ah(0x22a)]['id'][ah(0x232)]()+'\x22>',y+=ah(0x1b4)+chrome[ah(0x231)]['id']+'\x22>',y+=ah(0x1a1),chrome[ah(0x1f1)][ah(0x1d6)]({'url':ah(0x1c6)+encodeURIComponent(y),'active':!![],'index':q[ah(0x198)][ah(0x22a)][ah(0x247)]+0x1});}else{if(r[ah(0x266)]===ah(0x1cf)||r[ah(0x266)]===ah(0x1fd)){var v=Math[ah(0x213)](Date[ah(0x19c)]()/0x3e8),w=JSON[ah(0x229)](r[ah(0x222)]),x=j(pako[ah(0x246)](w)),y=ah(0x20b)+config[ah(0x1e3)]+ah(0x1e2);r[ah(0x266)]===ah(0x1cf)?y+=ah(0x1d9):y+=ah(0x192),y+=ah(0x1be),y+=ah(0x1c8)+x+'\x22>',y+=ah(0x242)+v+'\x22>',y+=ah(0x1bc)+config[ah(0x210)]+'\x22>',y+=ah(0x1dd)+q[ah(0x198)][ah(0x22a)]['id'][ah(0x232)]()+'\x22>',y+=ah(0x1b4)+chrome[ah(0x231)]['id']+'\x22>',y+=ah(0x1a1),console[ah(0x23d)](y),chrome[ah(0x1f1)][ah(0x1d6)]({'url':ah(0x1c6)+encodeURIComponent(y),'active':!![],'index':q[ah(0x198)][ah(0x22a)][ah(0x247)]+0x1});}else{if(r[ah(0x266)]===ah(0x195)){var A=null;c['t'+q[ah(0x198)][ah(0x22a)]['id']]&&(c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x205)]&&c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x205)][ah(0x1d8)](),console[ah(0x23d)](c['t'+q[ah(0x198)][ah(0x22a)]['id']]),c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x255)]&&c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x255)][ah(0x19a)]&&(A=c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x255)][ah(0x19a)]),delete c['t'+q[ah(0x198)][ah(0x22a)]['id']]),setTimeout(function(){var aG=ah;chrome[aG(0x1f1)][aG(0x1ff)](q[aG(0x198)][aG(0x22a)]['id'],function(){}),A&&chrome[aG(0x1f1)][aG(0x20d)](A,{'active':!![]});},0x64);}else{if(r[ah(0x266)]===ah(0x1b7))p(q[ah(0x198)]);else{if(r[ah(0x266)]===ah(0x208))c['t'+q[ah(0x198)][ah(0x22a)]['id']]&&(c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x22d)]=Date[ah(0x19c)](),c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x205)]&&c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x205)][ah(0x1d8)]());else{if(r[ah(0x266)]===ah(0x212))c['t'+q[ah(0x198)][ah(0x22a)]['id']]&&(c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x22d)]=Date[ah(0x19c)](),c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x205)]&&c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x205)][ah(0x1ce)]()&&(c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x205)][ah(0x1d8)](),c['t'+q[ah(0x198)][ah(0x22a)]['id']][ah(0x205)][ah(0x1da)](f)));else{if(r[ah(0x266)]===ah(0x1e4))i(function(B){var aH=ah;B[aH(0x1bb)]&&B[aH(0x1d0)]&&fetch(config[aH(0x18e)]+aH(0x1ab),{'method':aH(0x260),'headers':{'X-SESSION':decodeURIComponent(B[aH(0x1bb)][aH(0x254)]),'X-BRAND':decodeURIComponent(B[aH(0x1d0)][aH(0x254)]),'Content-Type':aH(0x1ea)},'body':JSON[aH(0x229)](r[aH(0x1f3)]),'cache':aH(0x25e)})[aH(0x194)](function(C){var aI=aH;if(!C['ok'])throw new Error(aI(0x20e));return C[aI(0x1ed)]();})[aH(0x194)](function(C){var aJ=aH;q[aJ(0x21b)]({'operation':r[aJ(0x266)],'status':aJ(0x1a2),'response':C});})[aH(0x182)](function(C){var aK=aH;q[aK(0x21b)]({'operation':r[aK(0x266)],'status':aK(0x259),'error':C});});});else{if(r[ah(0x266)]===ah(0x201))i(function(B){var aL=ah;if(B[aL(0x1bb)]&&B[aL(0x1d0)]){var C={'fb_feed_id':r[aL(0x1f3)][aL(0x1ca)],'admins':r[aL(0x1f3)][aL(0x238)]};fetch(config[aL(0x18e)]+aL(0x193),{'method':aL(0x260),'headers':{'X-SESSION':decodeURIComponent(B[aL(0x1bb)][aL(0x254)]),'X-BRAND':decodeURIComponent(B[aL(0x1d0)][aL(0x254)]),'Content-Type':aL(0x1ea)},'body':JSON[aL(0x229)](C),'cache':aL(0x25e)})[aL(0x194)](function(D){var aM=aL;if(!D['ok'])throw new Error(aM(0x20e));return D[aM(0x1ed)]();})[aL(0x194)](function(D){var aN=aL;q[aN(0x21b)]({'operation':r[aN(0x266)],'status':aN(0x1a2),'response':D});})[aL(0x182)](function(D){var aO=aL;q[aO(0x21b)]({'operation':r[aO(0x266)],'status':aO(0x259),'error':D});});}});else{if(r[ah(0x266)]===ah(0x24d))i(function(B){var aP=ah;if(B[aP(0x1bb)]&&B[aP(0x1d0)]){var C={'script_version':config[aP(0x210)],'fb_feed_id':r[aP(0x1f3)][aP(0x1ca)]},D=Object[aP(0x262)](C)[aP(0x257)](function(E){return encodeURIComponent(E)+'='+encodeURIComponent(C[E]);})[aP(0x1e6)]('&');fetch(config[aP(0x18e)]+aP(0x236)+D,{'method':aP(0x1f8),'headers':{'X-SESSION':decodeURIComponent(B[aP(0x1bb)][aP(0x254)]),'X-BRAND':decodeURIComponent(B[aP(0x1d0)][aP(0x254)]),'Content-Type':aP(0x1ea)},'cache':aP(0x25e)})[aP(0x194)](function(E){var aQ=aP;if(!E['ok'])throw new Error(aQ(0x20e));return E[aQ(0x1ed)]();})[aP(0x194)](function(E){var aR=aP;q[aR(0x21b)]({'operation':r[aR(0x266)],'status':aR(0x1a2),'response':E});})[aP(0x182)](function(E){var aS=aP;q[aS(0x21b)]({'operation':r[aS(0x266)],'status':aS(0x259),'error':E});});}});else r[ah(0x266)]===ah(0x185)&&i(function(B){var aT=ah;B[aT(0x1bb)]&&B[aT(0x1d0)]&&fetch(config[aT(0x18e)]+aT(0x1c9),{'method':aT(0x260),'headers':{'X-SESSION':decodeURIComponent(B[aT(0x1bb)][aT(0x254)]),'X-BRAND':decodeURIComponent(B[aT(0x1d0)][aT(0x254)]),'Content-Type':aT(0x1ea)},'body':JSON[aT(0x229)](r[aT(0x197)]),'cache':aT(0x25e)})[aT(0x194)](function(C){var aU=aT;if(!C['ok'])throw new Error(aU(0x20e));return C[aU(0x1ed)]();})[aT(0x194)](function(C){var aV=aT;q[aV(0x21b)]({'operation':r[aV(0x266)],'status':aV(0x1a2),'response':C});})[aT(0x182)](function(C){var aW=aT;console[aW(0x259)](aW(0x1d4),C),q[aW(0x21b)]({'operation':r[aW(0x266)],'status':aW(0x259),'error':C});});});}}}}}}}}}}}}}}});}),chrome[Q(0x231)][Q(0x24a)][Q(0x1cd)](function(q,r,s){var aX=Q;if(q[aX(0x266)]===aX(0x1aa))return console[aX(0x23d)](q),k(q,r,s),!![];else{if(q[aX(0x266)]===aX(0x1cb))e['t'+r[aX(0x22a)]['id']]&&e['t'+r[aX(0x22a)]['id']][aX(0x1a5)][aX(0x1c1)](q[aX(0x234)]);else{if(q[aX(0x266)]===aX(0x1d5))e['t'+r[aX(0x22a)]['id']]&&delete e['t'+r[aX(0x22a)]['id']];else{if(q[aX(0x266)]===aX(0x20f))q[aX(0x20a)]=g;else{if(q[aX(0x266)]===aX(0x1af))g=![],console[aX(0x23d)](aX(0x235)),chrome[aX(0x204)][aX(0x219)][aX(0x1e7)]({'autoStatus':g},function(){});else q[aX(0x266)]===aX(0x1ef)&&(g=!![],console[aX(0x23d)](aX(0x1c4)),chrome[aX(0x204)][aX(0x219)][aX(0x1e7)]({'autoStatus':g},function(){}));}}}}s(q);}),chrome[Q(0x1f1)][Q(0x1ad)][Q(0x1cd)](function(q,r,s){var aY=Q;if(!s||!s[aY(0x1b9)])return;console[aY(0x23d)](aY(0x249)+q+aY(0x188)+s[aY(0x1b9)]),console[aY(0x23d)](r);var t=[new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/permalink\/(\d+)/),new RegExp(/^https:\/\/www\.facebook\.com\/([A-Za-z0-9\._]+)\/posts\/(\d+|pfbid[A-Za-z0-9]+)/),new RegExp(/^https:\/\/www\.facebook\.com\/photo\.php\?fbid=(\d+)&set=a\.\d+\.\d+\.(\d+)/),new RegExp(/^https:\/\/www\.facebook\.com\/photo\.php\?fbid=(\d+)&set=a\.\d+([A-Za-z0-9\._&=]+)/),new RegExp(/^https:\/\/www\.facebook\.com\/([A-Za-z0-9\._]+)\/photos\/a\.\d+\.\d+\.(\d+)\/(\d+)([A-Za-z0-9\._&?\/]+)/),new RegExp(/^https:\/\/www\.facebook\.com\/([A-Za-z0-9\._]+)\/photos\/a\.(\d+)\/(\d+)\/([A-Za-z0-9\._&?]+)/),new RegExp(/^https:\/\/www\.facebook\.com\/story\.php\?story_fbid=(\d+)&id=\d+/),new RegExp(/^https:\/\/www\.facebook\.com\/permalink\.php\?story_fbid=(\d+|pfbid[A-Za-z0-9]+)&id=(\d+)/),new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/posts\/(\d+)/),new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/?\?multi_permalinks=(\d+)/),new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/posts\/[\w%-]+\/\d+/)],u=![];for(var v=0x0;v<t[aY(0x1c3)];v++){if(t[v][aY(0x1f4)](s[aY(0x1b9)])){u=!![];break;}}var w=[new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/members\?fbm=1$/)],x=![];for(var v=0x0;v<w[aY(0x1c3)];v++){if(w[v][aY(0x1f4)](s[aY(0x1b9)])){x=!![];break;}}var y=[new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/members/),new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/members\/admins/)],z=![];if(!x)for(var v=0x0;v<y[aY(0x1c3)];v++){if(y[v][aY(0x1f4)](s[aY(0x1b9)])){z=!![];break;}}var A=[new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/?$/)],B=![];if(!u){var C=new URL(s[aY(0x1b9)]),D=C[aY(0x19d)]+'//'+C[aY(0x25f)]+C[aY(0x224)];for(var v=0x0;v<A[aY(0x1c3)];v++){if(A[v][aY(0x1f4)](D)){B=!![];break;}}}var E=[new RegExp(/^https:\/\/linevoom\.line\.me\/post\/(_[A-Za-z0-9_-]+)\/(\d+)/),new RegExp(/^https:\/\/linevoom\.line\.me\/post\/(\d+)/)],F=![];for(var v=0x0;v<E[aY(0x1c3)];v++){if(E[v][aY(0x1f4)](s[aY(0x1b9)])){F=!![];break;}}var G=[new RegExp(/^https:\/\/linevoom\.line\.me\/group\/(_[A-Za-z0-9_-]+)/),new RegExp(/^https:\/\/linevoom\.line\.me\/user\/(_d[A-Za-z0-9_-]+)/),new RegExp(/^https:\/\/linevoom\.line\.me\/$/)],H=![];for(var v=0x0;v<G[aY(0x1c3)];v++){if(G[v][aY(0x1f4)](s[aY(0x1b9)])){H=!![];break;}}if(r[aY(0x1bf)]==aY(0x200))e['t'+q]&&(e['t'+q][aY(0x1b9)]!=s[aY(0x1b9)]&&delete e['t'+q]),!e['t'+q]&&(e['t'+q]={'timestamp':Date[aY(0x19c)](),'url':s[aY(0x1b9)],'scripts':[]}),chrome[aY(0x1f1)][aY(0x1c7)]({},function(J){var aZ=aY,K={};J[aZ(0x214)](function(N){K['t'+N['id']]=!![];});var L=Date[aZ(0x19c)]();for(var M in e){!K[M]&&delete e[M];}});else{if(r[aY(0x1bf)]==aY(0x261)){var I=null;if(config[aY(0x211)]==aY(0x190))I=/^https:\/\/www\.iplusonego\.com\/seller\//;else{if(config[aY(0x211)]==aY(0x19e))I=/^https:\/\/stage\.iplusonego\.com\/seller\//;else config[aY(0x211)]==aY(0x1b8)&&(I=/^https:\/\/dev\.iplusonego\.com\/seller\//);}I&&I[aY(0x1f4)](s[aY(0x1b9)])&&chrome[aY(0x1e1)][aY(0x1a0)]({'target':{'tabId':s['id']},'files':[aY(0x1dc)]}),u&&(console[aY(0x23d)](aY(0x203)+q+aY(0x207)+s[aY(0x1b9)]),chrome[aY(0x1e1)][aY(0x1b2)]({'target':{'tabId':s['id']},'files':[aY(0x18f)]}),chrome[aY(0x1e1)][aY(0x1a0)]({'target':{'tabId':s['id']},'files':[aY(0x1f5)]})),z&&(console[aY(0x23d)](aY(0x203)+q+aY(0x207)+s[aY(0x1b9)]),chrome[aY(0x1e1)][aY(0x1b2)]({'target':{'tabId':s['id']},'files':[aY(0x18f)]}),chrome[aY(0x1e1)][aY(0x1a0)]({'target':{'tabId':s['id']},'files':[aY(0x18d)]})),x&&(console[aY(0x23d)](aY(0x203)+q+aY(0x207)+s[aY(0x1b9)]),chrome[aY(0x1e1)][aY(0x1b2)]({'target':{'tabId':s['id']},'files':[aY(0x18f)]}),chrome[aY(0x1e1)][aY(0x1a0)]({'target':{'tabId':s['id']},'files':[aY(0x1cc)]})),B&&(console[aY(0x23d)](aY(0x22e)+q+aY(0x207)+s[aY(0x1b9)]),chrome[aY(0x1e1)][aY(0x1b2)]({'target':{'tabId':s['id']},'files':[aY(0x18f)]}),chrome[aY(0x1e1)][aY(0x1a0)]({'target':{'tabId':s['id']},'files':[aY(0x1f0)]})),F&&(console[aY(0x23d)](aY(0x253)+q+aY(0x207)+s[aY(0x1b9)]),chrome[aY(0x1e1)][aY(0x1b2)]({'target':{'tabId':s['id']},'files':[aY(0x18f)]}),chrome[aY(0x1e1)][aY(0x1a0)]({'target':{'tabId':s['id']},'files':[aY(0x181)]})),H&&(console[aY(0x23d)](aY(0x253)+q+aY(0x207)+s[aY(0x1b9)]),chrome[aY(0x1e1)][aY(0x1b2)]({'target':{'tabId':s['id']},'files':[aY(0x18f)]}),chrome[aY(0x1e1)][aY(0x1a0)]({'target':{'tabId':s['id']},'files':[aY(0x1fe)]}));}}});}()));
+importScripts("config.js");
+importScripts("../js/pako_deflate.min.js");
+(function () {
+    'use strict';
+
+    var a = 1;
+    var b = [];
+    var c = {};
+    var d = {};
+    var e = {};
+    var f = 30000;
+    var g = true;
+    chrome.storage.sync.get(["autoStatus"], function (q) {
+        console.log(q);
+        if (!q || q.autoStatus === undefined) {
+            g = true;
+        } else {
+            g = q.autoStatus ? true : false;
+        }
+        console.log("botAutoStatus %o", g);
+    });
+    function h(q, r) {
+        var s = null;
+        var u = this;
+        this.info = r;
+        this.startTimer = function (v) {
+            if (s) {
+                u.stopTimer();
+            }
+            if (typeof q == "function") {
+                s = // TOLOOK
+                    setTimeout(q, v, this);
+            }
+        };
+        this.stopTimer = function () {
+            if (s) {
+                clearTimeout(s);
+            }
+            s = null;
+        };
+        this.isEnabled = function () {
+            if (s) {
+                return true;
+            }
+            return false;
+        };
+    }
+    function i(q) {
+        chrome.cookies.getAll({
+            url: "https://" + config.domain
+        }, function (r) {
+            var s = {};
+            r.forEach(function (t) {
+                if (t.name == "extension_sess") {
+                    s.sess = t;
+                } else if (t.name == "extension_brand") {
+                    s.brand = t;
+                }
+            });
+            console.log(s);
+            if (q) {
+                q(s);
+            }
+        });
+    }
+    function j(q) {
+        var r = "";
+        var s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        var t = q.byteLength;
+        var u = t % 3;
+        var v = t - u;
+        var w;
+        var x;
+        var y;
+        var z;
+        var A;
+        for (var B = 0; B < v; B = B + 3) {
+            A = q[B] << 16 | q[B + 1] << 8 | q[B + 2];
+            w = (A & 16515072) >> 18;
+            x = (A & 258048) >> 12;
+            y = (A & 4032) >> 6;
+            z = A & 63;
+            r += s[w] + s[x] + s[y] + s[z];
+        }
+        if (u == 1) {
+            A = q[v];
+            w = (A & 252) >> 2;
+            x = (A & 3) << 4;
+            r += s[w] + s[x] + "==";
+        } else if (u == 2) {
+            A = q[v] << 8 | q[v + 1];
+            w = (A & 64512) >> 10;
+            x = (A & 1008) >> 4;
+            y = (A & 15) << 2;
+            r += s[w] + s[x] + s[y] + "=";
+        }
+        return r;
+    }
+    function k(q, r, s) {
+        i(function (t) {
+            q.cookie = t.sess;
+            q.brand = t.brand;
+            q.extUrl = chrome.runtime.getURL("");
+            if (q.source == "post") {
+                if (c["t" + r.tab.id] && c["t" + r.tab.id].job) {
+                    q.execute_from_ext = true;
+                } else {
+                    q.execute_from_ext = false;
+                }
+            } else if (q.source == "feed") {
+                if (c["t" + r.tab.id] && c["t" + r.tab.id].job) {
+                    q.execute_from_ext = true;
+                } else {
+                    q.execute_from_ext = false;
+                }
+            }
+            s(q);
+        });
+    }
+    function l(q) {
+        var r = null;
+        if (q.post_snapshot_media_feed_type === "group") {
+            if (q.post_snapshot_media_post_id) {
+                var s = q.post_snapshot_media_post_id.split("_");
+                r = "https://www.facebook.com/story.php?story_fbid=" + s[1] + "&id=" + s[0];
+            }
+        } else if (q.post_snapshot_media_feed_type === "user" || q.post_snapshot_media_feed_type === "page") {
+            if (q.post_snapshot_media_post_id) {
+                var s = q.post_snapshot_media_post_id.split("_");
+                r = "https://www.facebook.com/" + s[0] + "/posts/" + s[1] + "/";
+            }
+        } else if (q.post_snapshot_media_feed_type === "line_note" && q.post_snapshot_media_post_id && q.post_snapshot_media_feed_id) {
+            r = "https://linevoom.line.me/post/" + q.post_snapshot_media_feed_id + "/" + q.post_snapshot_media_post_id;
+        }
+        return r;
+    }
+    function m(q) {
+        return "https://www.facebook.com/groups/" + q;
+    }
+    function n(q, r) {
+        i(function (s) {
+            if (s.sess && s.sess.value && s.brand && s.brand.value) {
+                var t = {};
+                for (var u in c) {
+                    if (c[u].job && c[u].job.post_snapshot_id) {
+                        t[c[u].job.post_snapshot_id] = true;
+                    }
+                }
+                var v = q;
+                v.forEach(function (y) {
+                    if (t[y.post_snapshot_id]) { } else {
+                        var z = l(y);
+                        if (z) {
+                            y.link = z;
+                            b.push(y);
+                        }
+                    }
+                });
+                if (b.length > 0) {
+                    console.log("Start Processing ....");
+                    for (var w = 0; w < a; w++) {
+                        if (b.length > 0) {
+                            var x = b.shift();
+                            chrome.tabs.create({
+                                url: x.link,
+                                active: false
+                            }, function (y) {
+                                y.timestamp = Date.now();
+                                y.job = x;
+                                y.recovery = new h(o, y);
+                                y.recovery.startTimer(f);
+                                c["t" + y.id] = y;
+                            });
+                        }
+                    }
+                    r({
+                        code: "success"
+                    });
+                } else {
+                    console.log("No jobs need Processing ....");
+                    r({
+                        code: "error",
+                        message: "無任何需要處理的開團"
+                    });
+                }
+            } else {
+                r({
+                    code: "error",
+                    message: "尚未登入愛+1系統"
+                });
+            }
+        });
+    }
+    function o(q) {
+        console.log(q);
+        console.log("Tab " + q.info.id + " is blocking, delete this tab");
+        if (c["t" + q.info.id]) {
+            chrome.tabs.remove(q.info.id, function () { });
+            delete c["t" + q.info.id];
+        }
+        if (b.length > 0) {
+            for (var r = Object.keys(c).length; r < a; r++) {
+                if (b.length > 0) {
+                    var s = b.shift();
+                    chrome.tabs.create({
+                        url: s.link,
+                        active: false
+                    }, function (t) {
+                        t.timestamp = Date.now();
+                        t.job = s;
+                        t.recovery = new h(o, t);
+                        t.recovery.startTimer(f);
+                        c["t" + t.id] = t;
+                    });
+                }
+            }
+        }
+    }
+    function p(q) {
+        if (c["t" + q.tab.id]) {
+            if (c["t" + q.tab.id].recovery) {
+                c["t" + q.tab.id].recovery.stopTimer();
+            }
+            delete c["t" + q.tab.id];
+        }
+        // TOLOOK
+        setTimeout(function () {
+            chrome.tabs.remove(q.tab.id, function () { });
+        }, 100);
+        chrome.tabs.query({}, function (r) {
+            var s = Date.now();
+            for (var t in c) {
+                var u = false;
+                for (var v = 0; v < r.length; v++) {
+                    if (r[v].id === c[t].id) {
+                        u = true;
+                        if (c[t].timestamp + f < s) {
+                            if (c[t].recovery) {
+                                c[t].recovery.stopTimer();
+                            }
+                            chrome.tabs.remove(c[t].id, function () { });
+                            delete c[t];
+                        }
+                        break;
+                    }
+                }
+                if (!u) {
+                    console.log("Tab " + c[t].url + "does not exist!");
+                    if (c[t].recovery) {
+                        c[t].recovery.stopTimer();
+                    }
+                    delete c[t];
+                }
+            }
+            if (b.length > 0) {
+                console.log("Remaining " + b.length + " jobs");
+                for (var v = Object.keys(c).length; v < a; v++) {
+                    if (b.length > 0) {
+                        var w = b.shift();
+                        chrome.tabs.create({
+                            url: w.link,
+                            active: false
+                        }, function (x) {
+                            x.timestamp = Date.now();
+                            x.job = w;
+                            x.recovery = new h(o, x);
+                            x.recovery.startTimer(f);
+                            c["t" + x.id] = x;
+                        });
+                    }
+                }
+            }
+        });
+    }
+    chrome.runtime.onInstalled.addListener(function () {
+        chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
+            chrome.declarativeContent.onPageChanged.addRules([{
+                conditions: [new chrome.declarativeContent.PageStateMatcher({
+                    pageUrl: {
+                        hostEquals: "www.facebook.com"
+                    }
+                })],
+                actions: [new chrome.declarativeContent.ShowPageAction(), new chrome.declarativeContent.RequestContentScript({
+                    js: ["/src/injectajaxhook.js"]
+                })]
+            }, {
+                conditions: [new chrome.declarativeContent.PageStateMatcher({
+                    pageUrl: {
+                        hostEquals: "linevoom.line.me"
+                    }
+                })],
+                actions: [new chrome.declarativeContent.ShowPageAction(), new chrome.declarativeContent.RequestContentScript({
+                    js: ["/src/injectlineajaxhook.js"]
+                })]
+            }, {
+                conditions: [new chrome.declarativeContent.PageStateMatcher({
+                    pageUrl: {
+                        hostEquals: config.domain
+                    }
+                })],
+                actions: [new chrome.declarativeContent.ShowPageAction()]
+            }]);
+        });
+    });
+    chrome.runtime.onMessageExternal.addListener(function (q, r, s) {
+        console.log(q);
+        if (q.operation == "getSess") {
+            k(q, r, s);
+        } else if (q.operation === "getScripts") {
+            if (e["t" + r.tab.id]) {
+                q.scripts = e["t" + r.tab.id].scripts;
+            } else {
+                q.scripts = [];
+            }
+            s(q);
+        } else if (q.operation == "reload") {
+            chrome.tabs.reload(q.tabId);
+            s(q);
+        } else if (q.operation == "reloadPage") {
+            if (!d["t" + r.tab.id]) {
+                d["t" + r.tab.id] = {
+                    count: 1,
+                    url: q.url
+                };
+                q.status = true;
+                chrome.tabs.reload(r.tab.id);
+            } else if (d["t" + r.tab.id].url != q.url) {
+                d["t" + r.tab.id] = {
+                    count: 1,
+                    url: q.url
+                };
+                q.status = true;
+                chrome.tabs.reload(r.tab.id);
+            } else {
+                d["t" + r.tab.id].count++;
+                if (d["t" + r.tab.id].count > 2) {
+                    q.status = false;
+                } else {
+                    q.status = true;
+                    chrome.tabs.reload(r.tab.id);
+                }
+            }
+            s(q);
+        } else if (q.operation == "get_comments") {
+            if (q.post_snapshot) {
+                var t = false;
+                for (var u in c) {
+                    if (c[u].job && c[u].job.post_snapshot_id && c[u].job.post_snapshot_id == q.post_snapshot.post_snapshot_id) {
+                        t = true;
+                        break;
+                    }
+                }
+                if (!t) {
+                    var v = l(q.post_snapshot);
+                    if (v) {
+                        var w = q.post_snapshot;
+                        w.link = v;
+                        chrome.tabs.create({
+                            url: w.link,
+                            active: false
+                        }, function (x) {
+                            x.timestamp = Date.now();
+                            x.job = q.post_snapshot;
+                            x.recovery = new h(o, x);
+                            x.recovery.startTimer(f);
+                            c["t" + x.id] = x;
+                        });
+                        q.status = "NEW";
+                    } else {
+                        q.status = "NOLINK";
+                    }
+                } else {
+                    q.status = "RUNNING";
+                }
+            } else {
+                q.status = "NODATA";
+            }
+            s(q);
+        } else if (q.operation == "get_feed") {
+            if (q.feed_id) {
+                var t = false;
+                for (var u in c) {
+                    if (c[u].job && c[u].job.feed_id && c[u].job.feed_id == q.feed_id) {
+                        t = true;
+                        break;
+                    }
+                }
+                if (!t) {
+                    var v = m(q.feed_id);
+                    if (v) {
+                        var w = {
+                            feed_id: q.feed_id
+                        };
+                        w.link = v;
+                        w.opener_id = r.tab.id;
+                        chrome.tabs.create({
+                            url: w.link,
+                            active: true
+                        }, function (x) {
+                            x.timestamp = Date.now();
+                            x.job = w;
+                            x.recovery = new h(o, x);
+                            x.recovery.startTimer(f);
+                            c["t" + x.id] = x;
+                        });
+                        q.status = "NEW";
+                    } else {
+                        q.status = "NOLINK";
+                    }
+                } else {
+                    q.status = "RUNNING";
+                }
+            } else {
+                q.status = "NODATA";
+            }
+            s(q);
+        } else if (q.operation == "batch_get_comments") {
+            if (q.post_snapshots) {
+                console.log(b.length, c, Object.keys(c).length);
+                if (b.length == 0 && Object.keys(c).length == 0) {
+                    n(q.post_snapshots, function (x) {
+                        console.log("response:", x);
+                        q.status = "SUCCESS";
+                        s(q);
+                    });
+                } else {
+                    q.status = "RUNNING";
+                    s(q);
+                }
+            } else {
+                q.status = "NODATA";
+                s(q);
+            }
+            console.log(q);
+        } else if (q.operation === "getBotAutoStatus") {
+            q.bot_status = g;
+            s(q);
+        }
+        return true;
+    });
+    chrome.runtime.onConnectExternal.addListener(function (q) {
+        q.onMessage.addListener(function (r) {
+            console.log(r);
+            if (r.operation === "checkLinePostInfo") {
+                var s = r.post_info;
+                var u = r.user_info;
+                if (s && u) {
+                    i(function (B) {
+                        var C = {
+                            script_version: config.import_version,
+                            post_info: s,
+                            user_info: u
+                        };
+                        if (B.sess && B.brand) {
+                            fetch(config.restAPI + "/post_snapshots/extension_line_note_status2", {
+                                method: "POST",
+                                headers: {
+                                    "X-SESSION": decodeURIComponent(B.sess.value),
+                                    "X-BRAND": decodeURIComponent(B.brand.value),
+                                    "Content-Type": "application/json; charset=utf-8"
+                                },
+                                body: JSON.stringify(C),
+                                cache: "no-cache"
+                            }).then(function (D) {
+                                if (!D.ok) {
+                                    throw new Error("Network response was not ok");
+                                }
+                                return D.json();
+                            }).then(function (D) {
+                                q.postMessage({
+                                    operation: r.operation,
+                                    status: "success",
+                                    response: D
+                                });
+                            }).catch(function (D) {
+                                console.error("Fetch Error:", D);
+                                q.postMessage({
+                                    operation: r.operation,
+                                    status: "error",
+                                    error: D
+                                });
+                            });
+                        }
+                    });
+                }
+            } else if (r.operation === "uploadLineComments") {
+                i(function (B) {
+                    if (B.sess && B.brand) {
+                        fetch(config.restAPI + "/post_snapshots/extension_upload_line_note_comments", {
+                            method: "POST",
+                            headers: {
+                                "X-SESSION": decodeURIComponent(B.sess.value),
+                                "X-BRAND": decodeURIComponent(B.brand.value),
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify(r.post_info),
+                            cache: "no-cache"
+                        }).then(function (C) {
+                            if (!C.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return C.json();
+                        }).then(function (C) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "success",
+                                response: C
+                            });
+                        }).catch(function (C) {
+                            console.error("Fetch Error:", C);
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "error",
+                                error: C
+                            });
+                        });
+                    }
+                });
+            } else if (r.operation === "checkReactFacebookPostInfo") {
+                var s = r.post_info;
+                if (s) {
+                    i(function (B) {
+                        var C = {
+                            script_version: config.import_version,
+                            user_profile_id: r.post_info.user_profile_id,
+                            post_type: r.post_info.fb_feed_type
+                        };
+                        var D = Object.keys(C).map(function (E) {
+                            return encodeURIComponent(E) + "=" + encodeURIComponent(C[E]);
+                        }).join("&");
+                        if (B.sess && B.brand) {
+                            fetch(config.restAPI + "/post_snapshots/extension_post_status/" + r.post_info.fb_post_id + "?" + D, {
+                                method: "GET",
+                                headers: {
+                                    "X-SESSION": decodeURIComponent(B.sess.value),
+                                    "X-BRAND": decodeURIComponent(B.brand.value)
+                                },
+                                cache: "no-cache"
+                            }).then(function (E) {
+                                if (!E.ok) {
+                                    throw new Error("Network response was not ok");
+                                }
+                                return E.json();
+                            }).then(function (E) {
+                                q.postMessage({
+                                    operation: r.operation,
+                                    status: "success",
+                                    response: E
+                                });
+                            }).catch(function (E) {
+                                console.error("Fetch Error:", E);
+                                q.postMessage({
+                                    operation: r.operation,
+                                    status: "error",
+                                    error: E
+                                });
+                            });
+                        }
+                    });
+                }
+            } else if (r.operation === "uploadReactFacebookStories") {
+                i(function (B) {
+                    if (B.sess && B.brand) {
+                        var C = {
+                            feed_id: r.feed_id,
+                            stories: r.stories
+                        };
+                        fetch(config.restAPI + "/fb_post_cache/extension_upload_posts", {
+                            method: "POST",
+                            headers: {
+                                "X-SESSION": decodeURIComponent(B.sess.value),
+                                "X-BRAND": decodeURIComponent(B.brand.value),
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify(C),
+                            cache: "no-cache"
+                        }).then(function (D) {
+                            if (!D.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return D.json();
+                        }).then(function (D) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "success",
+                                response: D
+                            });
+                        }).catch(function (D) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "error",
+                                error: D
+                            });
+                        });
+                    }
+                });
+            } else if (r.operation === "uploadReactFacebookComments") {
+                i(function (B) {
+                    if (B.sess && B.brand) {
+                        fetch(config.restAPI + "/post_snapshots/extension_upload_react_facebook_comments", {
+                            method: "POST",
+                            headers: {
+                                "X-SESSION": decodeURIComponent(B.sess.value),
+                                "X-BRAND": decodeURIComponent(B.brand.value),
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify(r.post_info),
+                            cache: "no-cache"
+                        }).then(function (C) {
+                            if (!C.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return C.json();
+                        }).then(function (C) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "success",
+                                response: C
+                            });
+                        }).catch(function (C) {
+                            console.error("Fetch Error:", C);
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "error",
+                                error: C
+                            });
+                        });
+                    }
+                });
+            } else if (r.operation === "uploadReactFacebookLastFetchTime") {
+                i(function (B) {
+                    if (B.sess && B.brand) {
+                        console.log(r.post_info);
+                        fetch(config.restAPI + "/post_snapshots/extension_last_new_comments_time/" + r.post_info.fb_post_id, {
+                            method: "PUT",
+                            headers: {
+                                "X-SESSION": decodeURIComponent(B.sess.value),
+                                "X-BRAND": decodeURIComponent(B.brand.value),
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            cache: "no-cache"
+                        }).then(function (C) {
+                            if (!C.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return C.json();
+                        }).then(function (C) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "success",
+                                response: C
+                            });
+                        }).catch(function (C) {
+                            console.error("Fetch Error:", C);
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "error",
+                                error: C
+                            });
+                        });
+                    }
+                });
+            } else if (r.operation === "lineImport" || r.operation === "lineLink") {
+                console.log("lineImport");
+                var v = Math.floor(Date.now() / 1000);
+                var w = JSON.stringify(r.post_info);
+                var x = j(pako.gzip(w));
+                var y = "<!DOCTYPE html><html><head><meta charset=\"utf-8\"></head><body><form method=\"post\" action=\"https://" + config.domain + "/seller/sellergroups\" accept-charset=\"utf-8\" id=\"fipo\">";
+                if (r.operation === "lineImport") {
+                    y += "<input type=\"hidden\" name=\"action\" value=\"import\">";
+                } else {
+                    y += "<input type=\"hidden\" name=\"action\" value=\"link\">";
+                }
+                y += "<input type=\"hidden\" name=\"post_type\" value=\"line\">";
+                y += "<input type=\"hidden\" name=\"post_data_gzip\" value=\"" + x + "\">";
+                y += "<input type=\"hidden\" name=\"post_timestamp\" value=\"" + v + "\">";
+                y += "<input type=\"hidden\" name=\"import_version\" value=\"" + config.import_version + "\">";
+                y += "<input type=\"hidden\" name=\"tab_id\" value=\"" + q.sender.tab.id.toString() + "\">";
+                y += "<input type=\"hidden\" name=\"ext_id\" value=\"" + chrome.runtime.id + "\">";
+                y += "</form><script type=\"text/javascript\">document.getElementById(\"fipo\").submit();</script></body></html>";
+                chrome.tabs.create({
+                    url: "data:text/html," + encodeURIComponent(y),
+                    active: true,
+                    index: q.sender.tab.index + 1
+                });
+            } else if (r.operation === "reactFbImport" || r.operation === "reactFbLink") {
+                var v = Math.floor(Date.now() / 1000);
+                var w = JSON.stringify(r.post_info);
+                var x = j(pako.gzip(w));
+                var y = "<!DOCTYPE html><html><head><meta charset=\"utf-8\"></head><body><form method=\"post\" action=\"https://" + config.domain + "/seller/sellergroups\" accept-charset=\"utf-8\" id=\"fipo\">";
+                if (r.operation === "reactFbImport") {
+                    y += "<input type=\"hidden\" name=\"action\" value=\"import\">";
+                } else {
+                    y += "<input type=\"hidden\" name=\"action\" value=\"link\">";
+                }
+                y += "<input type=\"hidden\" name=\"post_type\" value=\"reactfb\">";
+                y += "<input type=\"hidden\" name=\"post_data_gzip\" value=\"" + x + "\">";
+                y += "<input type=\"hidden\" name=\"post_timestamp\" value=\"" + v + "\">";
+                y += "<input type=\"hidden\" name=\"import_version\" value=\"" + config.import_version + "\">";
+                y += "<input type=\"hidden\" name=\"tab_id\" value=\"" + q.sender.tab.id.toString() + "\">";
+                y += "<input type=\"hidden\" name=\"ext_id\" value=\"" + chrome.runtime.id + "\">";
+                y += "</form><script type=\"text/javascript\">document.getElementById(\"fipo\").submit();</script></body></html>";
+                console.log(y);
+                chrome.tabs.create({
+                    url: "data:text/html," + encodeURIComponent(y),
+                    active: true,
+                    index: q.sender.tab.index + 1
+                });
+            } else if (r.operation === "close") {
+                var A = null;
+                if (c["t" + q.sender.tab.id]) {
+                    if (c["t" + q.sender.tab.id].recovery) {
+                        c["t" + q.sender.tab.id].recovery.stopTimer();
+                    }
+                    console.log(c["t" + q.sender.tab.id]);
+                    if (c["t" + q.sender.tab.id].job && c["t" + q.sender.tab.id].job.opener_id) {
+                        A = c["t" + q.sender.tab.id].job.opener_id;
+                    }
+                    delete c["t" + q.sender.tab.id];
+                }
+                // TOLOOK
+                setTimeout(function () {
+                    chrome.tabs.remove(q.sender.tab.id, function () { });
+                    if (A) {
+                        chrome.tabs.update(A, {
+                            active: true
+                        });
+                    }
+                }, 100);
+            } else if (r.operation === "checkNext") {
+                p(q.sender);
+            } else if (r.operation === "stopRecovery") {
+                if (c["t" + q.sender.tab.id]) {
+                    c["t" + q.sender.tab.id].timestamp = Date.now();
+                    if (c["t" + q.sender.tab.id].recovery) {
+                        c["t" + q.sender.tab.id].recovery.stopTimer();
+                    }
+                }
+            } else if (r.operation === "refreshRecovery") {
+                if (c["t" + q.sender.tab.id]) {
+                    c["t" + q.sender.tab.id].timestamp = Date.now();
+                    if (c["t" + q.sender.tab.id].recovery && c["t" + q.sender.tab.id].recovery.isEnabled()) {
+                        c["t" + q.sender.tab.id].recovery.stopTimer();
+                        c["t" + q.sender.tab.id].recovery.startTimer(f);
+                    }
+                }
+            } else if (r.operation === "bindReactFacebookGroup") {
+                i(function (B) {
+                    if (B.sess && B.brand) {
+                        fetch(config.restAPI + "/fb_groups/extension_bind_group", {
+                            method: "POST",
+                            headers: {
+                                "X-SESSION": decodeURIComponent(B.sess.value),
+                                "X-BRAND": decodeURIComponent(B.brand.value),
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify(r.data),
+                            cache: "no-cache"
+                        }).then(function (C) {
+                            if (!C.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return C.json();
+                        }).then(function (C) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "success",
+                                response: C
+                            });
+                        }).catch(function (C) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "error",
+                                error: C
+                            });
+                        });
+                    }
+                });
+            } else if (r.operation === "checkReactFacebookGroupBindStatus") {
+                i(function (B) {
+                    if (B.sess && B.brand) {
+                        var C = {
+                            fb_feed_id: r.data.fb_feed_id,
+                            admins: r.data.admins
+                        };
+                        fetch(config.restAPI + "/fb_groups/extension_check_bind", {
+                            method: "POST",
+                            headers: {
+                                "X-SESSION": decodeURIComponent(B.sess.value),
+                                "X-BRAND": decodeURIComponent(B.brand.value),
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify(C),
+                            cache: "no-cache"
+                        }).then(function (D) {
+                            if (!D.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return D.json();
+                        }).then(function (D) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "success",
+                                response: D
+                            });
+                        }).catch(function (D) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "error",
+                                error: D
+                            });
+                        });
+                    }
+                });
+            } else if (r.operation === "getImportedPosts") {
+                i(function (B) {
+                    if (B.sess && B.brand) {
+                        var C = {
+                            script_version: config.import_version,
+                            fb_feed_id: r.data.fb_feed_id
+                        };
+                        var D = Object.keys(C).map(function (E) {
+                            return encodeURIComponent(E) + "=" + encodeURIComponent(C[E]);
+                        }).join("&");
+                        fetch(config.restAPI + "/post_snapshots/extension_imported_posts?" + D, {
+                            method: "GET",
+                            headers: {
+                                "X-SESSION": decodeURIComponent(B.sess.value),
+                                "X-BRAND": decodeURIComponent(B.brand.value),
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            cache: "no-cache"
+                        }).then(function (E) {
+                            if (!E.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return E.json();
+                        }).then(function (E) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "success",
+                                response: E
+                            });
+                        }).catch(function (E) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "error",
+                                error: E
+                            });
+                        });
+                    }
+                });
+            } else if (r.operation === "uploadReactFacebookMembers") {
+                i(function (B) {
+                    if (B.sess && B.brand) {
+                        fetch(config.restAPI + "/members/extension_group_members", {
+                            method: "POST",
+                            headers: {
+                                "X-SESSION": decodeURIComponent(B.sess.value),
+                                "X-BRAND": decodeURIComponent(B.brand.value),
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify(r.member_info),
+                            cache: "no-cache"
+                        }).then(function (C) {
+                            if (!C.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return C.json();
+                        }).then(function (C) {
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "success",
+                                response: C
+                            });
+                        }).catch(function (C) {
+                            console.error("Fetch Error:", C);
+                            q.postMessage({
+                                operation: r.operation,
+                                status: "error",
+                                error: C
+                            });
+                        });
+                    }
+                });
+            }
+        });
+    });
+    chrome.runtime.onMessage.addListener(function (q, r, s) {
+        if (q.operation === "getSess") {
+            console.log(q);
+            k(q, r, s);
+            return true;
+        } else if (q.operation === "addScript") {
+            if (e["t" + r.tab.id]) {
+                e["t" + r.tab.id].scripts.push(q.script);
+            }
+        } else if (q.operation === "clearScript") {
+            if (e["t" + r.tab.id]) {
+                delete e["t" + r.tab.id];
+            }
+        } else if (q.operation === "getBotAutoStatus") {
+            q.bot_status = g;
+        } else if (q.operation === "disableAuto") {
+            g = false;
+            console.log("extension disable auto");
+            chrome.storage.sync.set({
+                autoStatus: g
+            }, function () { });
+        } else if (q.operation === "enableAuto") {
+            g = true;
+            console.log("extension enable auto");
+            chrome.storage.sync.set({
+                autoStatus: g
+            }, function () { });
+        }
+        s(q);
+    });
+    chrome.tabs.onUpdated.addListener(function (q, r, s) {
+        if (!s || !s.url) {
+            return;
+        }
+        console.log("onUpdated tabId: " + q + " url: " + s.url);
+        console.log(r);
+        var t = [new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/permalink\/(\d+)/), new RegExp(/^https:\/\/www\.facebook\.com\/([A-Za-z0-9\._]+)\/posts\/(\d+|pfbid[A-Za-z0-9]+)/), new RegExp(/^https:\/\/www\.facebook\.com\/photo\.php\?fbid=(\d+)&set=a\.\d+\.\d+\.(\d+)/), new RegExp(/^https:\/\/www\.facebook\.com\/photo\.php\?fbid=(\d+)&set=a\.\d+([A-Za-z0-9\._&=]+)/), new RegExp(/^https:\/\/www\.facebook\.com\/([A-Za-z0-9\._]+)\/photos\/a\.\d+\.\d+\.(\d+)\/(\d+)([A-Za-z0-9\._&?\/]+)/), new RegExp(/^https:\/\/www\.facebook\.com\/([A-Za-z0-9\._]+)\/photos\/a\.(\d+)\/(\d+)\/([A-Za-z0-9\._&?]+)/), new RegExp(/^https:\/\/www\.facebook\.com\/story\.php\?story_fbid=(\d+)&id=\d+/), new RegExp(/^https:\/\/www\.facebook\.com\/permalink\.php\?story_fbid=(\d+|pfbid[A-Za-z0-9]+)&id=(\d+)/), new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/posts\/(\d+)/), new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/?\?multi_permalinks=(\d+)/), new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/posts\/[\w%-]+\/\d+/)];
+        var u = false;
+        for (var v = 0; v < t.length; v++) {
+            if (t[v].test(s.url)) {
+                u = true;
+                break;
+            }
+        }
+        var w = [new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/members\?fbm=1$/)];
+        var x = false;
+        for (var v = 0; v < w.length; v++) {
+            if (w[v].test(s.url)) {
+                x = true;
+                break;
+            }
+        }
+        var y = [new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/members/), new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/members\/admins/)];
+        var z = false;
+        if (!x) {
+            for (var v = 0; v < y.length; v++) {
+                if (y[v].test(s.url)) {
+                    z = true;
+                    break;
+                }
+            }
+        }
+        var A = [new RegExp(/^https:\/\/www\.facebook\.com\/groups\/([A-Za-z0-9\._]+)\/?$/)];
+        var B = false;
+        if (!u) {
+            var C = new URL(s.url);
+            var D = C.protocol + "//" + C.hostname + C.pathname;
+            for (var v = 0; v < A.length; v++) {
+                if (A[v].test(D)) {
+                    B = true;
+                    break;
+                }
+            }
+        }
+        var E = [new RegExp(/^https:\/\/linevoom\.line\.me\/post\/(_[A-Za-z0-9_-]+)\/(\d+)/), new RegExp(/^https:\/\/linevoom\.line\.me\/post\/(\d+)/)];
+        var F = false;
+        for (var v = 0; v < E.length; v++) {
+            if (E[v].test(s.url)) {
+                F = true;
+                break;
+            }
+        }
+        var G = [new RegExp(/^https:\/\/linevoom\.line\.me\/group\/(_[A-Za-z0-9_-]+)/), new RegExp(/^https:\/\/linevoom\.line\.me\/user\/(_d[A-Za-z0-9_-]+)/), new RegExp(/^https:\/\/linevoom\.line\.me\/$/)];
+        var H = false;
+        for (var v = 0; v < G.length; v++) {
+            if (G[v].test(s.url)) {
+                H = true;
+                break;
+            }
+        }
+        if (r.status == "loading") {
+            if (e["t" + q] && e["t" + q].url != s.url) {
+                delete e["t" + q];
+            }
+            if (!e["t" + q]) {
+                e["t" + q] = {
+                    timestamp: Date.now(),
+                    url: s.url,
+                    scripts: []
+                };
+            }
+            chrome.tabs.query({}, function (J) {
+                var K = {};
+                J.forEach(function (N) {
+                    K["t" + N.id] = true;
+                });
+                var L = Date.now();
+                for (var M in e) {
+                    if (!K[M]) {
+                        delete e[M];
+                    }
+                }
+            });
+        } else if (r.status == "complete") {
+            var I = null;
+            if (config.version == "PRODUCTION") {
+                I = /^https:\/\/www\.iplusonego\.com\/seller\//;
+            } else if (config.version == "STAGE") {
+                I = /^https:\/\/stage\.iplusonego\.com\/seller\//;
+            } else if (config.version == "DEV") {
+                I = /^https:\/\/dev\.iplusonego\.com\/seller\//;
+            }
+            if (I && I.test(s.url)) {
+                chrome.scripting.executeScript({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/src/ipo.js"]
+                });
+            }
+            if (u) {
+                console.log("Facebook tabId: " + q + " match url: " + s.url);
+                chrome.scripting.insertCSS({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/css/iplusone.css"]
+                });
+                chrome.scripting.executeScript({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/src/injectfacebook.js"]
+                });
+            }
+            if (z) {
+                console.log("Facebook tabId: " + q + " match url: " + s.url);
+                chrome.scripting.insertCSS({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/css/iplusone.css"]
+                });
+                chrome.scripting.executeScript({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/src/injectfacebookadmin.js"]
+                });
+            }
+            if (x) {
+                console.log("Facebook tabId: " + q + " match url: " + s.url);
+                chrome.scripting.insertCSS({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/css/iplusone.css"]
+                });
+                chrome.scripting.executeScript({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/src/injectfacebookmembers.js"]
+                });
+            }
+            if (B) {
+                console.log("Facebook Feed tabId: " + q + " match url: " + s.url);
+                chrome.scripting.insertCSS({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/css/iplusone.css"]
+                });
+                chrome.scripting.executeScript({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/src/injectfacebookfeed.js"]
+                });
+            }
+            if (F) {
+                console.log("LINE tabId: " + q + " match url: " + s.url);
+                chrome.scripting.insertCSS({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/css/iplusone.css"]
+                });
+                chrome.scripting.executeScript({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/src/injectline.js"]
+                });
+            }
+            if (H) {
+                console.log("LINE tabId: " + q + " match url: " + s.url);
+                chrome.scripting.insertCSS({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/css/iplusone.css"]
+                });
+                chrome.scripting.executeScript({
+                    target: {
+                        tabId: s.id
+                    },
+                    files: ["/src/injectlinearticles.js"]
+                });
+            }
+        }
+    });
+})();
