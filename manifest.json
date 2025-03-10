@@ -44,12 +44,7 @@
         "src/config.js",
         "src/ajaxhook.js",
         "src/injectcommon.js",
-        "src/line.js",
-        "src/linearticles.js",
-        "src/reactfacebook.js",
-        "src/reactfacebookadmin.js",
-        "src/reactfacebookfeed.js",
-        "src/reactfacebookmembers.js"
+        "src/reactfacebook.js"
       ],
       "matches": [
         "https://*.iplusonego.com/*",
