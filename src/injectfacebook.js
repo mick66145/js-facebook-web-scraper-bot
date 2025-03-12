@@ -1,23 +1,27 @@
 (function () {
-    var el;
-    el = document["createElement"]("script");
-    /** @type {string} */
-    el["id"] = "ipo_extension_id";
-    el["setAttribute"]("ipo_extension_id", chrome["runtime"]["id"]);
-    el["src"] = chrome["runtime"]["getURL"]("src/injectcommon.js");
-    document["documentElement"]["appendChild"](el);
-    el = document["createElement"]("script");
-    el["src"] = chrome["runtime"]["getURL"]("js/jquery-3.3.1.js");
-    document["documentElement"]["appendChild"](el);
-    el["parentNode"]["removeChild"](el);
-    el = document["createElement"]("script");
-    el["src"] = chrome["runtime"]["getURL"]("src/config.js");
-    document["documentElement"]["appendChild"](el);
-    el["parentNode"]["removeChild"](el);
-    setTimeout(function () {
-        el = document["createElement"]("script");
-        el["src"] = chrome["runtime"]["getURL"]("src/reactfacebook.js");
-        document["documentElement"]["appendChild"](el);
-        el["parentNode"]["removeChild"](el);
+    function injectScript(src, options = {}) {
+        const script = document.createElement('script');
+        if (options.id) {
+            script.id = options.id;
+            script.setAttribute(options.id, chrome.runtime.id);
+        }
+        script.src = chrome.runtime.getURL(src);
+        document.documentElement.appendChild(script);
+        if (!options.keepInDOM) {
+            script.parentNode.removeChild(script);
+        }
+        return script;
+    }
+
+    const immediateScripts = [
+        { src: 'src/injectcommon.js', id: 'ipo_extension_id', keepInDOM: true },
+        { src: 'js/jquery-3.3.1.js' },
+        { src: 'src/config.js' }
+    ];
+
+    immediateScripts.forEach(script => injectScript(script.src, script));
+
+    setTimeout(() => {
+        injectScript('src/reactfacebook.js');
     }, 500);
 })();
